@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { getAllData } from './util/index';
 
-const URL = 'http://localhost:8000/api/v1/';
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1`;
 
 function App() {
-  
+
+  console.log(URL);
   const [message, setMessage] = useState(''); 
 
   useEffect(() => {

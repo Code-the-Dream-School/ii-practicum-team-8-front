@@ -1,5 +1,3 @@
-Test
-
 # Front-End Repo for Node/React Practicum
 
 This will be the front-end for your team's practicum project.
@@ -29,3 +27,4 @@ Note: In the below example, the group's front-end repository was named `bb-pract
 
 #### Running the front-end server in the browser
 ![browser running](images/front-end-running-browser.png)
+Tetiana
