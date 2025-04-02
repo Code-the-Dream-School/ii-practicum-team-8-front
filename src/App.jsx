@@ -1,31 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { Typography } from '@mui/material';
 import { getAllData } from './util/index';
+import Handshake from '@mui/icons-material/Handshake';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const URL = 'http://localhost:8000/api/v1/';
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1`;
 
-function App() {
-  
-  const [message, setMessage] = useState(''); 
+const App = () => {
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
-
     (async () => {
-      const myData = await getAllData(URL)
+      const myData = await getAllData(URL);
       setMessage(myData.data);
     })();
-      
+
     return () => {
       console.log('unmounting');
-    }
-
+    };
   }, []);
 
   return (
-    <>
-      <h1>{message}</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Typography
+              variant="h6"
+              component="h4"
+              marginTop={3}
+              marginBottom={2}
+            >
+              <Handshake />
+              {message}
+            </Typography>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
+};
 
-}
-
-export default App
+export default App;
