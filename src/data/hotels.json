@@ -1,0 +1,304 @@
+{
+  "data": [
+    {
+      "type": "hotel",
+      "hotelId": "SEA001",
+      "name": "Hotel Seattle Central",
+      "latitude": 47.6101,
+      "longitude": -122.3421,
+      "address": {
+        "lines": ["1000 1st Ave"],
+        "postalCode": "98104",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "4",
+      "price_per_night": 250,
+      "amenities": ["WIFI", "BEACH", "RESTAURANT"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA002",
+      "name": "Downtown Inn Seattle",
+      "latitude": 47.6135,
+      "longitude": -122.3456,
+      "address": {
+        "lines": ["200 Pine St"],
+        "postalCode": "98101",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "3",
+      "price_per_night": 150,
+      "amenities": ["WIFI", "PARKING"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://images.unsplash.com/photo-1535827841776-24afc1e255ac?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://plus.unsplash.com/premium_photo-1661879252375-7c1db1932572?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "type": "hotel-media",
+            "category": "ROOM",
+            "url": "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA003",
+      "name": "Green Lake Suites",
+      "latitude": 47.6829,
+      "longitude": -122.3267,
+      "address": {
+        "lines": ["7200 Aurora Ave N"],
+        "postalCode": "98103",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "4",
+      "price_per_night": 350,
+      "amenities": ["WIFI", "BEACH", "FITNESS_CENTER"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://plus.unsplash.com/premium_photo-1661964402307-02267d1423f5?q=80&w=1673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA004",
+      "name": "The Waterfront Lodge",
+      "latitude": 47.6055,
+      "longitude": -122.3378,
+      "address": {
+        "lines": ["1301 Alaskan Way"],
+        "postalCode": "98101",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "5",
+      "price_per_night": 550,
+      "amenities": ["WIFI", "RESTAURANT", "SPA"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1521783988139-89397d761dce?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA005",
+      "name": "Pike Place Suites",
+      "latitude": 47.6097,
+      "longitude": -122.3426,
+      "address": {
+        "lines": ["1521 1st Ave"],
+        "postalCode": "98101",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "3.1",
+      "price_per_night": 200,
+      "amenities": ["WIFI"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://plus.unsplash.com/premium_photo-1678286769762-b6291545d818?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "type": "hotel-media",
+            "category": "ROOM",
+            "url": "https://images.unsplash.com/photo-1586611292717-f828b167408c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA006",
+      "name": "Capitol Hill Hotel",
+      "latitude": 47.6231,
+      "longitude": -122.3194,
+      "address": {
+        "lines": ["600 Broadway E"],
+        "postalCode": "98102",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "4",
+      "price_per_night": 250,
+      "amenities": ["WIFI", "PARKING", "BEACH"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://plus.unsplash.com/premium_photo-1663093806285-d905ca96c661?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fGhvdGVsfGVufDB8fDB8fHww"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA007",
+      "name": "University District Inn",
+      "latitude": 47.6616,
+      "longitude": -122.3138,
+      "address": {
+        "lines": ["4731 12th Ave NE"],
+        "postalCode": "98105",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "3.7",
+      "price_per_night": 300,
+      "amenities": ["WIFI", "PARKING"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+     ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA008",
+      "name": "Lake Union View Hotel",
+      "latitude": 47.6271,
+      "longitude": -122.3375,
+      "address": {
+        "lines": ["1700 Westlake Ave N"],
+        "postalCode": "98109",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "4.3",
+      "price_per_night": 420,
+      "amenities": ["WIFI", "GYM", "LAUNDRY_SERVICE"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://plus.unsplash.com/premium_photo-1678286769762-b6291545d818?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "type": "hotel-media",
+            "category": "ROOM",
+            "url": "https://images.unsplash.com/photo-1586611292717-f828b167408c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA009",
+      "name": "Queen Anne Comfort Inn",
+      "latitude": 47.6313,
+      "longitude": -122.3569,
+      "address": {
+        "lines": ["513 1st Ave W"],
+        "postalCode": "98119",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "3.5",
+      "price_per_night": 400,
+      "amenities": ["WIFI", "PARKING"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://plus.unsplash.com/premium_photo-1678286769762-b6291545d818?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "type": "hotel-media",
+            "category": "ROOM",
+            "url": "https://images.unsplash.com/photo-1586611292717-f828b167408c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    },
+    {
+      "type": "hotel",
+      "hotelId": "SEA010",
+      "name": "Ballard Boutique Hotel",
+      "latitude": 47.6686,
+      "longitude": -122.3848,
+      "address": {
+        "lines": ["5300 Ballard Ave NW"],
+        "postalCode": "98107",
+        "cityName": "Seattle",
+        "countryCode": "US"
+      },
+      "rating": "5",
+      "price_per_night": 500,
+      "amenities": ["WIFI", "SPA", "RESTAURANT", "BAR"],
+      "images": [
+        {
+          "type": "hotel-media",
+          "category": "EXTERIOR",
+          "url": "https://plus.unsplash.com/premium_photo-1678286769762-b6291545d818?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "type": "hotel-media",
+          "category": "ROOM",
+          "url": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "type": "hotel-media",
+            "category": "ROOM",
+            "url": "https://images.unsplash.com/photo-1586611292717-f828b167408c?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ]
+    }
+  ]
+}
