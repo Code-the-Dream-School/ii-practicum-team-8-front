@@ -14,7 +14,7 @@ const HotelRating = ({ rating }) => {
       <Rating
         name="read-only"
         value={rating}
-        precision={0.5}
+        precision={0.1}
         size="small"
         readOnly
       />
