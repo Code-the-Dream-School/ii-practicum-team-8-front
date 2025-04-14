@@ -1,11 +1,15 @@
 import axios from 'axios';
 
-import { data } from '../data/hotels.json';
-
-// note: not used, but could be used with GET with params
-const getData = async (url, params) => {
+const getData = async (url, params, headers = null) => {
   try {
-    let res = await axios.get(url, params);
+
+    const config = { params };
+
+    if (headers) {
+      config.headers = headers;
+    }
+
+    let res = await axios.get(url, config);
     let data = await res.data;
     return data;
   } catch (error) {
@@ -23,8 +27,4 @@ const getAllData = async (url) => {
   }
 };
 
-const getHotels = async () => {
-  return data;
-};
-
-export { getData, getAllData, getHotels };
+export { getData, getAllData };

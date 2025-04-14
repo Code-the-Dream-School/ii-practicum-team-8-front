@@ -4,7 +4,8 @@ import { getAllData } from './util/index';
 import Handshake from '@mui/icons-material/Handshake';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import ListHotels from './components/ListHotels';
+import ListHotels from './components/hotels/ListHotels';
+import HotelDetails from './components/hotels/HotelDetails';
 
 const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1`;
 
@@ -40,6 +41,7 @@ const App = () => {
           }
         />
         <Route path="hotels" element={<ListHotels />} />
+        <Route path="hotels/:id" element={<HotelDetails />} />
       </Routes>
     </BrowserRouter>
   );
