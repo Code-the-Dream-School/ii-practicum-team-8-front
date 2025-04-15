@@ -9,7 +9,7 @@ const LoadingWrapper = ({isLoading, isError, error, children}) => {
   if (isError)
     return (
       <Typography color="error">
-        Error loading photos: {error?.message}
+        Something went wrong: {error?.message || 'Please try again later.'}
       </Typography>
     );
 

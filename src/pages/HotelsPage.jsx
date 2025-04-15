@@ -16,6 +16,8 @@ const HotelsPage = () => {
 
   const fromCache = !isLoading && !isFetching && isSuccess;
 
+  console.log(listHotels);
+
   return (
     <>
       {fromCache ? (

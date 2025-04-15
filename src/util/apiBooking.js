@@ -11,7 +11,8 @@ const getLocations = async (city) => {
   return await getData(url, params, headers);
 };
 
-const getHotelsByCoord = async () => {
+const getHotels = async () => {
+
   const url = `${import.meta.env.VITE_BOOKING_URL}/search-by-coordinates`;
   const params = {
     children_ages: '7,0',
@@ -30,13 +31,15 @@ const getHotelsByCoord = async () => {
     latitude: '47.60621',
     longitude: '-122.33207',
   };
+
   const hotels = await getData(url, params, headers);
-  if (!hotels) {
-    console.warn('No hotel returned');
+
+  if (!hotels || !hotels.result) {
+    console.warn('No hotels returned');
     return [];
   }
-
-  return hotels;
+  
+  return hotels.result;
 };
 
 const getHotelPhotos = async (hotelId) => {
@@ -94,22 +97,6 @@ const getHotelsPhotos = async (hotelIds) => {
   );
 
   return photos;
-};
-
-const getHotels = async () => {
-  // const hotelIds = result.map(item => item.hotel_id);
-  // console.log('Hotel IDs:', hotelIds);
-
-  // const photos = await getHotelsPhotos('en-us', hotelIds);
-  // const jsonData = JSON.stringify(photos, null, 2);
-  // const blob = new Blob([jsonData], { type: 'application/json' });
-  // const link = document.createElement('a');
-  // link.href = URL.createObjectURL(blob);
-  // link.download = `hotel_${20}_photos.json`;
-  // link.click();
-
-  const response = await getHotelsByCoord();
-  return response.result;
 };
 
 export { getHotels, getHotelPhotos };
