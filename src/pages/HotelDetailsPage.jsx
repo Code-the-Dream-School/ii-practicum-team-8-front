@@ -1,18 +1,19 @@
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useHotelPhotosQuery } from '../hooks/useHotelPhotosQuery';
+import { useHotelDetailsQuery } from '../hooks/useHotelDetailsQuery';
 
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Typography, Grid, Divider, Box } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
+import RatingBadge from '../components/hotels/RatingBadge';
 import PhotoGallery from '../components/hotels/PhotoGallery';
+import HotelMapView from '../components/hotels/HotelMapView';
+import FacilitiesList from '../components/hotels/FacilitiesList';
 import LoadingWrapper from '../components/loading/LoadingWrapper';
 
-const HotelDetailsPage = () => {
-
-  const location = useLocation();
-  const { hotel } = location.state || {};
-  const hotelId = hotel?.hotel_id;
+export default function HotelDetailsPage() {
+  const { hotelId } = useParams();
 
   const {
     data: hotelPhotos,
@@ -21,21 +22,65 @@ const HotelDetailsPage = () => {
     error,
   } = useHotelPhotosQuery(hotelId);
 
+  const { data: hotelDetails } = useHotelDetailsQuery(hotelId);
+  console.log(hotelDetails);
+
   return (
-    <Box
-      sx={{
-        p: 2,
-      }}
-    >
-      <Typography align="center" color="primary.main">
-        {hotel?.hotel_name}
-      </Typography>
+    <Grid container spacing={2}>
+      <Grid item xs={12} md={12} sx={{ width: '100%' }}>
+        <Typography variant="h5" color="primary.main" sx={{ mb: 2 }}>
+          {hotelDetails?.name}
+        </Typography>
 
-      <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
-        <PhotoGallery hotelPhotos={hotelPhotos} />
-      </LoadingWrapper>
-    </Box>
+        <RatingBadge
+          rating={(hotelDetails?.review_score / 2).toFixed(1)}
+          label={hotelDetails?.review_score_word}
+          reviews={hotelDetails?.review_nr}
+        />
+        <Divider sx={{ width: '100%' }} />
+      </Grid>
+
+      <Grid item xs={12} md={4}>
+        <Box
+          display="flex"
+          gap={3}
+          sx={{
+            flexDirection: {
+              xs: 'column',
+              md: 'row',
+            },
+          }}
+        >
+          <Box sx={{ width: { xs: '100%', sm: '100%', md: '40%' } }}>
+            <Typography>
+              <LocationOnIcon
+                sx={{ color: 'primary.main', verticalAlign: 'middle', mr: 1 }}
+              />
+              {`${hotelDetails?.address}, ${hotelDetails?.city}, ${hotelDetails?.zip}`}
+            </Typography>
+            <HotelMapView
+              hotelId={hotelId}
+              hotelName={hotelDetails?.name}
+              location={hotelDetails?.location}
+            />
+          </Box>
+          <Box sx={{ width: { xs: '100%', sm: '100%', md: '60%' } }}>
+            <Typography variant="subtitle1">
+              {hotelDetails?.description_translations?.[0]?.description}
+            </Typography>
+          </Box>
+        </Box>
+      </Grid>
+
+      <Grid item xs={12} md={4}>
+        <FacilitiesList hotelId={hotelId} />
+      </Grid>
+
+      <Grid item xs={12} md={12}>
+        <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
+          <PhotoGallery hotelPhotos={hotelPhotos} />
+        </LoadingWrapper>
+      </Grid>
+    </Grid>
   );
-};
-
-export default HotelDetailsPage;
+}
