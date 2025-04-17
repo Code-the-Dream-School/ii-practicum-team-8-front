@@ -41,7 +41,7 @@ const App = () => {
           }
         />
         <Route path="hotels" element={<HotelsPage />} />
-        <Route path="hotels/:id" element={<HotelDetailsPage />} />
+        <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
