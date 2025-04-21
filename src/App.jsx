@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
-import { Typography } from '@mui/material';
-import { getAllData } from './util/index';
-import Handshake from '@mui/icons-material/Handshake';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Typography } from "@mui/material";
+import { getAllData } from "./util/index";
+import Handshake from "@mui/icons-material/Handshake";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignUp from "./components/authentication/Signup";
 
-import HotelsPage from './pages/HotelsPage';
-import HotelDetailsPage from './pages/HotelDetailsPage';
+import HotelsPage from "./pages/HotelsPage";
+import HotelDetailsPage from "./pages/HotelDetailsPage";
 
 const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1`;
 
 const App = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -19,7 +20,7 @@ const App = () => {
     })();
 
     return () => {
-      console.log('unmounting');
+      console.log("unmounting");
     };
   }, []);
 
@@ -40,6 +41,7 @@ const App = () => {
             </Typography>
           }
         />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="hotels" element={<HotelsPage />} />
         <Route path="hotels/:id" element={<HotelDetailsPage />} />
       </Routes>
