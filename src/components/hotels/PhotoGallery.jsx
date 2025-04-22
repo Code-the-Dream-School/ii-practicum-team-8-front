@@ -7,7 +7,7 @@ import {
   ImageList,
   ImageListItem,
   Button,
-  Chip
+  Chip,
 } from '@mui/material';
 
 const ITEMS_PER_LOAD = 4;
@@ -18,7 +18,7 @@ const PhotoGallery = ({ hotelPhotos }) => {
   const isMd = useMediaQuery(theme.breakpoints.down('md'));
   const isLg = useMediaQuery(theme.breakpoints.down('lg'));
 
-  const cols = isXs ? 1: isMd ? 2 : isLg? 3 : 4;
+  const cols = isXs ? 1 : isMd ? 2 : isLg ? 3 : 4;
 
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_LOAD);
 
@@ -52,45 +52,51 @@ const PhotoGallery = ({ hotelPhotos }) => {
         }}
       >
         {visiblePhotos?.map((photo) => (
-            <ImageListItem key={photo?.photo_id}>
-              <img
-                src={photo?.url_1440}
-                alt={photo?.tags?.[0] || 'Hotel photo'}
-                loading="lazy"
+          <ImageListItem key={photo?.photo_id}>
+            <img
+              src={photo?.url_1440}
+              alt={photo?.tags?.[0] || 'Hotel photo'}
+              loading="lazy"
+            />
+            {photo.tags.map((item) => (
+              <Chip
+                key={item.id}
+                size="medium"
+                label={item?.tag}
+                sx={{ mt: 1, mr: 1 }}
               />
-              {photo.tags.map((item) => (
-                <Chip size="medium" label={item?.tag} sx={{ mt: 1, mr: 1 }} />
-              ))} 
-              )
-            </ImageListItem>
+            ))}
+            )
+          </ImageListItem>
         ))}
       </ImageList>
+      {visiblePhotos && visiblePhotos.length > 0 && (
+        <Box display="flex" justifyContent="left" mt={2} gap={2}>
+          <Button
+            variant="contained"
+            onClick={handleReset}
+            disabled={visibleCount <= ITEMS_PER_LOAD}
+          >
+            Reset View
+          </Button>
 
-      <Box display="flex" justifyContent="left" mt={2} gap={2}>
-        <Button
-          variant="contained"
-          onClick={handleReset}
-          disabled={visibleCount <= ITEMS_PER_LOAD}
-        >
-          Reset View
-        </Button>
+          <Button
+            variant="contained"
+            onClick={handleLoadMore}
+            disabled={visibleCount >= hotelPhotos.length}
+          >
+            Load More
+          </Button>
 
-        <Button
-          variant="contained"
-          onClick={handleLoadMore}
-          disabled={visibleCount >= hotelPhotos.length}
-        >
-          Load More
-        </Button>
-
-        <Button
-          variant="contained"
-          onClick={handleViewAll}
-          disabled={visibleCount === hotelPhotos.length}
-        >
-          View All
-        </Button>
-      </Box>
+          <Button
+            variant="contained"
+            onClick={handleViewAll}
+            disabled={visibleCount === hotelPhotos.length}
+          >
+            View All
+          </Button>
+        </Box>
+      )}
     </>
   );
 };
