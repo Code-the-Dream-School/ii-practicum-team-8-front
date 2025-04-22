@@ -40,8 +40,8 @@ const App = () => {
             </Typography>
           }
         />
-        <Route path="hotels" element={<HotelsPage />} />
-        <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
+        <Route path='hotels' element={<HotelsPage />} />
+        <Route path='hotels/:hotelId' element={<HotelDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

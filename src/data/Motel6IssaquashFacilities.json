@@ -1,0 +1,178 @@
+[
+  {
+    "hotel_id": 314901,
+    "roomfacilitytype_id": "",
+    "facilitytype_id": 7,
+    "value": 1,
+    "facility_name": "Restaurant",
+    "facilitytype_name": "Food & Drink",
+    "hotelfacilitytype_id": 3,
+    "kind": "boolean",
+    "is_common_room_facility": 0
+  },
+  {
+    "facilitytype_name": "Services",
+    "hotelfacilitytype_id": 8,
+    "kind": "boolean",
+    "is_common_room_facility": 0,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901,
+    "facility_name": "24-hour front desk",
+    "value": 1,
+    "facilitytype_id": 3
+  },
+  {
+    "facilitytype_id": 1,
+    "value": 1,
+    "facility_name": "Non-smoking rooms",
+    "hotel_id": 314901,
+    "roomfacilitytype_id": "",
+    "is_common_room_facility": 0,
+    "hotelfacilitytype_id": 16,
+    "facilitytype_name": "General",
+    "kind": "boolean"
+  },
+  {
+    "facilitytype_name": "Services",
+    "hotelfacilitytype_id": 22,
+    "kind": "free_or_paid",
+    "is_common_room_facility": 0,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901,
+    "value": 3,
+    "facility_name": "Laundry",
+    "facilitytype_id": 3
+  },
+  {
+    "is_common_room_facility": 0,
+    "kind": "boolean",
+    "facilitytype_name": "General",
+    "hotelfacilitytype_id": 25,
+    "value": 1,
+    "facility_name": "Facilities for disabled guests",
+    "facilitytype_id": 1,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901
+  },
+  {
+    "hotel_id": 314901,
+    "roomfacilitytype_id": "",
+    "facilitytype_id": 1,
+    "value": 1,
+    "facility_name": "Heating",
+    "kind": "boolean",
+    "facilitytype_name": "General",
+    "hotelfacilitytype_id": 80,
+    "is_common_room_facility": 0
+  },
+  {
+    "kind": "free_or_paid",
+    "hotelfacilitytype_id": 104,
+    "facilitytype_name": "Outdoors",
+    "is_common_room_facility": 0,
+    "hotel_id": 314901,
+    "roomfacilitytype_id": "",
+    "facilitytype_id": 13,
+    "facility_name": "Outdoor pool",
+    "value": 3
+  },
+  {
+    "is_common_room_facility": 0,
+    "kind": "boolean",
+    "hotelfacilitytype_id": 108,
+    "facilitytype_name": "General",
+    "value": 1,
+    "facility_name": "Smoke-free property",
+    "facilitytype_id": 1,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901
+  },
+  {
+    "facility_name": "Air conditioning",
+    "value": 3,
+    "facilitytype_id": 1,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901,
+    "is_common_room_facility": 0,
+    "facilitytype_name": "General",
+    "hotelfacilitytype_id": 109,
+    "kind": "free_or_paid"
+  },
+  {
+    "kind": "boolean",
+    "hotelfacilitytype_id": 117,
+    "facilitytype_name": "Food & Drink",
+    "is_common_room_facility": 0,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901,
+    "value": 1,
+    "facility_name": "Snack bar",
+    "facilitytype_id": 7
+  },
+  {
+    "kind": "boolean",
+    "hotelfacilitytype_id": 136,
+    "facilitytype_name": "Services",
+    "is_common_room_facility": 0,
+    "hotel_id": 314901,
+    "roomfacilitytype_id": "",
+    "facilitytype_id": 3,
+    "value": 1,
+    "facility_name": "Vending machine (snacks)"
+  },
+  {
+    "is_common_room_facility": 0,
+    "facilitytype_name": "Parking",
+    "hotelfacilitytype_id": 184,
+    "kind": "boolean",
+    "facility_name": "Accessible parking",
+    "value": 1,
+    "facilitytype_id": 16,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901
+  },
+  {
+    "hotel_id": 314901,
+    "roomfacilitytype_id": "",
+    "facilitytype_id": 19,
+    "value": 1,
+    "facility_name": "Wheelchair accessible",
+    "kind": "boolean",
+    "hotelfacilitytype_id": 185,
+    "facilitytype_name": "Accessibility",
+    "is_common_room_facility": 0
+  },
+  {
+    "facility_name": "Toilet with grab rails",
+    "value": 1,
+    "facilitytype_id": 19,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901,
+    "is_common_room_facility": 0,
+    "kind": "boolean",
+    "hotelfacilitytype_id": 186,
+    "facilitytype_name": "Accessibility"
+  },
+  {
+    "is_common_room_facility": 0,
+    "facilitytype_name": "Pool and Spa",
+    "hotelfacilitytype_id": 301,
+    "kind": "boolean",
+    "value": 1,
+    "facility_name": "Swimming pool",
+    "facilitytype_id": 21,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901
+  },
+  {
+    "kind": "boolean",
+    "hotelfacilitytype_id": 433,
+    "facilitytype_name": "Pool and Spa",
+    "is_common_room_facility": 0,
+    "roomfacilitytype_id": "",
+    "hotel_id": 314901,
+    "facility_name": "Swimming pool",
+    "value": 1,
+    "facilitytype_id": 21
+  }
+]
