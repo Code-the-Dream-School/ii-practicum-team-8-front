@@ -20,11 +20,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import Link from "@mui/material/Link";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
+import { postData } from "../../util/index";
 
 const isName = (name) => /^[a-zA-Z]{2,40}$/.test(name);
 
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+
+const URL = `http://localhost:8000/api/v1/auth/register`;
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,7 +54,7 @@ function SignUp() {
     setFirstnameError(false);
   };
   const handleLastname = () => {
-    if (!isName(firstnameInput)) {
+    if (!isName(lastnameInput)) {
       setLastnameError(true);
       return;
     }
@@ -79,8 +82,8 @@ function SignUp() {
   const handleConfirmPassword = () => {
     if (
       !confirmPasswordInput ||
-      confirmPassword.length < 5 ||
-      confirmPassword.length > 15
+      confirmPasswordInput.length < 5 ||
+      confirmPasswordInput.length > 15
     ) {
       setConfirmPasswordError(true);
       return;
@@ -121,7 +124,38 @@ function SignUp() {
     console.log("Email:" + emailInput);
     console.log("Password:" + passwordInput);
     console.log("Confirmpassword:" + confirmPasswordInput);
+
+    //   Call to server to post the data
+    const requestBody = {
+      name: firstnameInput + " " + lastnameInput,
+
+      email: emailInput,
+      password: passwordInput,
+    };
+    registerUser(URL, requestBody);
   };
+
+  //   Call to server to post the data
+  //   const requestBody = {
+  //     firstName: firstnameInput,
+  //     lastName: lastnameInput,
+  //     email: emailInput,
+  //     password: passwordInput,
+  //     confirmPassword: confirmPasswordInput,
+  //   };
+  //   registerUser(URL, requestBody);
+  async function registerUser(URL, requestBody) {
+    try {
+      const myData = await postData(URL, requestBody);
+      //setMessage("Signup completed");
+      handleClose(myData);
+      console.log(myData);
+    } catch (error) {
+      setFormValid("Singup failed, please check your input");
+      return false;
+    }
+    return true;
+  }
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -277,6 +311,7 @@ function SignUp() {
                   },
                 },
                 "& .MuiFormLabel-root": {
+                  color: "#0E67E4",
                   fontSize: "18px",
                   fontWeight: "100",
                   lineHeight: "1em",
@@ -322,6 +357,7 @@ function SignUp() {
                   },
                 },
                 "& .MuiFormLabel-root": {
+                  color: "#0E67E4",
                   fontSize: "18px",
                   fontWeight: "100",
                   lineHeight: "1em",
@@ -357,6 +393,7 @@ function SignUp() {
                   height: "1em",
                 },
                 "& .MuiFormLabel-root": {
+                  color: "#0E67E4",
                   fontSize: "18px",
                   fontWeight: "100",
                   lineHeight: "1em",
@@ -403,6 +440,7 @@ function SignUp() {
                   height: "1em",
                 },
                 "& .MuiFormLabel-root": {
+                  color: "#0E67E4",
                   fontSize: "18px",
                   fontWeight: "100",
                   lineHeight: "1em",
