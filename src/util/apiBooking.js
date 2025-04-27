@@ -1,4 +1,11 @@
 import { getData } from './index';
+import { getFormattedDate } from './dateUtils';
+
+import hotelsData from '../data/hotels.json';
+import Motel6IssaquashPhotos from '../data/Motel6IssaquashPhotos.json';
+import Motel6IssaquashDetails from '../data/Motel6IssaquashDetails.json';
+import Motel6IssaquashOnMap from '../data/Motel6IssaquashOnMap.json';
+import Motel6IssaquashFacilities from '../data/Motel6IssaquashFacilities.json';
 
 const headers = {
   'x-rapidapi-key': import.meta.env.VITE_RAPIDAPI_KEY,
@@ -13,25 +20,32 @@ const getLocations = async (city) => {
   return await getData(url, params, headers);
 };
 
-const getHotels = async () => {
+const getHotels = async (location, checkIn, checkOut, travelerInfo) => {
+  
+  const checkInFormatted = getFormattedDate(checkIn);
+  const checkOutFormatted = getFormattedDate(checkOut);
+  
+  const kidsAgeStr = travelerInfo?.kidsAge?.join(', ');
+
   const url = `${import.meta.env.VITE_BOOKING_URL}/search-by-coordinates`;
   const params = {
-    children_ages: '7,0',
-    include_adjacency: 'true',
-    adults_number: '2',
-    checkout_date: '2025-09-26',
+    adults_number: travelerInfo?.adults,
+    checkout_date: checkOutFormatted,
     filter_by_currency: 'USD',
-    checkin_date: '2025-09-25',
-    categories_filter_ids: 'class::2,class::4,free_cancellation::1',
+    checkin_date: checkInFormatted,
     units: 'metric',
-    order_by: 'price',
-    children_number: '1',
+    order_by: 'popularity',
     locale,
     page_number: '0',
-    room_number: '1',
-    latitude: '47.60621',
-    longitude: '-122.33207',
+    room_number: travelerInfo?.rooms,
+    latitude: location?.latitude,
+    longitude: location?.longitude,
   };
+
+  if (travelerInfo?.kids) {
+    params.children_number = travelerInfo?.kids;
+    params.children_ages = kidsAgeStr;
+  }
 
   const hotels = await getData(url, params, headers);
 
@@ -41,6 +55,8 @@ const getHotels = async () => {
   }
 
   return hotels.result;
+
+  //return hotelsData;
 };
 
 const getHotelPhotos = async (hotelId) => {
@@ -55,6 +71,8 @@ const getHotelPhotos = async (hotelId) => {
   }
 
   return photos;
+
+  //return Motel6IssaquashPhotos;
 };
 
 const getHotelDetails = async (hotelId) => {
@@ -73,6 +91,7 @@ const getHotelDetails = async (hotelId) => {
 
   return hotelDetails;
 
+  //return Motel6IssaquashDetails;
 };
 
 const getHotelOnMap = async (hotelId) => {
@@ -85,11 +104,13 @@ const getHotelOnMap = async (hotelId) => {
   const hotelOnMap = await getData(url, params, headers);
 
   if (!hotelOnMap) {
-    console.warn(`No data returned for hotel ID ${hotelId}`);
+    console.warn(`No map returned for hotel ID ${hotelId}`);
     return {};
   }
 
   return hotelOnMap;
+
+  //return Motel6IssaquashOnMap
 };
 
 const getHotelFacilities = async (hotelId) => {
@@ -102,11 +123,20 @@ const getHotelFacilities = async (hotelId) => {
   const hotelFacilities = await getData(url, params, headers);
 
   if (!hotelFacilities) {
-    console.warn(`No data returned for hotel ID ${hotelId}`);
+    console.warn(`No facilities returned for hotel ID ${hotelId}`);
     return [];
+  
   }
 
   return hotelFacilities;
-}
 
-export { getHotels, getHotelPhotos, getHotelDetails, getHotelOnMap, getHotelFacilities };
+  //return Motel6IssaquashFacilities;
+};
+
+export {
+  getHotels,
+  getHotelPhotos,
+  getHotelDetails,
+  getHotelOnMap,
+  getHotelFacilities,
+};
