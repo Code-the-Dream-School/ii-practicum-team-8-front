@@ -24,7 +24,7 @@ function App() {
       const myData = await getAllData(URL)
       setMessage(myData.data);
     })();
-      
+  
     return () => {
       console.log('unmounting');
     }
