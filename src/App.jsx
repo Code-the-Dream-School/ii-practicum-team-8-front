@@ -1,17 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllData } from './util/index';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar';
-import Home from './Pages/Home';
-import About from './pages/About';
-import Footer from './components/Footer';
-import Search from './components/Search';
-import BookNow from './Pages/Book Now';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import ProtectedRoutes from './routers/ProtectedRoutes';
-import NotFound from './pages/NotFound';
-import './App.css';
+
 const URL = 'http://localhost:8000/api/v1/';
 
 function App() {
@@ -19,46 +8,19 @@ function App() {
   const [message, setMessage] = useState(''); 
 
   useEffect(() => {
-
     (async () => {
-      const myData = await getAllData(URL)
+      const myData = await getAllData(URL);
       setMessage(myData.data);
     })();
-      
-    return () => {
-      console.log('unmounting');
-    }
 
+    return () => {
+      console.log("unmounting");
+    };
   }, []);
 
   return (
     <>
-      
-      <Router>
-      
-     <div className="app">
-         <Navbar />
-       
-       <main className="main-content">
-         <Routes>
-              <Route element={<ProtectedRoutes/>}>
-           <Route path="/about" element={<About />} />
-           <Route path="/search" element={<Search />} />
-           <Route path="/book now" element={<BookNow />} />
-               </Route>
-               
-             <Route path="/" element={<Home />} />
-           <Route path="/login" element={<Login />} />
-           <Route path="/signup" element={<Signup />} />
-           <Route path="*" element={<NotFound />} />
-           </Routes>
-           
-       </main>
-       
-       <Footer />
-     </div>
-   </Router>
- 
+      <h1>{message}</h1>
     </>
   );
 
