@@ -6,7 +6,7 @@ import Home from './Pages/Home';
 import About from './pages/About';
 import Footer from './components/Footer';
 import Search from './components/Search';
-import BookNow from './Pages/Book Now';
+import BookNow from './Pages/BookNow';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProtectedRoutes from './routers/ProtectedRoutes';
