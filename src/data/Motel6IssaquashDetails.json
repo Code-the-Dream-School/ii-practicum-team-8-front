@@ -1,0 +1,74 @@
+{
+  "checkin": {
+    "24_hour_available": 0,
+    "from": "15:00",
+    "to": ""
+  },
+  "review_nr": 895,
+  "countrycode": "us",
+  "class": 2,
+  "district_id": null,
+  "preferred": 0,
+  "description_translations": [
+    {
+      "languagecode": "en-gb",
+      "descriptiontype_id": 6,
+      "description": "Nestled at the base of the Snoqualmie Mountain, Motel 6 Seattle East offers air-conditioned rooms with cable TV. Facilities include an outdoor pool. Lake Sammamish State Park is just 1.1 miles away.\n\nThe rooms at Motel 6 Seattle East – Issaquah are simply furnished. All rooms have an en suite bathroom.\n\nMotel 6 Seattle East offers free local calls and free morning coffee. For your convenience, the motel also has laundry facilities and vending machines.\n\nThe Meydenbaur Center is 8.9 miles from Motel 6 Seattle East – Issaquah, and the Sea-Tac Airport is 16.9 miles away. Free parking is available on site."
+    },
+    {
+      "languagecode": "en-us",
+      "description": "Nestled at the base of the Snoqualmie Mountain, Motel 6 Seattle East offers air-conditioned rooms with cable TV. Facilities include an outdoor pool. Lake Sammamish State Park is just 1.1 miles away.\n\nThe rooms at Motel 6 Seattle East – Issaquah are simply furnished. All rooms have an en suite bathroom.\n\nMotel 6 Seattle East offers free local calls and free morning coffee. For your convenience, the motel also has laundry facilities and vending machines.\n\nThe Meydenbaur Center is 8.9 miles from Motel 6 Seattle East – Issaquah, and the Sea-Tac Airport is 16.9 miles away. Free parking is available on site.",
+      "descriptiontype_id": 6
+    }
+  ],
+  "is_vacation_rental": 0,
+  "main_photo_id": 302549914,
+  "entrance_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/53272115.jpg?k=53a33dc1faab9af9218d8f3bcaf0050e6cf3e852b60eaa0ac8d51dd138ea13e0&o=",
+  "checkout": {
+    "24_hour_available": 0,
+    "to": "11:00",
+    "from": ""
+  },
+  "generated_property_title": "",
+  "email": "",
+  "main_photo_url": "https://cf.bstatic.com/xdata/images/hotel/square60/302549914.jpg?k=91ac451a9306df123bfa211b1cd4a78d3a585e74e4d5a994e53311bcf1361e60&o=",
+  "url": "https://www.booking.com/hotel/us/motel-6-seattle-east-issaquah.html",
+  "address": "1885 15th Place Northwest",
+  "class_is_estimated": 0,
+  "city": "Issaquah",
+  "review_score_word": "Pleasant",
+  "city_id": 20143959,
+  "hotel_id": 314901,
+  "hotel_facilities": "2,3,4,8,16,22,25,46,47,80,96,104,107,108,109,117,136,160,161,184,185,186,301,433",
+  "name": "Motel 6-Issaquah, WA - Seattle - East",
+  "district": null,
+  "location": {
+    "longitude": -122.060538232327,
+    "latitude": 47.5511531519886
+  },
+  "is_single_unit_vr": 0,
+  "booking_home": {
+    "segment": 0,
+    "is_single_unit_property": 0,
+    "is_vacation_rental": 0,
+    "is_single_type_property": 0,
+    "group": "hotels_and_others",
+    "is_aparthotel": 0,
+    "is_booking_home": 0,
+    "quality_class": null
+  },
+  "hotel_facilities_filtered": "3,8,16,22,25,80,104,108,109,117,136,184,185,186,301,433",
+  "preferred_plus": 0,
+  "languages_spoken": {
+    "languagecode": [
+      "en-gb",
+      "es"
+    ]
+  },
+  "review_score": "6.2",
+  "country": "United States",
+  "hoteltype_id": 204,
+  "ranking": 13751136,
+  "currencycode": "USD",
+  "zip": "98027"
+}

@@ -1,3 +1,7 @@
 /node_modules
 .DS_STORE
 .gitignore
+
+*.local
+*.development
+.env
