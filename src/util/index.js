@@ -1,8 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 const getData = async (url, params, headers = null) => {
   try {
-
     const config = { params };
 
     if (headers) {
@@ -26,5 +25,15 @@ const getAllData = async (url) => {
     console.log(error, `error - getAllData in ${url} route`);
   }
 };
+//   Call to server to post the data
+const postData = async (url, requestBody) => {
+  try {
+    let res = await axios.post(url, requestBody);
+    let data = res.data;
+    return data;
+  } catch (error) {
+    console.log(error, `error - postData in ${url} route`);
+  }
+};
 
-export { getData, getAllData };
+export { getData, getAllData, postData };
