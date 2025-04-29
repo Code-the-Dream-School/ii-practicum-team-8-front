@@ -36,4 +36,5 @@ const postData = async (url, requestBody) => {
   }
 };
 
+
 export { getData, getAllData, postData };

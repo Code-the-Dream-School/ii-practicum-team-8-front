@@ -21,13 +21,14 @@ export default function HotelDetailsPage() {
     isError,
     error,
   } = useHotelPhotosQuery(hotelId);
+  console.log(hotelPhotos);
 
   const { data: hotelDetails } = useHotelDetailsQuery(hotelId);
   console.log(hotelDetails);
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} md={12} sx={{ width: '100%' }}>
+      <Grid size={{ xs: 12, sm: 12 }} sx={{ width: '100%' }}>
         <Typography variant="h5" color="primary.main" sx={{ mb: 2 }}>
           {hotelDetails?.name}
         </Typography>
@@ -40,7 +41,7 @@ export default function HotelDetailsPage() {
         <Divider sx={{ width: '100%' }} />
       </Grid>
 
-      <Grid item xs={12} md={4}>
+      <Grid size={{ xs: 12, sm: 12 }}>
         <Box
           display="flex"
           gap={3}
@@ -72,11 +73,11 @@ export default function HotelDetailsPage() {
         </Box>
       </Grid>
 
-      <Grid item xs={12} md={4}>
+      <Grid size={{ xs: 12, sm: 12 }}>
         <FacilitiesList hotelId={hotelId} />
       </Grid>
 
-      <Grid item xs={12} md={12}>
+      <Grid size={{ xs: 12, sm: 12 }}>
         <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
           <PhotoGallery hotelPhotos={hotelPhotos} />
         </LoadingWrapper>
