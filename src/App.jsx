@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { getAllData } from "./util/index";
 import Handshake from "@mui/icons-material/Handshake";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Authentication/Login";
 import SignUp from "./components/authentication/Signup";
 
 import HotelsPage from "./pages/HotelsPage";
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="hotels" element={<HotelsPage />} />
         <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
