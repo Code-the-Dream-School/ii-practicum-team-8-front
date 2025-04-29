@@ -16,8 +16,6 @@ const HotelCard = ({ hotel }) => {
     navigate(`${hotel?.hotel_id}`);
   };
 
-  console.log(hotel);
-
   return (
     <StyledHotelCard onClick={() => onImageClick(hotel)} elevation={6}>
       <CardMedia

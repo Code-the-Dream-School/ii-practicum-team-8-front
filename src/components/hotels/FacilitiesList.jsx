@@ -10,8 +10,8 @@ const ListItem = styled('li')(({ theme }) => ({
 }));
 
 const FacilitiesList = ({ hotelId }) => {
+  
   const { data: hotelFacilities } = useHotelFacilitiesQuery(hotelId);
-  console.log(hotelFacilities);
 
   return (
     <Box

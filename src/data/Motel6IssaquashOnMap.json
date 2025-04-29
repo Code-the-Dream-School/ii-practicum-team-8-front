@@ -1,0 +1,16 @@
+{
+  "map_preview_url": "https://maps.googleapis.com/maps/api/staticmap?center=47.5511531519886,-122.060538232327&size=540x210&zoom=17&scale=2&language=xu&key=AIzaSyArES9ogl-1R8AvMFBrlsoAoPko3h1xGfY&channel=booking-other&signature=KJzjwlT5aA3R9goQtnn4_560AiU=",
+  "geo_info": {
+    "nearest_airport_info": {
+      "distance": "18277",
+      "longitude": -122.302,
+      "latitude": 47.53
+    },
+    "city_centre": {
+      "distance": "2224",
+      "longitude": -122.0433,
+      "latitude": 47.53488
+    }
+  },
+  "landmarks": []
+}
