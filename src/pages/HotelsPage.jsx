@@ -4,10 +4,8 @@ import { useHotelsQuery } from '../hooks/useHotelsQuery';
 
 import ListHotels from '../components/hotels/ListHotels';
 import LoadingWrapper from '../components/loading/LoadingWrapper';
+import ErrorAlert from '../components/error/ErrorAlert';
 import SearchHotels from '../components/hotels/SearchHotels/SearchHotels';
-
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
 
 const HotelsPage = () => {
 
@@ -57,11 +55,7 @@ const HotelsPage = () => {
                     travelerInfo={travelerInfo} setTravelerInfo={setTravelerInfo}
                     handleSearch={handleSearch}
       />
-     {showAlert && (
-        <Stack sx={{ width: '100%', mt: 2, mb: 2 }}>
-          <Alert severity="error">Check-In date must be before check-Out date.</Alert>
-        </Stack>
-      ) }
+     {showAlert && <ErrorAlert message='Check-In date must be before check-Out date.'/> }
       <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
         <ListHotels hotels={listHotels} />
       </LoadingWrapper>
