@@ -11,19 +11,7 @@ const BookingCalendarPage = () => {
   const { bookingList, isLoading, isError, error} = useCalendarApi();
 
   return (
-    <Box sx={{ height: '95vh' }}>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'centerflex-start',
-          alignItems: 'center',
-          m: 1
-        }}
-      >
-        <Typography variant="h5" color="primary.main">
-          Dream Trip Planner:
-        </Typography>
-      </Box>
+    <Box sx={{ height: '90vh' }}>
 
       <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
         <BigCalendar bookingList={bookingList} />

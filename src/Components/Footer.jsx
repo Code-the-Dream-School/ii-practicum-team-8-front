@@ -36,7 +36,8 @@ const Footer = () => {
             <ul className="footer-list">
               <li><Link to="/" className="footer-link">Home</Link></li>
               <li><Link to="/about" className="footer-link">About</Link></li>
-              <li><Link to="/search" className="footer-link">Search</Link></li>
+              <li><Link to="/hotels" className="footer-link">Search</Link></li>
+              <li><Link to="/calendar" className="footer-link">Calendar</Link></li>
               <li><Link to="/booknow" className="footer-link">BookNow</Link></li>
               <li><Link to="/login" className="footer-link">Login</Link></li>
               <li><Link to="/signup" className="footer-link">Signup</Link></li>
