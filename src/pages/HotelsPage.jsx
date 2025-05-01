@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import dayjs from 'dayjs';
+
 import { useHotelsQuery } from '../hooks/useHotelsQuery';
 
 import ListHotels from '../components/hotels/ListHotels';
@@ -9,10 +11,9 @@ import SearchHotels from '../components/hotels/SearchHotels/SearchHotels';
 
 const HotelsPage = () => {
 
-  const newDate = new Date();
   const locationDefValue =  { id: 5, city: 'Seattle', latitude: 47.6062, longitude: -122.3321 };
-  const checkInDefValue = `${newDate.getMonth() + 1}/${newDate.getDate()}/${newDate.getFullYear()}`;
-  const checkOutDefValue = `${newDate.getMonth() + 1}/${newDate.getDate() + 3}/${newDate.getFullYear()}`;
+  const checkInDefValue = dayjs().format('MM/DD/YYYY');;
+  const checkOutDefValue = dayjs().add(3, 'day').format('MM/DD/YYYY');
 
   const [location, setLocation] = useState(locationDefValue);
   const [checkIn, setCheckIn] = useState(checkInDefValue);
