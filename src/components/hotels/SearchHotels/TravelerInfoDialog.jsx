@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import NumberInput from './NumberInput';
+import NumberInput from '../../shared/NumberInput';
 import KidsAgeFields from './KidsAgeFields';
 
 import IconButton from '@mui/material/IconButton';

@@ -1,23 +1,25 @@
 import { useState, useEffect } from 'react';
-import { getAllBookings } from '../util/apiCalendar';
+import {
+  deleteBooking,
+  updateBooking,
+  createBooking,
+} from '../util/apiCalendar';
 
 const useCalendarApi = () => {
-  
-  const [bookingList, setBookingList] = useState([]);
 
-  const [ isLoading, setIsLoading ] = useState(false);
-  const [ isError, setIsError ] = useState(false);
-  const [ error, setError ] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState({});
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const [createdBooking, setCreatedBooking] = useState();
+  const [updatedBooking, setUpdatedBooking] = useState();
+  const [deletedBooking, setDeletedBooking] = useState();
 
-  const fetchData = async () => {   
+  const deleteBookingData = async (bookingId) => {
     setIsLoading(true);
     try {
-      const loadedBookingList = await getAllBookings();
-      setBookingList(loadedBookingList);
+      const res = await deleteBooking(bookingId);
+      setDeletedBooking(res);
       setIsError(false);
     } catch (err) {
       setIsError(true);
@@ -32,8 +34,55 @@ const useCalendarApi = () => {
     }
   };
 
-  return { bookingList, isLoading, isError, error};
+  const createBookingData = async (booking) => {
+    setIsLoading(true);
+    try {
+      const res = await createBooking(booking);
+      setCreatedBooking(res);
+      setIsError(false);
+    } catch (err) {
+      setIsError(true);
+      setError({
+        message: err?.message || 'Something went wrong',
+        status: err?.response?.status,
+        statusText: err?.response?.statusText,
+        data: err?.response?.data,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
+  const updateBookingData = async (booking) => {
+    setIsLoading(true);
+    try {
+      const res = await updateBooking(booking);
+      setUpdatedBooking(res);
+      setIsError(false);
+    } catch (err) {
+      setIsError(true);
+      setError({
+        message: err?.message || 'Something went wrong',
+        status: err?.response?.status,
+        statusText: err?.response?.statusText,
+        data: err?.response?.data,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return {
+    isLoading,
+    isError,
+    error,
+    deleteBookingData,
+    createBookingData,
+    updateBookingData,
+    deletedBooking,
+    updatedBooking,
+    createdBooking,
+  };
 };
 
 export default useCalendarApi;
