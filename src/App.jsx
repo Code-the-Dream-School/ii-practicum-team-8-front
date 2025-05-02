@@ -1,4 +1,11 @@
-
+import { useState, useEffect } from "react";
+import { Typography } from "@mui/material";
+import { getAllData } from "./util/index";
+import Handshake from "@mui/icons-material/Handshake";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Forgot from "./components/Authentication/ForgotPassword";
+import Login from "./components/Authentication/Login";
+import SignUp from "./components/authentication/Signup";
 import { BrowserRouter , Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./components/Footer";
@@ -17,6 +24,7 @@ import "./App.css";
 
 function App() {
   return (
+
     <div className="app">
       <BrowserRouter>
         <Navbar />
@@ -31,6 +39,7 @@ function App() {
             <Route path="hotels" element={<HotelsPage />} />
             <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
             <Route path="login" element={<Login />} />
+            <Route path="forgotpassword" element={<Forgot />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

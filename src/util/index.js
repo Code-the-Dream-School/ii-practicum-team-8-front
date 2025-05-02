@@ -21,7 +21,6 @@ const getAllData = async (url, config) => {
     let data = await res.data;
     return data;
 };
-
 //   Call to server to post the data
 const postData = async (url, requestBody) => {
   try {
@@ -32,5 +31,6 @@ const postData = async (url, requestBody) => {
     console.log(error, `error - postData in ${url} route`);
   }
 };
+
 
 export { getData, getAllData, postData };
