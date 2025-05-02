@@ -16,14 +16,10 @@ const getData = async (url, params, headers = null) => {
   }
 };
 
-const getAllData = async (url) => {
-  try {
-    let res = await axios.get(url);
+const getAllData = async (url, config) => {
+    let res = await axios.get(url, config);
     let data = await res.data;
     return data;
-  } catch (error) {
-    console.log(error, `error - getAllData in ${url} route`);
-  }
 };
 //   Call to server to post the data
 const postData = async (url, requestBody) => {
