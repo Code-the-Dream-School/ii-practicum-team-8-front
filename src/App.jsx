@@ -1,7 +1,3 @@
-import { useState, useEffect } from "react";
-import { Typography } from "@mui/material";
-import { getAllData } from "./util/index";
-import Handshake from "@mui/icons-material/Handshake";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Forgot from "./components/Authentication/ForgotPassword";
 import Navbar from "./Components/Navbar";

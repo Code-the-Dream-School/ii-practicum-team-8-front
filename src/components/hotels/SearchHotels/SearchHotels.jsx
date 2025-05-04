@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import AutocompleteLocation from './AutocompleteLocation';
-import DateField from './DateField';
+import DateField from '../../shared/DateField';
 import TravelerInfoDialog from './TravelerInfoDialog';
 
 const SearchHotels = (
@@ -55,11 +55,13 @@ const SearchHotels = (
         label="Check In"
         value={dayjs(checkIn)}
         onChange={handleCheckInChange}
+        sx={{ width: '300px', maxWidth: '90%',}}
       />
       <DateField
         label="Check Out"
         value={dayjs(checkOut)}
         onChange={handleCheckOutChange}
+        sx={{ width: '300px', maxWidth: '90%',}}
       />
       <TextField
         label='Traveler Info'
