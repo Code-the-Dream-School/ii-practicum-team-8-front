@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import NumberInput from './NumberInput';
+import NumberInput from '../../shared/NumberInput';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';

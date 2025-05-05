@@ -4,3 +4,6 @@
 
 *.local
 *.development
+.env
+.env.production
+.env.test
