@@ -5,6 +5,7 @@ import Handshake from "@mui/icons-material/Handshake";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Authentication/Login";
 import SignUp from "./components/authentication/Signup";
+import ResetPassword from "./components/Authentication/ResetPassword";
 
 import HotelsPage from "./pages/HotelsPage";
 import HotelDetailsPage from "./pages/HotelDetailsPage";
@@ -42,10 +43,11 @@ const App = () => {
             </Typography>
           }
         />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="signup" element={<SignUp />} />
         <Route path="hotels" element={<HotelsPage />} />
         <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="login" element={<Login />} />
+        <Route path="reset-password" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   );
