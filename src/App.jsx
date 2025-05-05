@@ -6,7 +6,7 @@ import Forgot from './components/Authentication/ForgotPassword';
 import Navbar from './components/main/Navbar';
 import Footer from './components/main/Footer';
 
-import ProtectedRoutes from './routers_temp/ProtectedRoutes';
+import ProtectedRoutes from './routers/ProtectedRoutes';
 
 import Home from './pages/Home';
 import About from './pages/About';
