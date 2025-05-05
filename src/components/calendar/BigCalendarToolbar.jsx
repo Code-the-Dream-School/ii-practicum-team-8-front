@@ -62,30 +62,6 @@ const BigCalendarToolbar = (props) => {
         >
           Month
         </Button>
-        <Button
-          variant='contained'
-          color={props?.view === Views.WEEK ? 'success' : 'primary'}
-          onClick={() => props?.onView(Views.WEEK)}
-          size='small'
-        >
-          Week
-        </Button>
-        <Button
-          variant='contained'
-          color={props?.view === Views.DAY ? 'success' : 'primary'}
-          onClick={() => props?.onView(Views.DAY)}
-          size='small'
-        >
-          Day
-        </Button>
-        <Button
-          variant='contained'
-          color={props?.view === Views.AGENDA ? 'success' : 'primary'}
-          onClick={() => props?.onView(Views.AGENDA)}
-          size='small'
-        >
-          Agenda
-        </Button>
       </Box>
     </Box>
   );
