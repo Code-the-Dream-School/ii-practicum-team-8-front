@@ -4,6 +4,7 @@ import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 
 const Navbar = () => {
+  
   return (
     <nav className="navbar">
       <div className="navbar-brand">
