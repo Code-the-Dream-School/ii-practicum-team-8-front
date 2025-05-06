@@ -1,106 +1,93 @@
 import React, { useState } from "react";
-import Alert from "@mui/material/Alert";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import LoginIcon from "@mui/icons-material/Login";
-import { Dialog, DialogContent, DialogTitle, Typography } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
+import Button from "@mui/material/Button";
+import LoginIcon from "@mui/icons-material/Login";
+import Alert from "@mui/material/Alert";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Typography,
+  TextField,
+} from "@mui/material";
+import Box from "@mui/material/Box";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import InputAdornment from "@mui/material/InputAdornment";
 
-const URL = `http://localhost:8000/api/v1/auth/login`;
-
-const isEmail = (email) =>
-  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
-
-function Login() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [emailInput, setEmailInput] = useState("");
-  const [passwordInput, setPasswordInput] = useState("");
-  const [emailError, setEmailError] = useState(false);
+function ResetPassword() {
+  const [newPasswordInput, setNewPasswordInput] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   const [formValid, setFormValid] = useState();
   const [success, setSuccess] = useState();
+
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
-  const handleLoginEmail = () => {
-    if (!isEmail(emailInput)) {
-      setEmailError(true);
-      return;
-    }
-    setEmailError(false);
-  };
-  const handleLoginPassword = () => {
+  const handleNewPassword = () => {
     if (
-      !passwordInput ||
-      passwordInput.length < 5 ||
-      passwordInput.length > 15
+      !newPasswordInput ||
+      newPasswordInput.length < 5 ||
+      newPasswordInput.length > 15
     ) {
       setPasswordError(true);
       return;
     }
     setPasswordError(false);
   };
-  const handleLoginSubmit = (e) => {
+
+  const handleConfirmPassword = () => {
+    if (
+      !confirmPassword ||
+      confirmPassword.length < 5 ||
+      confirmPassword.length > 15
+    ) {
+      setConfirmPasswordError(true);
+      return;
+    }
+    setConfirmPasswordError(false);
+  };
+
+  const handleResetPassword = (e) => {
     e.preventDefault();
-    setSuccess();
-
-    if (emailError || !emailInput) {
-      setFormValid("Email is inValid.Please enter valid Email");
-
+    if (newPasswordInput.length < 6) {
+      setFormValid(
+        "Password must be atleast 6 characters.Please enter valid password"
+      );
       return;
     }
 
-    if (passwordError || !passwordInput) {
+    if (confirmPassword.length < 6) {
       setFormValid(
-        "Password should be in 5-15 characters.Please Re-Enter Password"
+        "Confirm password must be atleast 6 characters.Please enter valid confirm password"
       );
-      setFormValid("Please enter Password");
+      return;
+    }
+
+    if (newPasswordInput !== confirmPassword) {
+      setFormValid("Passwords doesn't match");
       return;
     }
     setFormValid(null);
-
-    const requestBody = {
-      email: emailInput,
-      password: passwordInput,
-    };
-    loginUser(URL, requestBody);
   };
 
-  async function loginUser(URL, requestBody) {
-    try {
-      const myData = await postData(URL, requestBody);
-      if (myData) {
-        handleClose(myData);
-      }
-      return true;
-    } catch (error) {
-      setFormValid(error.message ?? "Invalid email or password, login failed");
-      return false;
-    }
-  }
-  const handleClose = (mydata) => {
-    if (mydata && mydata.user) {
-      const data = {
-        token: mydata.token,
-        name: mydata.user.name,
-      };
-      navigate("/home");
-    }
-  };
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleLoginClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleLoginMouseDownPassword = (event) => {
+  const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const handleClose = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <Box
@@ -131,7 +118,6 @@ function Login() {
           <DialogTitle
             variant="h5"
             sx={{
-              padding: ".2rem",
               textAlign: "center",
               color: "#0E67E4",
               display: "flex",
@@ -140,13 +126,13 @@ function Login() {
               alignItems: "center",
             }}
           >
-            Login
+            Reset Password
             <IconButton
               onClick={handleClose}
               sx={{
                 position: "absolute",
-                right: 0,
-                top: 5,
+                right: 8,
+                top: 2,
                 color: "0E67E4",
               }}
             >
@@ -154,89 +140,28 @@ function Login() {
             </IconButton>
           </DialogTitle>
           <DialogContent
-            sx={{
+            style={{
               color: "0E67E4",
               display: "flex",
               flexWrap: "wrap",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
+              gap: 10,
               width: 400,
-              height: 1,
+              height: 180,
             }}
           >
-            <Typography
-              sx={{
-                color: "#0E67E4",
-                variant: "h6",
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {" "}
-              Not a member yet?{"    "}
-              <Link href="/signup" variant="body1" style={{ color: "#0E67E4" }}>
-                Sign Up
-              </Link>
-            </Typography>
             <TextField
               sx={{
-                fontSize: ".2rem",
                 backgroundColor: "white",
-                borderColor: "#0E67E4",
                 borderRadius: "1rem",
                 "& .MuiInputBase-input": {
                   color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-                    //fontSize: "18px",
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
-                "& .MuiFormLabel-root": {
-                  color: "#0E67E4",
-                  fontSize: "18px",
-                  fontWeight: "100",
-                  lineHeight: "1em",
-                },
-                "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
-                  borderRadius: "1rem ",
-                },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
-              }}
-              id="email"
-              error={emailError}
-              label="Email Address"
-              value={emailInput}
-              onChange={(event) => setEmailInput(event.target.value)}
-              onBlur={handleLoginEmail}
-              variant="outlined"
-              fullWidth
-              size="small"
-              required
-              //   InputProps={{ disableUnderline: true }}
-            />
 
-            <TextField
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "1rem",
-                "& .MuiInputBase-input": {
-                  color: "#000000",
-                  fontSize: "20px",
-                  height: "1em",
-                },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
                   fontSize: "18px",
@@ -252,12 +177,12 @@ function Login() {
                 },
               }}
               error={passwordError}
-              label="Password"
+              label="New Password"
               variant="outlined"
               type={showPassword ? "text" : "password"}
-              value={passwordInput}
-              onChange={(event) => setPasswordInput(event.target.value)}
-              onBlur={handleLoginPassword}
+              value={newPasswordInput}
+              onChange={(event) => setNewPasswordInput(event.target.value)}
+              onBlur={handleNewPassword}
               fullWidth
               required
               size="small"
@@ -265,45 +190,83 @@ function Login() {
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
-                      onClick={handleLoginClickShowPassword}
-                      onMouseDown={handleLoginMouseDownPassword}
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
                     >
                       {showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>
                 ),
-                // disableUnderline: true,
+              }}
+            />
+            <TextField
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "1rem",
+                "& .MuiInputBase-input": {
+                  color: "#000000",
+                  fontSize: "20px",
+                  height: "1em",
+                },
+                "& .MuiFormLabel-root": {
+                  color: "#0E67E4",
+                  fontSize: "18px",
+                  fontWeight: "100",
+                  lineHeight: "1em",
+                },
+                "& .MuiOutlinedInput-root": {
+                  backgroundColor: "white",
+                  borderRadius: "1rem ",
+                },
+                "& .MuiFormControl-root": {
+                  borderColor: "#0E67E4",
+                },
+              }}
+              error={confirmPasswordError}
+              label="ConfirmPassword"
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
+              onBlur={handleConfirmPassword}
+              fullWidth
+              required
+              size="small"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
             <Typography>
-              <Link
-                href="/forgotpassword"
-                variant="body1"
-                style={{ color: "#0E67E4" }}
+              <Button
+                onClick={handleResetPassword}
+                fullWidth
+                variant="contained"
+                startIcon={<LoginIcon />}
               >
-                Forgot Password
-              </Link>
+                Submit
+              </Button>
             </Typography>
-            <Button
-              onClick={handleLoginSubmit}
-              fullWidth
-              variant="contained"
-              startIcon={<LoginIcon />}
-            >
-              Login
-            </Button>
+
             <Typography component={"div"}>
               {formValid && (
                 <Alert
                   severity="error"
                   sx={{
-                    "& .MuiAlert-standardError": {
-                      backgroundColor: "white",
+                    "& .MuiAlert-root": {
                       color: "#d32f2f",
                     },
                   }}
                 >
-                  {formValid}{" "}
+                  {formValid}
                 </Alert>
               )}
             </Typography>
@@ -316,4 +279,4 @@ function Login() {
     </>
   );
 }
-export default Login;
+export default ResetPassword;
