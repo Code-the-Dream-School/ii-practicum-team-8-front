@@ -30,6 +30,10 @@ function Login() {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
+  const handleClose = () => {
+    navigate("/home");
+  };
+
   const handleLoginEmail = () => {
     if (!isEmail(emailInput)) {
       setEmailError(true);
@@ -80,21 +84,15 @@ function Login() {
       if (myData) {
         handleClose(myData);
       }
+      console.log(myData);
       return true;
     } catch (error) {
       setFormValid(error.message ?? "Invalid email or password, login failed");
       return false;
     }
   }
-  const handleClose = (mydata) => {
-    if (mydata && mydata.user) {
-      const data = {
-        token: mydata.token,
-        name: mydata.user.name,
-      };
-      navigate("/home");
-    }
-  };
+  console.log("Email:" + emailInput);
+  console.log("Password:" + passwordInput);
 
   const handleLoginClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -275,15 +273,6 @@ function Login() {
                 // disableUnderline: true,
               }}
             />
-            <Typography>
-              <Link
-                href="/forgotpassword"
-                variant="body1"
-                style={{ color: "#0E67E4" }}
-              >
-                Forgot Password
-              </Link>
-            </Typography>
             <Button
               onClick={handleLoginSubmit}
               fullWidth
