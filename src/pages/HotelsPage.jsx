@@ -19,7 +19,6 @@ const HotelsPage = () => {
 
   const locationId = parseInt(searchParams.get('locationId'));
   const locationParam = locations.find(item => item.id === locationId);
-  console.log('locationParam', locationParam);
 
   const locationDefValue = locationParam || {
     id: 5,
@@ -50,6 +49,7 @@ const HotelsPage = () => {
   });
 
   useEffect(() => {
+    setSearchParams({ locationId: locationDefValue.id })
     refetch();
   }, []);
 
