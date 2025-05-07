@@ -66,7 +66,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/hotels" className="footer-link">
-                  Search
+                  Search Hotels
                 </Link>
               </li>
               <li>
