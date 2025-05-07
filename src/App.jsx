@@ -5,7 +5,7 @@ import SignUp from './components/Authentication/SignUp';
 import Forgot from './components/Authentication/ForgotPassword';
 import ResetPassword from './components/Authentication/ResetPassword';
 import Navbar from './components/main/Navbar';
-import Footer from './components/main/Footer';
+import Footer from './components/Footer';
 
 import ProtectedRoutes from './routers/ProtectedRoutes';
 
@@ -28,13 +28,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<ProtectedRoutes />} />
+            <Route path="home" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="book-now" element={<BookNow />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="login" element={<Login />} />
             <Route path="calendar" element={<BookingCalendarPage />} />
             <Route path="hotels" element={<HotelsPage />} />
             <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
-            <Route path="login" element={<Login />} />
             <Route path="forgotpassword" element={<Forgot />} />
             <Route path="reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />

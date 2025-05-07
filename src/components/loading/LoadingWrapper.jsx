@@ -1,4 +1,4 @@
-import Loader from '../loading/Loader';
+import Loader from './Loader';
 import ErrorAlert from '../alerts/ErrorAlert';
 
 const LoadingWrapper = ({ isLoading, isError, error, children }) => {
