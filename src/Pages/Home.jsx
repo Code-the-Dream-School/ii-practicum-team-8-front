@@ -1,12 +1,14 @@
 import React from 'react';
 import Video from '../Assets/videos1.mp4';
 import Destination from '../components/Destination';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Home = () => {
+  const navigate = useNavigate();
   const handleGetStarted = () => {
-    alert('Welcome! Let\'s get started signup!');
+    navigate('/signup');
     
     
   };
