@@ -1,17 +1,10 @@
-import Typography from '@mui/material/Typography';
-
 import Loader from '../loading/Loader';
+import ErrorAlert from '../alerts/ErrorAlert';
 
-const LoadingWrapper = ({isLoading, isError, error, children}) => {
-
+const LoadingWrapper = ({ isLoading, isError, error, children }) => {
   if (isLoading) return <Loader />;
-
   if (isError)
-    return (
-      <Typography color="error">
-        Something went wrong: {error?.message || 'Please try again later.'}
-      </Typography>
-    );
+    return <ErrorAlert message={`${error?.data?.msg||error?.message}`} />;
 
   return children;
 };

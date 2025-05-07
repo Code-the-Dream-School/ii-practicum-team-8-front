@@ -165,7 +165,13 @@ function SignUp() {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
-  const handleClose = () => {
+  const handleClose = (mydata) => {
+    if (mydata && mydata.user) {
+      const data = {
+        token: mydata.token,
+        name: mydata.user.name,
+      };
+    }
     navigate("/home");
   };
 

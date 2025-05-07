@@ -1,11 +1,7 @@
-import React from 'react';
+import SignUpComponent from "./components/authentication/Signup"
 
 function Signup() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return  <SignUpComponent />
 }
 
 export default Signup;
