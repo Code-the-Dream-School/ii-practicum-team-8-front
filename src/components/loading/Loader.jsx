@@ -9,6 +9,7 @@ const Loader = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
+        margin: 1,
       }}
     >
       <CircularProgress />
