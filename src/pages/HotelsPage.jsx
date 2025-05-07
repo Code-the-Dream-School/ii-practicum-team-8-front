@@ -21,7 +21,7 @@ const HotelsPage = () => {
   const locationParam = locations.find(item => item.id === locationId);
 
   const locationDefValue = locationParam || {
-    id: 5,
+    id: 2,
     city: 'Seattle',
     latitude: 47.6062,
     longitude: -122.3321,
