@@ -35,6 +35,7 @@ function App() {
             <Route path="hotels/:hotelId" element={<HotelDetailsPage />} />
             <Route path="login" element={<Login />} />
             <Route path="forgotpassword" element={<Forgot />} />
+              <Route path="reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
