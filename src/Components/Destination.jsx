@@ -1,8 +1,8 @@
 import React from 'react';
-import Image1 from '../../assets/bali(1).jpg'; 
-import Image2 from '../../assets/kyoto(2).jpg';
-import Image3 from '../../assets/rio(3).jpg';
-import Image4 from '../../assets/rome(4).jpg';
+import Image1 from '../assets/bali(1).jpg'; 
+import Image2 from '../assets/kyoto(2).jpg';
+import Image3 from '../assets/rio(3).jpg';
+import Image4 from '../assets/rome(4).jpg';
 
 
 function Destination() {

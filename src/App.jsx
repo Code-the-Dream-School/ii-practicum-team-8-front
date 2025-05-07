@@ -4,7 +4,7 @@ import Login from './components/Authentication/Login';
 import SignUp from './components/Authentication/SignUp';
 import Forgot from './components/Authentication/ForgotPassword';
 import ResetPassword from './components/Authentication/ResetPassword';
-import Navbar from './components/main/Navbar';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 import ProtectedRoutes from './routers/ProtectedRoutes';
