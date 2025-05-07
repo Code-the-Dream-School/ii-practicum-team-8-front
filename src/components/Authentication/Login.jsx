@@ -92,8 +92,8 @@ function Login() {
         token: mydata.token,
         name: mydata.user.name,
       };
-      navigate("/home");
     }
+    navigate("/home");
   };
 
   const handleLoginClickShowPassword = () => setShowPassword((show) => !show);

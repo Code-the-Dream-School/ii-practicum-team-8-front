@@ -21,7 +21,7 @@ import CancelIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const BookingForm = ({ booking, setFormOpen, refetchBookings }) => {
+const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
   const {
     deleteBookingData,
     createBookingData,
@@ -57,6 +57,9 @@ const BookingForm = ({ booking, setFormOpen, refetchBookings }) => {
   }, [booking]);
 
   useEffect(() => {
+    if(!isInlineForm){
+      return;
+    }
     if (createdBooking || updatedBooking || deletedBooking) {
       refetchBookings();
     }
@@ -170,7 +173,7 @@ const BookingForm = ({ booking, setFormOpen, refetchBookings }) => {
             variant="contained"
             size="large"
             sx={{ m: 2 }}
-            onClick={() => setFormOpen(false)}
+            onClick={onCancel}
           >
             <CancelIcon /> Cancel
           </Button>

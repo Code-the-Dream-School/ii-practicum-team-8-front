@@ -7,7 +7,6 @@ import dayjs from 'dayjs';
 
 import BigCalendarToolbar from './BigCalendarToolbar';
 import MonthHeader from './headers/MonthHeader';
-import WeekHeader from './headers/WeekHeader';
 import EventComponent from './EventComponent';
 
 const localizer = dayjsLocalizer(dayjs);
@@ -29,11 +28,6 @@ const BigCalendar = ({ bookingList, onShowBookingView }) => {
   });
 
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [view, setView] = useState('month');
-
-  const handleViewChange = (newView) => {
-    setView(newView);
-  };
 
   const handleNavigate = (newDate) => {
     setCurrentDate(newDate);
@@ -43,7 +37,6 @@ const BigCalendar = ({ bookingList, onShowBookingView }) => {
     toolbar: BigCalendarToolbar,
     event: EventComponent,
     month: { header: MonthHeader },
-    week: { header: WeekHeader },
   }), []);
 
   return (
@@ -52,10 +45,9 @@ const BigCalendar = ({ bookingList, onShowBookingView }) => {
       events={bookings}
       date={currentDate}
       onNavigate={handleNavigate}
-      view={view}
-      onView={handleViewChange}
+      view={Views.MONTH}
       toolbar={true}
-      views={[Views.MONTH, Views.WEEK, Views.DAY, Views.AGENDA]}
+      views={[Views.MONTH]}
       components={components}
       selectable
       onSelectSlot={({ start, end }) => {

@@ -3,48 +3,35 @@ import Video from '../Assets/videos1.mp4';
 import Destination from '../components/Destination';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Home = () => {
   const navigate = useNavigate();
   const handleGetStarted = () => {
-    navigate('/signup');
-    
-    
+    navigate('/signup'); 
   };
+  
   return (
     <div className="home-container">
-      
       <div className="video-container">
-        <video 
-          src={Video} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          src={Video}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="background-video"
         />
       </div>
-    
-      
+
       <div className="hero">
         <p className="hero-tagline">YOUR GATEWAY TO UNFORGETTABLE JOURNEYS.</p>
         <h1 className="hero-title">GOOD WAY</h1>
-        <button 
-      onClick={handleGetStarted}
-      className="get-started"
-    >
-      Get Started
-    </button>
-  
+        <button onClick={handleGetStarted} className="get-started">
+          Get Started
+        </button>
       </div>
-      
-      <Destination/>
-      
-      </div>
-      
-        
-      
+
+      <Destination />
+    </div>
   );
 };
 
