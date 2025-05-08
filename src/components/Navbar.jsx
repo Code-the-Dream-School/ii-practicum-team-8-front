@@ -4,6 +4,7 @@ import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 
 const Navbar = () => {
+  
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -21,9 +22,9 @@ const Navbar = () => {
       <ul className="nav-links">
         <li><NavLink to="/" className="nav-link">Home</NavLink></li>
         <li><NavLink to="/about" className="nav-link">About</NavLink></li>
-        <li><NavLink to="/hotels" className="nav-link">Search</NavLink></li>
+        <li><NavLink to="/hotels" className="nav-link">Search Hotels</NavLink></li>
         <li><NavLink to="/calendar" className="nav-link">Calendar</NavLink></li>
-        <li><NavLink to="/booknow" className="nav-link">Book Now!</NavLink></li>
+        <li><NavLink to="/book-now" className="nav-link">Book Now!</NavLink></li>
         <li><NavLink to="/login" className="nav-link login-btn">Login</NavLink></li>
       <li><NavLink to="/signup" className="nav-link signup-btn">Signup</NavLink></li>
       </ul>

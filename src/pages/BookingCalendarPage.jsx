@@ -20,6 +20,10 @@ const BookingCalendarPage = () => {
     setFormOpen(true);
   };
 
+  const handleCancel = () => {
+    setFormOpen(false);
+  }
+
   return (
     <Box display="flex" height="100vh">
       <Box flexGrow={1} overflow="auto" flexBasis={'70%'}>
@@ -33,7 +37,7 @@ const BookingCalendarPage = () => {
 
       {formOpen && (
         <Box flexGrow={1} overflow="auto" flexBasis={'30%'} bgcolor="background.paper" p={1}>
-          <BookingForm booking={selectedBooking} setFormOpen={setFormOpen} refetchBookings={refetchBookings}/>
+          <BookingForm booking={selectedBooking} refetchBookings={refetchBookings} onCancel={handleCancel} isInlineForm={true}/>
         </Box>
       )}
     </Box>

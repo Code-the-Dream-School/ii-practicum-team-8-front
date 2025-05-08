@@ -19,7 +19,12 @@ const HotelCard = ({ hotel }) => {
   return (
     <StyledHotelCard onClick={() => onImageClick(hotel)} elevation={6}>
       <CardMedia
-        sx={{ width: '100%' }}
+        sx={{ width: '100%', transform: 'scale(0.9)',
+        transition: 'transform 0.3s ease-in-out',
+        '&:hover': {
+            transform: 'scale(1.05)',
+          },  
+        }}
         component="img"
         image={hotel?.max_1440_photo_url}
         alt={hotel?.hotel_name}
