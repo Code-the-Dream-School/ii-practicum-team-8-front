@@ -1,23 +1,21 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Components/Authentication/Login";
+import SignUp from "./Components/Authentication/SignUp";
+import Forgot from "./Components/Authentication/ForgotPassword";
+import ResetPassword from "./Components/Authentication/ResetPassword";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import ProtectedRoutes from "./routers/ProtectedRoutes";
 
-import Login from './components/Authentication/Login';
-import SignUp from './components/Authentication/SignUp';
-import Forgot from './components/Authentication/ForgotPassword';
-import ResetPassword from './components/Authentication/ResetPassword';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import BookNow from "./Pages/BookNow";
+import HotelsPage from "./Pages/HotelsPage";
+import HotelDetailsPage from "./Pages/HotelDetailsPage";
+import NotFound from "./Pages/NotFound";
+import BookingCalendarPage from "./Pages/BookingCalendarPage";
 
-import ProtectedRoutes from './routers/ProtectedRoutes';
-
-import Home from './pages/Home';
-import About from './pages/About';
-import BookNow from './pages/BookNow';
-import HotelsPage from './pages/HotelsPage';
-import HotelDetailsPage from './pages/HotelDetailsPage';
-import NotFound from './pages/NotFound';
-import BookingCalendarPage from './pages/BookingCalendarPage';
-
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
