@@ -119,11 +119,6 @@ function SignUp() {
     }
 
     setFormValid(null);
-    console.log("First Name:" + firstnameInput);
-    console.log("Last Name:" + lastnameInput);
-    console.log("Email:" + emailInput);
-    console.log("Password:" + passwordInput);
-    console.log("Confirmpassword:" + confirmPasswordInput);
 
     //   Call to server to post the data
     const requestBody = {
@@ -135,21 +130,11 @@ function SignUp() {
     registerUser(URL, requestBody);
   };
 
-  //   Call to server to post the data
-  //   const requestBody = {
-  //     firstName: firstnameInput,
-  //     lastName: lastnameInput,
-  //     email: emailInput,
-  //     password: passwordInput,
-  //     confirmPassword: confirmPasswordInput,
-  //   };
-  //   registerUser(URL, requestBody);
   async function registerUser(URL, requestBody) {
     try {
       const myData = await postData(URL, requestBody);
       //setMessage("Signup completed");
       handleClose(myData);
-      console.log(myData);
     } catch (error) {
       setFormValid("Singup failed, please check your input");
       return false;
@@ -170,9 +155,12 @@ function SignUp() {
       const data = {
         token: mydata.token,
         name: mydata.user.name,
+        isLoggedIn: true,
       };
+      navigate("/", { state: data });
+    } else {
+      navigate("/");
     }
-    navigate("/home");
   };
 
   return (
