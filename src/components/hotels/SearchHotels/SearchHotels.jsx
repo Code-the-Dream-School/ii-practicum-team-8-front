@@ -84,12 +84,15 @@ const SearchHotels = (
             xs: '100%',
             sm: '400px',
           },
+          '& .MuiOutlinedInput-root': {
+            paddingRight: 0,
+          },
         }}
         slotProps={{
           input: {
             readOnly: true,
             endAdornment: (
-              <InputAdornment>
+              <InputAdornment position="end">
                 <TravelerInfoDialog
                   setTravelerInfo={setTravelerInfo}
                   travelerInfo={travelerInfo}
