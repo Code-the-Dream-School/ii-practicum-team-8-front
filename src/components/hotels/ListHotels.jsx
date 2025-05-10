@@ -8,7 +8,8 @@ const ListHotels = ({ hotels }) => {
       container
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 3, sm: 8, md: 12, lg: 16 }}
-      margin={2}
+      marginTop={2}
+      marginBottom={2}
       className = 'm-container'
     >
       {hotels?.map((hotel) => (

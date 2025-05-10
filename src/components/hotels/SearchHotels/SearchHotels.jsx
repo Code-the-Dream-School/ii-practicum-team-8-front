@@ -33,14 +33,14 @@ const SearchHotels = (
   const kidsAgeStr = travelerInfo?.kids? `Age(s): ${travelerInfo?.kidsAge?.join(', ')};`: '';
 
   return (
-    <Box
+    <Box className="m-container"
       display="flex"
       gap={2}
       justifyContent="center"
       alignItems="center"
       sx={{
-        my: 2,
-        mx: 2,
+        mt: 4,
+        mb: 4,
         flexDirection: {
           xs: 'column',
           md: 'row',
@@ -102,9 +102,7 @@ const SearchHotels = (
           },
         }}
       />
-      <Button variant="contained" onClick={handleSearch}>
-        Search
-      </Button>
+      <Button variant="contained" sx={{height: "54px"}} onClick={handleSearch}>Search</Button>
     </Box>
   );
 };
