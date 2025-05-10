@@ -9,6 +9,7 @@ const ListHotels = ({ hotels }) => {
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 3, sm: 8, md: 12, lg: 16 }}
       margin={2}
+      className = 'm-container'
     >
       {hotels?.map((hotel) => (
         <Grid key={hotel?.hotel_id} size={{ xs: 3, sm: 4, md: 4 }}>
