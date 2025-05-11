@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 
 import useCalendarApi from '../../hooks/useCalendarApi';
+import { useAuth } from "../../context/AuthContext";
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -22,6 +23,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
+  const { token } = useAuth();
   const {
     deleteBookingData,
     createBookingData,
@@ -84,18 +86,17 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
       numberOfKids: travelerInfo?.kids,
       numberOfRooms: travelerInfo?.rooms,
     };
-    console.log(bookingData);
      
     if (booking?._id) {
       bookingData.bookingId = booking?._id;
-      updateBookingData(bookingData);
+      updateBookingData(bookingData, token);
     } else {
-      createBookingData(bookingData);
+      createBookingData(bookingData, token);
     }
   };
 
   const handleOnDelete = (e) => {
-    deleteBookingData(booking?._id);
+    deleteBookingData(booking?._id, token);
   };
 
   const kidsAgeStr = travelerInfo?.kids
