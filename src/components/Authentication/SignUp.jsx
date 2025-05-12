@@ -21,13 +21,14 @@ import Link from "@mui/material/Link";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
+import { useAuth } from "../../context/AuthContext";
 
 const isName = (name) => /^[a-zA-Z]{2,40}$/.test(name);
 
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
-const URL = `http://localhost:8000/api/v1/auth/register`;
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/register`;
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -149,6 +150,7 @@ function SignUp() {
 
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleClose = (mydata) => {
     if (mydata && mydata.user) {
@@ -157,6 +159,7 @@ function SignUp() {
         name: mydata.user.name,
         isLoggedIn: true,
       };
+      login(mydata.user, mydata.token);
       navigate("/", { state: data });
     } else {
       navigate("/");
