@@ -11,8 +11,10 @@ const AutoCompleteLocation = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       sx={{
-        width: '300px',
-        maxWidth: '90%',
+          width: {
+            xs: '100%',
+            sm: '300px',
+          },
       }}
       renderInput={(params) => (
         <TextField

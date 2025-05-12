@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
+import { useAuth } from '../../context/AuthContext';
 
 const URL = `http://localhost:8000/api/v1/auth/login`;
 
@@ -29,6 +30,7 @@ function Login() {
   const [success, setSuccess] = useState();
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLoginEmail = () => {
     if (!isEmail(emailInput)) {

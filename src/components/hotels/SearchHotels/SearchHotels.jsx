@@ -33,14 +33,14 @@ const SearchHotels = (
   const kidsAgeStr = travelerInfo?.kids? `Age(s): ${travelerInfo?.kidsAge?.join(', ')};`: '';
 
   return (
-    <Box
+    <Box className="m-container"
       display="flex"
       gap={2}
       justifyContent="center"
       alignItems="center"
       sx={{
-        mt: 2,
-        mb: 2,
+        mt: 4,
+        mb: 4,
         flexDirection: {
           xs: 'column',
           md: 'row',
@@ -55,36 +55,54 @@ const SearchHotels = (
         label="Check In"
         value={dayjs(checkIn)}
         onChange={handleCheckInChange}
-        sx={{ width: '300px', maxWidth: '90%',}}
+        sx={{
+          width: {
+            xs: '100%',
+            sm: '300px',
+          },
+        }}
       />
       <DateField
         label="Check Out"
         value={dayjs(checkOut)}
         onChange={handleCheckOutChange}
-        sx={{ width: '300px', maxWidth: '90%',}}
+        sx={{
+          width: {
+            xs: '100%',
+            sm: '300px',
+          },
+        }}
       />
       <TextField
-        label='Traveler Info'
-        variant='outlined'
-        value = {`Adults: ${travelerInfo?.adults||2}; Kids: ${travelerInfo?.kids||0}; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms||1}`}
+        label="Traveler Info"
+        variant="outlined"
+        value={`Adults: ${travelerInfo?.adults || 2}; Kids: ${
+          travelerInfo?.kids || 0
+        }; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms || 1}`}
         sx={{
-          width: '400px',
-          maxWidth: '90%',
+          width: {
+            xs: '100%',
+            sm: '400px',
+          },
+          '& .MuiOutlinedInput-root': {
+            paddingRight: 0,
+          },
         }}
         slotProps={{
           input: {
             readOnly: true,
             endAdornment: (
-              <InputAdornment>
-                <TravelerInfoDialog 
-                    setTravelerInfo={setTravelerInfo} 
-                    travelerInfo={travelerInfo} />
+              <InputAdornment position="end">
+                <TravelerInfoDialog
+                  setTravelerInfo={setTravelerInfo}
+                  travelerInfo={travelerInfo}
+                />
               </InputAdornment>
             ),
           },
         }}
       />
-      <Button variant="contained" onClick={handleSearch}>Search</Button>
+      <Button variant="contained" sx={{height: "54px"}} onClick={handleSearch}>Search</Button>
     </Box>
   );
 };

@@ -17,10 +17,16 @@ const AppliedFilters = ({ searchTerm }) => {
   const travelInfoStr = `Adults: ${adults}; Kids: ${kids}; ${kidsAgeStr} Rooms: ${rooms}`;
 
   return (
-    <Alert severity="info" sx={{ m: 2 }} variant='outlined'>
-      <AlertTitle sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1 }}>Applied Filters:</AlertTitle>
-      <Box display="flex" flexWrap="wrap" gap={2}>
-        <Typography >Location: {city}</Typography>
+    <Alert
+      className='m-container'
+      severity='info'
+      variant='outlined'
+    >
+      <AlertTitle sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1 }}>
+        Applied Filters:
+      </AlertTitle>
+      <Box display='flex' flexWrap='wrap' gap={2}>
+        <Typography>Location: {city}</Typography>
         <Typography>Check-in: {checkIn}</Typography>
         <Typography>Check-out: {checkOut}</Typography>
         <Typography>Traveler info: {travelInfoStr}</Typography>
