@@ -13,7 +13,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from "../../context/AuthContext";
 
 const URL = `http://localhost:8000/api/v1/auth/login`;
 
@@ -97,8 +97,8 @@ function Login() {
         name: mydata.user,
         isLoggedIn: true,
       };
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("isLoggedIn", true);
+
+      login(mydata.user, mydata.token);
       navigate("/", { state: data });
     } else {
       navigate("/");

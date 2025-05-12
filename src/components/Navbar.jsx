@@ -33,10 +33,16 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-brand">
         <FlightTakeoffIcon fontSize="medium" />
-        <NavLink to="/" className="logo">
-          TripOn
-        </NavLink>
-        {/* {isLoggedIn && <h4>Welcome {name}</h4>} */}
+        {!token && (
+          <NavLink to="/" className="logo">
+            TripOn
+          </NavLink>
+        )}
+        {token && (
+          <NavLink to="/" className="logo">
+            Welcome to TripOn,{name}
+          </NavLink>
+        )}
       </div>
 
       <input type="checkbox" id="menu-toggle" className="menu-toggle" />
@@ -45,7 +51,7 @@ const Navbar = () => {
         <span className="hamburger-line"></span>
         <span className="hamburger-line"></span>
       </label>
-      {!isLoggedIn && (
+      {!token && (
         <ul className="nav-links">
           <li>
             <NavLink to="/" className="nav-link">
@@ -75,9 +81,9 @@ const Navbar = () => {
           </li>
         </ul>
       )}
-      {isLoggedIn && (
+      {token && (
         <ul className="nav-links">
-          <h2>Welcome {name}</h2>
+          {/* <h2>Welcome {name}</h2> */}
           <li>
             <NavLink to="/" className="nav-link">
               Home
@@ -99,7 +105,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/booknow" className="nav-link">
+            <NavLink to="/book-now" className="nav-link">
               Book Now!
             </NavLink>
           </li>
