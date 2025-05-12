@@ -14,19 +14,19 @@ const BookingNow = () => {
   const navigate = useNavigate();
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} className='m-container'>
       <Grid
         size={{ xs: 12, sm: 12 }}
         sx={{ textAlign: 'center', justifyContent: 'center' }}
       >
-        <Typography variant="h5" color="primary.main" sx={{ mb: 2 }}>
+        <Typography variant="h5" color="primary.main" sx={{ m: 2 }}>
           Kindred Cottage
         </Typography>
         <RatingBadge rating={5} label="Excellent" reviews={650} />
       </Grid>
 
       <Grid size={{ xs: 12, sm: 12 }}>
-      <Typography variant="body1" sx={{ mb: 2 }}>
+      <Typography variant="body1" sx={{ mb: 2 }} align="justify">
           Kindred Cottage is a lovely home with waterfront to the channel
           leading into First Lake, Fulton Chain. Situated in the Hollywood
           Hills, a short drive into the village. The waterfront with private

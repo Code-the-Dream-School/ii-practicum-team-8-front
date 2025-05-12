@@ -27,7 +27,7 @@ export default function HotelDetailsPage() {
   console.log(hotelDetails);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} className='m-container'>
       <Grid size={{ xs: 12, sm: 12 }} sx={{ width: '100%' }}>
         <Typography variant="h5" color="primary.main" sx={{ mb: 2 }}>
           {hotelDetails?.name}
@@ -66,7 +66,7 @@ export default function HotelDetailsPage() {
             />
           </Box>
           <Box sx={{ width: { xs: '100%', sm: '100%', md: '60%' } }}>
-            <Typography variant="subtitle1">
+            <Typography variant="subtitle1" align="justify">
               {hotelDetails?.description_translations?.[0]?.description}
             </Typography>
           </Box>
