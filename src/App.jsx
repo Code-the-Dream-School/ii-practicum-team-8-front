@@ -1,8 +1,8 @@
-import { lazy } from "react";
+import { lazy, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { ThemeProvider } from "./context/ThemeContext";
-
+import { Box } from "@mui/material";
+import { ThemeProvider, createTheme, CssBaseline, Switch } from "@mui/material";
 import ProtectedRoutes from "./routers/ProtectedRoutes";
 
 import MainLayout from "./layouts/MainLayout";
@@ -17,6 +17,7 @@ import About from "./pages/About";
 import HotelsPage from "./pages/HotelsPage";
 import HotelDetailsPage from "./pages/HotelDetailsPage";
 import NotFound from "./pages/NotFound";
+import { blue } from "@mui/material/colors";
 
 const BookNow = lazy(() => import("./pages/BookNow"));
 const BookingCalendarPage = lazy(() => import("./pages/BookingCalendarPage"));
@@ -48,9 +49,39 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [mode, setMode] = useState("false");
+  const theme = createTheme({
+    palette: {
+      mode: mode ? "dark" : "light",
+    },
+    components: {
+      MuiAutocomplete: {
+        styleOverrides: {
+          paper: {
+            backgroundColor: "fff",
+          },
+        },
+      },
+    },
+  });
+  const toggleColorMode = () => {
+    if (mode) {
+      setMode(false);
+    } else {
+      setMode(true);
+    }
+  };
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <AuthProvider>
+        <Box sx={{ width: "100%:", backgroundColor: " #1378b7cb" }}>
+          <Switch
+            checked={mode}
+            onChange={toggleColorMode}
+            inputProps={{ "aria-label": "controlled" }}
+          />
+        </Box>
         <RouterProvider router={router} />
       </AuthProvider>
     </ThemeProvider>

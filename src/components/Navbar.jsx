@@ -1,10 +1,8 @@
 import React from "react";
-import { useTheme } from "../context/ThemeContext";
 import { NavLink } from "react-router-dom";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -57,15 +55,7 @@ const Navbar = () => {
             Signup
           </NavLink>
         </li>
-        <li>
-          <button
-            onClick={toggleTheme}
-            className="theme-toggle-btn"
-            aria-label="Toggle dark mode"
-          >
-            {theme === "dark" ? "🌙 Dark" : "☀️ Light"}
-          </button>
-        </li>
+        <li></li>
       </ul>
     </nav>
   );
