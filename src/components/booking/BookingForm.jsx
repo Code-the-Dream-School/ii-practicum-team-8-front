@@ -119,7 +119,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
               onClick={handleOnDelete}
               aria-label="delete"
             >
-              <DeleteIcon sx={{ mr: 1}} />
+              <DeleteIcon sx={{ mr: 1 }} />
             </Button>
           </Grid>
         )}
@@ -151,12 +151,15 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
             }; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms || 1}`}
             sx={{
               width: '100%',
+              '& .MuiOutlinedInput-root': {
+                paddingRight: 0,
+              },
             }}
             slotProps={{
               input: {
                 readOnly: true,
                 endAdornment: (
-                  <InputAdornment>
+                  <InputAdornment position="end">
                     <TravelerInfoDialog
                       setTravelerInfo={setTravelerInfo}
                       travelerInfo={travelerInfo}
@@ -193,7 +196,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
         <Grid size={{ xs: 12, sm: 12 }}>
           <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
             {(updatedBooking || createdBooking || deletedBooking) && (
-              <SuccessAlert message='Success' />
+              <SuccessAlert message="Success" />
             )}
           </LoadingWrapper>
         </Grid>
