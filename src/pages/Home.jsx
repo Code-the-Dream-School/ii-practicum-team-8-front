@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from "react";
-import Video from "../Assets/videos1.mp4";
+import Video from "../assets/videos1.mp4";
 import Destination from "../components/Destination";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -8,6 +9,7 @@ const Home = () => {
   const handleGetStarted = () => {
     navigate("/signup");
   };
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState("");
   const [name, setName] = useState("");
@@ -24,6 +26,7 @@ const Home = () => {
       setIsLoggedIn(false);
     }
   }, [data]);
+
 
   return (
     <div className="home-container">
