@@ -13,9 +13,9 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from "../../context/AuthContext";
 
-const URL = `http://localhost:8000/api/v1/auth/login`;
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/login`;
 
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
@@ -84,19 +84,25 @@ function Login() {
       }
       return true;
     } catch (error) {
-      setFormValid(error.message ?? "Invalid email or password, login failed");
+      setFormValid(
+        error.response.data.msg ?? "Invalid email or password, login failed"
+      );
       return false;
     }
   }
   const handleClose = (mydata) => {
     if (mydata && mydata.user) {
-      // const data = {
-      //   token: mydata.token,
-      //   name: mydata.user.name,
-      // };
+      const data = {
+        token: mydata.token,
+        name: mydata.user,
+        isLoggedIn: true,
+      };
+
       login(mydata.user, mydata.token);
+      navigate("/", { state: data });
+    } else {
+      navigate("/");
     }
-    navigate("/home");
   };
 
   const handleLoginClickShowPassword = () => setShowPassword((show) => !show);
@@ -104,6 +110,7 @@ function Login() {
   const handleLoginMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
   return (
     <>
       <Box
