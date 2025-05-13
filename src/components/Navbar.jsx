@@ -83,7 +83,6 @@ const Navbar = () => {
       )}
       {token && (
         <ul className="nav-links">
-          {/* <h2>Welcome {name}</h2> */}
           <li>
             <NavLink to="/" className="nav-link">
               Home
@@ -107,6 +106,11 @@ const Navbar = () => {
           <li>
             <NavLink to="/book-now" className="nav-link">
               Book Now!
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/travel-plans" className="nav-link">
+              Travel Plans
             </NavLink>
           </li>
           <li>

@@ -19,6 +19,7 @@ import NotFound from './pages/NotFound';
 
 const BookNow = lazy(() => import('./pages/BookNow'));
 const BookingCalendarPage = lazy(() => import('./pages/BookingCalendarPage'));
+const TravelPlans = lazy(() => import('./pages/TravelPlans'));
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
         children: [
           { path: 'book-now', element: <BookNow /> },
           { path: 'calendar', element: <BookingCalendarPage /> },
+          { path: 'travel-plans', element: <TravelPlans /> },
         ],
       },
       { path: '*', element: <NotFound /> }
