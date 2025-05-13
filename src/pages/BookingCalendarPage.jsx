@@ -3,14 +3,22 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 
 import useFetchBookingList from '../hooks/useFetchBookingList';
+import { useAuth } from "../context/AuthContext";
 
 import BigCalendar from '../components/calendar/BigCalendar';
 import LoadingWrapper from '../components/loading/LoadingWrapper';
 import BookingForm from '../components/booking/BookingForm';
 
 const BookingCalendarPage = () => {
-  
-  const { data: bookingList, isLoading, isError, error, refetch: refetchBookings } = useFetchBookingList();
+
+  const { user, token } = useAuth();
+  const {
+    data: bookingList,
+    isLoading,
+    isError,
+    error,
+    refetch: refetchBookings,
+  } = useFetchBookingList({ user, token });
 
   const [formOpen, setFormOpen] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState();
@@ -22,11 +30,22 @@ const BookingCalendarPage = () => {
 
   const handleCancel = () => {
     setFormOpen(false);
-  }
+  };
 
   return (
-    <Box display="flex" height="100vh">
-      <Box flexGrow={1} overflow="auto" flexBasis={'70%'}>
+    <Box
+      display="flex"
+      height="100vh"
+      padding={2}
+      gap={1}
+      sx={{
+        flexDirection: {
+          xs: 'column',
+          md: 'row',
+        },
+      }}
+    >
+      <Box flexGrow={1} overflow="auto" sx={{ flexBasis: {xs: '100%', md: '70%'}}} >
         <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
           <BigCalendar
             bookingList={bookingList}
@@ -36,8 +55,17 @@ const BookingCalendarPage = () => {
       </Box>
 
       {formOpen && (
-        <Box flexGrow={1} overflow="auto" flexBasis={'30%'} bgcolor="background.paper" p={1}>
-          <BookingForm booking={selectedBooking} refetchBookings={refetchBookings} onCancel={handleCancel} isInlineForm={true}/>
+        <Box
+          flexGrow={1}
+          bgcolor="background.paper"
+          sx={{ flexBasis: {xs: '100%', md: '30%'}}}
+        >
+          <BookingForm
+            booking={selectedBooking}
+            refetchBookings={refetchBookings}
+            onCancel={handleCancel}
+            isInlineForm={true}
+          />
         </Box>
       )}
     </Box>

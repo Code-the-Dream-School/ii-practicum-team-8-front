@@ -2,6 +2,10 @@ import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 
 const StyledHotelCard = styled(Card)(({ theme }) => ({
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
   transition: 'transform 0.3s ease-in-out',
   '&:hover': {
     cursor: 'pointer',
