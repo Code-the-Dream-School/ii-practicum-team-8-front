@@ -20,6 +20,8 @@ import { postData } from "../../util/index";
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/forgot-password`;
+
 function Forgot() {
   const [emailInput, setEmailInput] = useState("");
 

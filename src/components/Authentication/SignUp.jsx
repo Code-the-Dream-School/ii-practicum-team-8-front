@@ -21,13 +21,14 @@ import Link from "@mui/material/Link";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
+import { useAuth } from "../../context/AuthContext";
 
 const isName = (name) => /^[a-zA-Z]{2,40}$/.test(name);
 
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
-const URL = `http://localhost:8000/api/v1/auth/register`;
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/register`;
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -119,11 +120,6 @@ function SignUp() {
     }
 
     setFormValid(null);
-    console.log("First Name:" + firstnameInput);
-    console.log("Last Name:" + lastnameInput);
-    console.log("Email:" + emailInput);
-    console.log("Password:" + passwordInput);
-    console.log("Confirmpassword:" + confirmPasswordInput);
 
     //   Call to server to post the data
     const requestBody = {
@@ -135,21 +131,11 @@ function SignUp() {
     registerUser(URL, requestBody);
   };
 
-  //   Call to server to post the data
-  //   const requestBody = {
-  //     firstName: firstnameInput,
-  //     lastName: lastnameInput,
-  //     email: emailInput,
-  //     password: passwordInput,
-  //     confirmPassword: confirmPasswordInput,
-  //   };
-  //   registerUser(URL, requestBody);
   async function registerUser(URL, requestBody) {
     try {
       const myData = await postData(URL, requestBody);
       //setMessage("Signup completed");
       handleClose(myData);
-      console.log(myData);
     } catch (error) {
       setFormValid("Singup failed, please check your input");
       return false;
@@ -164,15 +150,20 @@ function SignUp() {
 
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleClose = (mydata) => {
     if (mydata && mydata.user) {
       const data = {
         token: mydata.token,
         name: mydata.user.name,
+        isLoggedIn: true,
       };
+      login(mydata.user, mydata.token);
+      navigate("/", { state: data });
+    } else {
+      navigate("/");
     }
-    navigate("/home");
   };
 
   return (

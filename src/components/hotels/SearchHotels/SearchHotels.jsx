@@ -55,30 +55,48 @@ const SearchHotels = (
         label="Check In"
         value={dayjs(checkIn)}
         onChange={handleCheckInChange}
-        sx={{ width: '300px', maxWidth: '90%',}}
+        sx={{
+          width: {
+            xs: '100%',
+            sm: '300px',
+          },
+        }}
       />
       <DateField
         label="Check Out"
         value={dayjs(checkOut)}
         onChange={handleCheckOutChange}
-        sx={{ width: '300px', maxWidth: '90%',}}
+        sx={{
+          width: {
+            xs: '100%',
+            sm: '300px',
+          },
+        }}
       />
       <TextField
-        label='Traveler Info'
-        variant='outlined'
-        value = {`Adults: ${travelerInfo?.adults||2}; Kids: ${travelerInfo?.kids||0}; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms||1}`}
+        label="Traveler Info"
+        variant="outlined"
+        value={`Adults: ${travelerInfo?.adults || 2}; Kids: ${
+          travelerInfo?.kids || 0
+        }; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms || 1}`}
         sx={{
-          width: '400px',
-          maxWidth: '90%',
+          width: {
+            xs: '100%',
+            sm: '400px',
+          },
+          '& .MuiOutlinedInput-root': {
+            paddingRight: 0,
+          },
         }}
         slotProps={{
           input: {
             readOnly: true,
             endAdornment: (
-              <InputAdornment>
-                <TravelerInfoDialog 
-                    setTravelerInfo={setTravelerInfo} 
-                    travelerInfo={travelerInfo} />
+              <InputAdornment position="end">
+                <TravelerInfoDialog
+                  setTravelerInfo={setTravelerInfo}
+                  travelerInfo={travelerInfo}
+                />
               </InputAdornment>
             ),
           },
