@@ -1,11 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import { NavLink } from 'react-router-dom';
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+import Toggle from './Toggle';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
+        <Toggle />
         <FlightTakeoffIcon fontSize="medium" />
         <NavLink to="/" className="logo">
           TripOn
