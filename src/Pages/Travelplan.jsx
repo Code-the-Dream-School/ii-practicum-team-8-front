@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
-    const TravelplanForm = () =>{
+    const Travelplan = () =>{    
     const [formData, setFormData] = useState({
         destination: '',
-        arrivalDate: '', 
-        departureDate: '',
-        travelers: 1,
-        budgetLevel: '',
-        interests: '',
-        accommodationType:'',
-        transportation:'',
-        dietaryRestrictions:'',
-        specialRequirements:''
+        startDate: '', 
+        endDate: '',
+        travelers: '',
+        numberOfAdults: '',
+        numberOfKids:'',
+        budget: '',
+        interests: ['Nature & Adventure", "Culture & History'],
+        customPreferences:'',
+        
 
 });
     const [isLoading, setIsLoading] = useState(false);
@@ -19,14 +19,21 @@ import React, { useState } from 'react';
     const [responseData, setResponseData] = useState(null);
 
         const interestoptions =[
-                'Beach', 'Food', 'Sport', 'Nature', 'Cultural', 
-                'Historical','Shopping','Relax','Spiritual'
+                 'Food & Drink',
+                 'Seasonal & Sports', 
+                 'Nature & Adventure',  
+                 'Culture & Historical',
+                 'Shopping & Urban',
+                 'Leisure & Relaxation',
+                 'Entertainment & Nightlife',
+                 'Well-being & Spiritual',
         ];
 
         const budgetoptions = [
-          { value: 'low', label: 'Low ($500)' },
-          { value: 'medium', label: 'Medium ($2500)'},
-          { value: 'high', label: 'High  ($5000)' }
+          { value: 'free', label: 'Free' },
+          { value: 'economy', label: 'Economy'},
+          { value: 'moderate', label: 'Moderate' },
+          { value: 'luxury', label: 'Luxury' }
       ];
         const handleChange = (e) => {
                 const { name,value } = e.target;
@@ -49,7 +56,7 @@ import React, { useState } from 'react';
         
          
         try {
-                const response = await fetch ('https://api.com /travelplans',{
+                const response = await fetch ('https://:api.comtravelplans',{
                         method: 'POST',
                         headers: {
                          'Content-Type':'application/json',
@@ -74,7 +81,7 @@ import React, { useState } from 'react';
      const fetchtravelplans = async () => {
         setIsLoading(true);
         try {
-                const response = await fetch('https://api.com /travelplans');
+                const response = await fetch('https://api.com/travelplans');
                 if (!response.ok) {
                         throw new Error(`HTTP error! status:${response.status}`);
                 }
@@ -91,7 +98,7 @@ import React, { useState } from 'react';
         return(
                 <div className='travel-plan-form'>
                         <h2>Create Your perfect travel Plan</h2>
-                        {error && <div className='error- message'>error</div>}
+                        {error && <div className='error-message'>{error}</div>}
                         {responseData &&(
                                 <div className='success-message'>
                              plan created successfully! ID:{responseData.id}
@@ -112,46 +119,52 @@ import React, { useState } from 'react';
 
                    <div className = 'form-row'>
                         <div className='form-group'>
-                        <label htmlFor='arrivalDate'>Arrival Date</label>
+                        <label htmlFor='startDate'> Start Date</label>
                         <input 
-                        id='arrivalDate'
+                        id='startDate'
                         type='date'
-                        name='arrivalDate' 
-                        value={formData.arrivalDate}
+                        name='startDate' 
+                        value={formData.startDate}
                         onChange={handleChange}
                         required
                         />
                    </div>
                     <div className = 'form-group'>
-                        <label htmlFor='departureDate'>Departure Date</label>
+                        <label htmlFor='endDate'>End Date</label>
                         <input
-                        id='departureDate'
+                        id='endDate'
                         type='date'
-                        name='departureDate' 
-                        value={formData.departureDate}
+                        name='endDate' 
+                        value={formData.endDate}
                         onChange={handleChange}
                         required
                         />
                         </div>
                    </div>
-         <div className = 'form-group'>
-        <label htmlFor='travelers'>Number of Travelers</label>
-          <input
-                id='travelers' 
-                type='number'
-                name='travelers' 
-                min= '1'
-                max= '15'
-                value={formData.travelers}
-                onChange={handleChange}
-                required
-                        />
+                   <div className="form-group">
+        <label htmlFor='travelers'>Number of Travelers:</label>
+        <input 
+        type='number' 
+        id='travelers' 
+        name='travelers' 
+        min='1' 
+        max='15' 
+        value= {formData.travelers} 
+        onChange={handleChange}
+        required
+      />
+        </div>
+         
         <div className="form-group">
         <label htmlFor="numberOfAdults">Number of Adults:</label>
         <input 
-        type="number" id="numberOfAdults" 
-        name="numberOfAdults" min="1" max="15" 
-        value= {formData.numberOfAdults} 
+        type="number" 
+        id="numberOfAdults" 
+        name="numberOfAdults" 
+        min="1" 
+        max="15" 
+        value= {formData.numberOfAdults}
+        onChange={handleChange}
         required
       />
         </div>
@@ -162,17 +175,23 @@ import React, { useState } from 'react';
     type="number" 
     id="numberOfKids" 
     name="numberOfKids" 
-    min="0" max="15" 
-    value={formData.numberOfKids}/>
+    min="0" 
+    max="15" 
+    value={formData.numberOfKids}
+    onChange={handleChange}
+      required
+    />
+    
            </div>
-        </div>
+           
+        
 
                    <div className = 'form-group'>
-                        <label htmlFor='budgetLevel'>Budget Level</label>
+                        <label htmlFor='budget'>Budget</label>
                         <select
-                         id='budgetLevel'
-                        name='budgetLevel' 
-                        value={formData.budgetLevel}
+                         id='budget'
+                        name='budget' 
+                        value={formData.budget}
                         onChange={handleChange}
                         required
                         >
@@ -198,54 +217,18 @@ import React, { useState } from 'react';
                                </button>
                                 ))}
                         </div>
-                        
                         </div>
-      <div className='form-row'>
- <div className='form-group'>
-    <label htmlFor='accommodationType'> Accommodation Type</label>
-    <select
-    id='accommodationType' 
-    name='accommodationType'
-    value={formData.accommodationType}
-    onChange={handleChange}
-    >
-       <option value='hotel'>Hotel</option>
-         <option value='hostel'>Hostel </option>
-         <option value='apartment'> Apartment</option>  
-         <option value='resort'> Resort</option>  
-         <option value='bed and breakfast'> Bed & Breakfast</option>
-    </select>
-     </div>
- 
- 
-        <div className='form-group'>
-    <label htmlFor='transportation'> Transportation</label>
-    <select 
-    id='transportation'
-    name='transportation'
-    value={formData.transportation}
-    onChange={handleChange}
-    >
-       <option value='flight'>Filght</option>
-         <option value='Train'>Train</option>
-         <option value='car'> Car</option>  
-         <option value='bus'> Bus</option>  
-         <option value='cruise'>Cruise </option>
-      </select>
-        </div>
-        </div>
-    <div className='form-group'>
-    <label> Dietary Restriction(if any)</label>
-    <input
-    type='text'
-    name='dietaryRestrictions'
-    value={formData.dietaryRestrictions}
-    onChange={handleChange}
-    placeholder='Type'
-    />
-   </div>
-   
-    <button type='submit' className='submit-btn' disabled={isLoading}>
+                        <div className='form-group'>
+                <label >Custom Preferences</label>
+                <textarea
+                    name='customPreferences'
+                    value={formData.customPreferences}
+                    onChange={handleChange}
+                    rows='3'
+                />
+            </div>
+
+       <button type='submit' className='submit-btn' disabled={isLoading}>
        { isLoading ? 'submitting...': 'Create Travel plan'}
     </button>
       
@@ -253,4 +236,4 @@ import React, { useState } from 'react';
         </div>
         );
 };
-export default TravelplanForm;
+export default Travelplan;

@@ -6,9 +6,7 @@ import Forgot from './components/Authentication/ForgotPassword';
 import ResetPassword from './components/Authentication/ResetPassword';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
 import ProtectedRoutes from './routers/ProtectedRoutes';
-
 import Home from './pages/Home';
 import About from './pages/About';
 import BookNow from './pages/BookNow';
@@ -16,15 +14,15 @@ import HotelsPage from './pages/HotelsPage';
 import HotelDetailsPage from './pages/HotelDetailsPage';
 import NotFound from './pages/NotFound';
 import BookingCalendarPage from './pages/BookingCalendarPage';
-import TravelPlanForm from './Pages/TravelplanForm';
-
+import Travelplan from './Pages/Travelplan';
 import './App.css';
-import TravelplanForm from './Pages/TravelplanForm';
+
+
+
+
 
 function App() {
-  const handleSubmit = (formData) => {
-    console.log('Form submitted:', formData);
-  }
+  
   return (
     <div className="app">
       
@@ -37,7 +35,7 @@ function App() {
             <Route element={<ProtectedRoutes />} />
             <Route path="home" element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="travelplanform" element={<TravelplanForm />} />
+            <Route path="travelplan" element={<Travelplan/>} />
             <Route path="book-now" element={<BookNow />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="login" element={<Login />} />
