@@ -19,7 +19,7 @@ import NotFound from './pages/NotFound';
 
 const BookNow = lazy(() => import('./pages/BookNow'));
 const BookingCalendarPage = lazy(() => import('./pages/BookingCalendarPage'));
-
+import Travelplan from './Pages/Travelplan';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -28,6 +28,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'home', element: <Home /> },
       { path: 'about', element: <About /> },
+      { path: 'travelplan', element: <Travelplan />},
       { path: 'signup', element: <SignUp /> },
       { path: 'login', element: <Login /> },
       { path: 'forgotpassword', element: <Forgot /> },
@@ -46,7 +47,12 @@ const router = createBrowserRouter([
   }
 ]);
 
+
+
+
+
 function App() {
+  
   return (
     <AuthProvider>
       <RouterProvider router={router} />
