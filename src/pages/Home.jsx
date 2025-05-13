@@ -1,14 +1,14 @@
-import React from 'react';
-import Video from '../Assets/videos1.mp4';
-import Destination from '../components/Destination';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import Video from "../assets/videos1.mp4";
+import Destination from "../components/Destination";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
   const handleGetStarted = () => {
-    navigate('/signup'); 
+    navigate("/signup");
   };
-  
+
   return (
     <div className="home-container">
       <div className="video-container">
