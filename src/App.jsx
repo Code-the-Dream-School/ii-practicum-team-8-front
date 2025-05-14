@@ -16,6 +16,7 @@ import About from './pages/About';
 import HotelsPage from './pages/HotelsPage';
 import HotelDetailsPage from './pages/HotelDetailsPage';
 import NotFound from './pages/NotFound';
+import Travelplan from './Pages/Travelplan';
 
 const BookNow = lazy(() => import('./pages/BookNow'));
 const BookingCalendarPage = lazy(() => import('./pages/BookingCalendarPage'));
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'home', element: <Home /> },
       { path: 'about', element: <About /> },
+      { path: 'travelplan', element: <Travelplan /> },
       { path: 'signup', element: <SignUp /> },
       { path: 'login', element: <Login /> },
       { path: 'forgotpassword', element: <Forgot /> },
@@ -43,9 +45,9 @@ const router = createBrowserRouter([
           { path: 'travel-plans', element: <TravelPlans /> },
         ],
       },
-      { path: '*', element: <NotFound /> }
-    ]
-  }
+      { path: '*', element: <NotFound /> },
+    ],
+  },
 ]);
 
 function App() {
