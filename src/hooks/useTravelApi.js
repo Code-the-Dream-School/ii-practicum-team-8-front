@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { deleteTravelPlan, updateTravelPlan, createTravelPlan} from '../util/apiTravelPlan';
+import { deleteTravelPlan, updateTravelPlan, createTravelPlan, getTravelPlan} from '../util/apiTravelPlan';
 
 const useTravelApi = () => {
 
@@ -10,12 +10,32 @@ const useTravelApi = () => {
   const [createdTravelPlan, setCreatedTravelPlan] = useState();
   const [updatedTravelPlan, setUpdatedTravelPlan] = useState();
   const [deletedTravelPlan, setDeletedTravelPlan] = useState();
+  const [ travelPlanById, setTravelPlanById] = useState();
 
   const deleteTravelPlanData = async (travelPlanId, token) => {
     setIsLoading(true);
     try {
       const res = await deleteTravelPlan(travelPlanId, token);
       setDeletedTravelPlan(res);
+      setIsError(false);
+    } catch (err) {
+      setIsError(true);
+      setError({
+        message: err?.message || 'Something went wrong',
+        status: err?.response?.status,
+        statusText: err?.response?.statusText,
+        data: err?.response?.data,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getTravelPlanData = async (travelPlanId, token) => {
+    setIsLoading(true);
+    try {
+      const res = await getTravelPlan(travelPlanId, token);
+      setTravelPlanById(res);
       setIsError(false);
     } catch (err) {
       setIsError(true);
@@ -75,9 +95,11 @@ const useTravelApi = () => {
     deleteTravelPlanData,
     createTravelPlanData,
     updateTravelPlanData,
+    getTravelPlanData,
     deletedTravelPlan,
     updatedTravelPlan,
     createdTravelPlan,
+    travelPlanById,
   };
 };
 

@@ -80,8 +80,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/travel-plans" className="footer-link">
-                  Travel Plans
+                <Link to="/planner" className="footer-link">
+                  Trip Planner
                 </Link>
               </li>
               <li>

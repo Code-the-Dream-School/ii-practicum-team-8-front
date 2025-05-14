@@ -1,22 +1,17 @@
 import dayjs from 'dayjs';
-
 import { useState, useEffect } from 'react';
-
 import useCalendarApi from '../../hooks/useCalendarApi';
 import { useAuth } from "../../context/AuthContext";
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
-
 import DateField from '../shared/DateField';
 import TravelerInfoDialog from '../hotels/SearchHotels/TravelerInfoDialog';
 import LoadingWrapper from '../loading/LoadingWrapper';
 import SuccessAlert from '../alerts/SuccessAlert';
-
 import AddIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
