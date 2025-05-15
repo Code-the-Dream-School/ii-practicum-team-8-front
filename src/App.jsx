@@ -22,6 +22,7 @@ const BookNow = lazy(() => import('./pages/BookNow'));
 const BookingCalendarPage = lazy(() => import('./pages/BookingCalendarPage'));
 const TravelPlanner = lazy(() => import('./pages/TravelPlanner'));
 const ActivitiesDetails = lazy(() => import('./pages/ActivitiesDetails'));
+const UpdateTravelPlan = lazy(() => import('./components/planner/UpdateTravelPlan'));
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
           { path: 'calendar', element: <BookingCalendarPage /> },
           { path: 'planner', element: <TravelPlanner /> },
           { path: 'planner/:travelPlanId', element: <ActivitiesDetails /> },
+          { path: 'planner/update/:travelPlanId', element: <UpdateTravelPlan /> },
         ],
       },
       { path: '*', element: <NotFound /> },

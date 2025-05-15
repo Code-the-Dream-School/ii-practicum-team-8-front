@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -25,7 +26,11 @@ const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
 
   const handleOnView = () => {
     navigate(`${plan?._id}`);
-  }
+  };
+
+  const handleOnEdit = () => {
+     navigate(`update/${plan?._id}`);
+  };
 
   return (
     <Card sx={{ maxWidth: 400, borderRadius: 4, boxShadow: 4, p: 2 }}>
@@ -48,8 +53,8 @@ const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
 
         <Typography variant="body2" color="text.secondary">
           <DateRangeIcon />
-          {new Date(plan?.startDate).toLocaleDateString('en-US')} -{' '}
-          {new Date(plan?.endDate).toLocaleDateString('en-US')}
+          {dayjs(plan?.startDate).format('MM/DD/YYYY')} -{' '}
+          {dayjs(plan?.endDate).format("MM/DD/YYYY")}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
@@ -71,6 +76,9 @@ const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
         </Stack>
       </CardContent>
       <CardActions sx={{ justifyContent: 'flex-end' }}>
+        <Button size="small" variant="outlined" onClick={handleOnEdit}>
+          Edit
+        </Button>
         <Button size="small" variant="contained" onClick={handleOnView}>
           View
         </Button>
