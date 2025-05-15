@@ -1,6 +1,8 @@
-import { getAllData, deleteData, postData, updateData } from './index';
+import { getAllData, deleteData, postData, updateData, getData } from './index';
 
-const endpointTravelPlans = `${import.meta.env.VITE_APP_API_URL}/api/v1/travelplans`;
+const endpointTravelPlans = `${
+  import.meta.env.VITE_APP_API_URL
+}/api/v1/travelplans`;
 
 const getAuthHeaders = (token) => {
   if (!token) {
@@ -18,6 +20,16 @@ const getAllTravelPlans = async (token) => {
     return {};
   }
   return res;
+};
+
+const getTravelPlan = async (travelPlanId, token) => {
+  const res = await getData(
+    `${endpointTravelPlans}/${travelPlanId}`,
+    {},
+    getAuthHeaders(token)
+  );
+
+  return res || {};
 };
 
 const deleteTravelPlan = async (travelPlanId, token) => {
@@ -50,4 +62,10 @@ const createTravelPlan = async (travelPlan, token) => {
   return res || {};
 };
 
-export { getAllTravelPlans, deleteTravelPlan, updateTravelPlan, createTravelPlan };
+export {
+  getAllTravelPlans,
+  getTravelPlan,
+  deleteTravelPlan,
+  updateTravelPlan,
+  createTravelPlan,
+};
