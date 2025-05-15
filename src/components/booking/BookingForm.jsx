@@ -114,6 +114,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
               color="error"
               onClick={handleOnDelete}
               aria-label="delete"
+              disabled={isLoading}
             >
               <DeleteIcon sx={{ mr: 1 }} />
             </Button>
@@ -176,7 +177,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
           >
             <CancelIcon /> Cancel
           </Button>
-          <Button type="submit" variant="contained" size="large">
+          <Button type="submit" variant="contained" size="large" disabled={isLoading}>
             {booking?._id ? (
               <>
                 <EditIcon /> Update
