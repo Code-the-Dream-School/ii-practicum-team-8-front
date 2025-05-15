@@ -1,25 +1,21 @@
 import { useState } from 'react';
-import {
-  deleteBooking,
-  updateBooking,
-  createBooking,
-} from '../util/apiCalendar';
+import { deleteTravelPlan, updateTravelPlan, createTravelPlan} from '../util/apiTravelPlan';
 
-const useCalendarApi = () => {
+const useTravelApi = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState({});
 
-  const [createdBooking, setCreatedBooking] = useState();
-  const [updatedBooking, setUpdatedBooking] = useState();
-  const [deletedBooking, setDeletedBooking] = useState();
+  const [createdTravelPlan, setCreatedTravelPlan] = useState();
+  const [updatedTravelPlan, setUpdatedTravelPlan] = useState();
+  const [deletedTravelPlan, setDeletedTravelPlan] = useState();
 
-  const deleteBookingData = async (bookingId, token) => {
+  const deleteTravelPlanData = async (travelPlanId, token) => {
     setIsLoading(true);
     try {
-      const res = await deleteBooking(bookingId, token);
-      setDeletedBooking(res);
+      const res = await deleteTravelPlan(travelPlanId, token);
+      setDeletedTravelPlan(res);
       setIsError(false);
     } catch (err) {
       setIsError(true);
@@ -34,11 +30,11 @@ const useCalendarApi = () => {
     }
   };
 
-  const createBookingData = async (booking, token) => {
+  const createTravelPlanData = async (travelPlan, token) => {
     setIsLoading(true);
     try {
-      const res = await createBooking(booking, token);
-      setCreatedBooking(res);
+      const res = await createTravelPlan(travelPlan, token);
+      setCreatedTravelPlan(res);
       setIsError(false);
     } catch (err) {
       setIsError(true);
@@ -53,11 +49,11 @@ const useCalendarApi = () => {
     }
   };
 
-  const updateBookingData = async (booking, token) => {
+  const updateTravelPlanData = async (travelPlan, token) => {
     setIsLoading(true);
     try {
-      const res = await updateBooking(booking, token);
-      setUpdatedBooking(res);
+      const res = await updateTravelPlan(travelPlan, token);
+      setUpdatedTravelPlan(res);
       setIsError(false);
     } catch (err) {
       setIsError(true);
@@ -76,13 +72,13 @@ const useCalendarApi = () => {
     isLoading,
     isError,
     error,
-    deleteBookingData,
-    createBookingData,
-    updateBookingData,
-    deletedBooking,
-    updatedBooking,
-    createdBooking,
+    deleteTravelPlanData,
+    createTravelPlanData,
+    updateTravelPlanData,
+    deletedTravelPlan,
+    updatedTravelPlan,
+    createdTravelPlan,
   };
 };
 
-export default useCalendarApi;
+export default useTravelApi;
