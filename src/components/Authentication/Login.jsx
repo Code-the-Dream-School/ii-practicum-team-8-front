@@ -42,7 +42,7 @@ function Login() {
   const handleLoginPassword = () => {
     if (
       !passwordInput ||
-      passwordInput.length < 5 ||
+      passwordInput.length < 8 ||
       passwordInput.length > 15
     ) {
       setPasswordError(true);
@@ -62,7 +62,7 @@ function Login() {
 
     if (passwordError || !passwordInput) {
       setFormValid(
-        "Password should be in 5-15 characters.Please Re-Enter Password"
+        "Password should be in 8-15 characters.Please Re-Enter Password"
       );
       setFormValid("Please enter Password");
       return;
@@ -127,15 +127,7 @@ function Login() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -170,8 +162,8 @@ function Login() {
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
-              width: 400,
+              gap: 3,
+              width: 350,
               height: 1,
             }}
           >
@@ -194,22 +186,10 @@ function Login() {
             <TextField
               sx={{
                 fontSize: ".2rem",
-                backgroundColor: "white",
-                borderColor: "#0E67E4",
-                borderRadius: "1rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-                    //fontSize: "18px",
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -218,11 +198,7 @@ function Login() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
-                },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
                 },
               }}
               id="email"
@@ -235,15 +211,13 @@ function Login() {
               fullWidth
               size="small"
               required
-              //   InputProps={{ disableUnderline: true }}
             />
 
             <TextField
               sx={{
-                backgroundColor: "white",
-                borderRadius: "1rem",
+                fontSize: ".2rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -254,11 +228,10 @@ function Login() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={passwordError}
@@ -282,7 +255,6 @@ function Login() {
                     </IconButton>
                   </InputAdornment>
                 ),
-                // disableUnderline: true,
               }}
             />
             <Typography>
@@ -323,6 +295,7 @@ function Login() {
           </DialogContent>
         </Dialog>
       </Box>
+      {/* </ThemeProvider> */}
     </>
   );
 }

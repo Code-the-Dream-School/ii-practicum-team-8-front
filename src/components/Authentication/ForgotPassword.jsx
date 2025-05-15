@@ -34,7 +34,7 @@ function Forgot() {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   const handleLoginEmail = () => {
@@ -48,11 +48,9 @@ function Forgot() {
     e.preventDefault();
 
     if (emailError || !emailInput) {
-      setFormValid("Please enter Email");
+      setFormValid("Please enter valid Email");
       return;
     }
-
-    console.log("Email:" + emailInput);
     setFormValid(null);
   };
   return (
@@ -71,15 +69,7 @@ function Forgot() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -114,7 +104,7 @@ function Forgot() {
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
+              gap: 4,
               width: 400,
               height: 1,
             }}
@@ -134,22 +124,10 @@ function Forgot() {
             <TextField
               sx={{
                 fontSize: ".2rem",
-                backgroundColor: "white",
-                borderColor: "#0E67E4",
-                borderRadius: "1rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -158,11 +136,7 @@ function Forgot() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
-                },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
                 },
               }}
               id="email"
@@ -184,9 +158,20 @@ function Forgot() {
             >
               Send reset Link
             </Button>
-            <Link href="/login" variant="h6" style={{ color: "#0E67E4" }}>
+
+            <Link
+              href="/login"
+              variant="h6"
+              sx={{
+                color: "#0E67E4",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               Back to Login
             </Link>
+
             <Typography component={"div"}>
               {formValid && (
                 <Alert

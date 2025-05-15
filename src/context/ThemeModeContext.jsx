@@ -1,7 +1,7 @@
-import { createContext, useContext } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import useStorageState from '../hooks/useStorageState';
+import { createContext, useContext } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import useStorageState from "../hooks/useStorageState";
 
 const ThemeModeContext = createContext();
 
@@ -13,7 +13,17 @@ export const ThemeModeProvider = ({ children }) => {
 
   const theme = createTheme({
     palette: {
-      mode: darkMode ? 'dark' : 'light',
+      mode: darkMode ? "dark" : "light",
+    },
+
+    components: {
+      MuiFormLabel: {
+        styleOverrides: {
+          root: ({ theme }) => ({
+            color: theme.palette.mode === "dark" ? "#ffffff" : "#000000", // label text color
+          }),
+        },
+      },
     },
   });
 

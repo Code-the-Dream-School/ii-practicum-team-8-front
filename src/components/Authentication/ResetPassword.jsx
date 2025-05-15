@@ -34,7 +34,7 @@ function ResetPassword() {
   const handleNewPassword = () => {
     if (
       !newPasswordInput ||
-      newPasswordInput.length < 5 ||
+      newPasswordInput.length < 8 ||
       newPasswordInput.length > 15
     ) {
       setPasswordError(true);
@@ -46,7 +46,7 @@ function ResetPassword() {
   const handleConfirmPassword = () => {
     if (
       !confirmPassword ||
-      confirmPassword.length < 5 ||
+      confirmPassword.length < 8 ||
       confirmPassword.length > 15
     ) {
       setConfirmPasswordError(true);
@@ -104,15 +104,7 @@ function ResetPassword() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -144,7 +136,6 @@ function ResetPassword() {
               color: "0E67E4",
               display: "flex",
               flexWrap: "wrap",
-              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               gap: 10,
@@ -154,10 +145,8 @@ function ResetPassword() {
           >
             <TextField
               sx={{
-                backgroundColor: "white",
-                borderRadius: "1rem",
+                fontSize: ".2rem",
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -169,11 +158,7 @@ function ResetPassword() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
-                },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
                 },
               }}
               error={passwordError}
@@ -201,10 +186,9 @@ function ResetPassword() {
             />
             <TextField
               sx={{
-                backgroundColor: "white",
-                borderRadius: "1rem",
+                fontSize: ".2rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -215,11 +199,11 @@ function ResetPassword() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
+
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={confirmPasswordError}
