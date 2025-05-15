@@ -72,6 +72,11 @@ const Navbar = () => {
               Search Hotels
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/travelplan" className="nav-link">
+              Travel Plan
+            </NavLink>
+          </li>
 
           <li>
             <NavLink to="/login" className="nav-link login-btn">
