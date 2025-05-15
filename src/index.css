@@ -1,6 +1,6 @@
 :root {
-  --color-bg: #f7f9fa;
-  --color-text: #1a1a1a;
+  --color-bg: #ffffff;
+  --color-text: #000000;
   --color-primary: #1378b7cb;
   --color-navbar-bg: #1378b7cb;
   --color-navbar-text: #fff;
@@ -12,7 +12,7 @@ body {
 }
 
 body.dark-mode {
-  --color-bg: #181a1b;
+  --color-bg: #000000;
   --color-text: #ffffff;
   --color-primary: #1965e0;
   --color-navbar-bg: #1b51bf;

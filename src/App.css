@@ -40,16 +40,16 @@
 
 body {
   background-color: #f0f0f0;
-  color: #383535;
+  color: #000000;
 }
 
-.light-mode {
+body.light-mode {
   background-color: #ffffff;
   color: #000000;
 }
 
-.body.dark-mode {
-  background-color: #121212;
+body.dark-mode {
+  background-color: #000000;
   color: #ffffff;
 }
 .dark-mode .highlight {
