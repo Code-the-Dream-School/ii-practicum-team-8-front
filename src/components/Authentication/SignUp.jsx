@@ -28,6 +28,9 @@ const isName = (name) => /^[a-zA-Z]{2,40}$/.test(name);
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
+const isPassword = (password) =>
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password);
+
 const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/register`;
 
 function SignUp() {
@@ -71,8 +74,8 @@ function SignUp() {
 
   const handlePassword = () => {
     if (
-      !passwordInput ||
-      passwordInput.length < 5 ||
+      !isPassword(passwordInput) ||
+      passwordInput.length < 8 ||
       passwordInput.length > 15
     ) {
       setPasswordError(true);
@@ -82,8 +85,8 @@ function SignUp() {
   };
   const handleConfirmPassword = () => {
     if (
-      !confirmPasswordInput ||
-      confirmPasswordInput.length < 5 ||
+      !isPassword(confirmPasswordInput) ||
+      confirmPasswordInput.length < 8 ||
       confirmPasswordInput.length > 15
     ) {
       setConfirmPasswordError(true);
@@ -109,7 +112,7 @@ function SignUp() {
     }
     if (passwordError || !passwordInput) {
       setFormValid(
-        "Password should be in 5-15 characters.Please enter Password"
+        "Password should be in 8-15 characters.Please enter Password"
       );
       return;
     }
@@ -137,7 +140,9 @@ function SignUp() {
       //setMessage("Signup completed");
       handleClose(myData);
     } catch (error) {
-      setFormValid("Singup failed, please check your input");
+      setFormValid(
+        error.response.data.msg ?? "Singup failed, please check your input"
+      );
       return false;
     }
     return true;
@@ -182,15 +187,7 @@ function SignUp() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -250,12 +247,6 @@ function SignUp() {
                 "& .MuiInputBase-input": {
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -263,12 +254,8 @@ function SignUp() {
                   fontWeight: "100",
                   lineHeight: "1em",
                 },
-                // "& .MuiFilledInput-root": {
-                //   backgroundColor: "white",
-                //   borderRadius: "1rem ",
-                // },
+
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
@@ -285,27 +272,14 @@ function SignUp() {
               fullWidth
               size="small"
               required
-              //   InputProps={{ disableUnderline: true }}
             />
             <TextField
               sx={{
                 fontSize: ".2rem",
-                backgroundColor: "white",
-                borderColor: "#0E67E4",
-                borderRadius: "1rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-                    //fontSize: "18px",
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -314,7 +288,6 @@ function SignUp() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
@@ -336,22 +309,10 @@ function SignUp() {
             <TextField
               sx={{
                 fontSize: ".2rem",
-                backgroundColor: "white",
-                borderColor: "#0E67E4",
-                borderRadius: "1rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-                    //fontSize: "18px",
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -360,7 +321,6 @@ function SignUp() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
@@ -377,15 +337,12 @@ function SignUp() {
               fullWidth
               size="small"
               required
-              //   InputProps={{ disableUnderline: true }}
             />
 
             <TextField
               sx={{
-                backgroundColor: "white",
                 borderRadius: "1rem",
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -396,11 +353,13 @@ function SignUp() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
                   borderColor: "#0E67E4",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={passwordError}
@@ -424,15 +383,12 @@ function SignUp() {
                     </IconButton>
                   </InputAdornment>
                 ),
-                // disableUnderline: true,
               }}
             />
             <TextField
               sx={{
-                backgroundColor: "white",
                 borderRadius: "1rem",
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -443,11 +399,13 @@ function SignUp() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
                   borderColor: "#0E67E4",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={confirmPasswordError}

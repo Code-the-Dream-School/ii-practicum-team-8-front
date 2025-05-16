@@ -1,15 +1,15 @@
-import { lazy } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { lazy } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
-import ProtectedRoutes from './routers/ProtectedRoutes';
+import ProtectedRoutes from "./routers/ProtectedRoutes";
 
-import MainLayout from './layouts/MainLayout';
+import MainLayout from "./layouts/MainLayout";
 
-import Login from './components/Authentication/Login';
-import SignUp from './components/Authentication/SignUp';
-import Forgot from './components/Authentication/ForgotPassword';
-import ResetPassword from './components/Authentication/ResetPassword';
+import Login from "./components/Authentication/Login";
+import SignUp from "./components/Authentication/SignUp";
+import Forgot from "./components/Authentication/ForgotPassword";
+import ResetPassword from "./components/Authentication/ResetPassword";
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -28,7 +28,7 @@ const Travelplan = lazy(() => import('./Pages/Travelplan'));
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       { path: 'signup', element: <SignUp /> },
       { path: 'login', element: <Login /> },
       { path: 'forgotpassword', element: <Forgot /> },
-      { path: 'reset-password', element: <ResetPassword /> },
+      { path: "reset-password/:token", element: <ResetPassword /> },
       { path: 'hotels', element: <HotelsPage /> },
       { path: 'hotels/:hotelId', element: <HotelDetailsPage /> },
       {

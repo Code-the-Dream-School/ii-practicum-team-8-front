@@ -127,15 +127,7 @@ function Login() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -194,22 +186,10 @@ function Login() {
             <TextField
               sx={{
                 fontSize: ".2rem",
-                backgroundColor: "white",
-                borderColor: "#0E67E4",
-                borderRadius: "1rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-                    //fontSize: "18px",
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -218,7 +198,6 @@ function Login() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
@@ -240,10 +219,8 @@ function Login() {
 
             <TextField
               sx={{
-                backgroundColor: "white",
                 borderRadius: "1rem",
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -254,11 +231,13 @@ function Login() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
                   borderColor: "#0E67E4",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={passwordError}
@@ -282,7 +261,6 @@ function Login() {
                     </IconButton>
                   </InputAdornment>
                 ),
-                // disableUnderline: true,
               }}
             />
             <Typography>
