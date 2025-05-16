@@ -44,7 +44,7 @@ const Navbar = () => {
         )}
         {token && (
           <NavLink to="/" className="logo">
-            Welcome {user} to TripOn
+            Hi {user}, Welcome to TripOn!
           </NavLink>
         )}
       </div>
