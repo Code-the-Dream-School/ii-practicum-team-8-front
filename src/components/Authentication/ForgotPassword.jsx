@@ -106,7 +106,7 @@ function Forgot() {
               alignItems: "center",
               gap: 4,
               width: 400,
-              height: 1,
+              height: 300,
             }}
           >
             <Typography

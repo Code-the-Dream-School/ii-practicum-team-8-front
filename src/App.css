@@ -47,6 +47,9 @@ body.light-mode {
   background-color: #ffffff;
   color: #000000;
 }
+body.dark-mode .nav-link {
+  color: #ffffff;
+}
 
 body.dark-mode {
   background-color: #000000;
@@ -54,6 +57,57 @@ body.dark-mode {
 }
 .dark-mode .highlight {
   color: #90caf9; /* Light blue in dark mode */
+}
+
+body.dark-mode .about-container {
+  color: #f5f5f5;
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+body.dark-mode .closing-section {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .about-title {
+  color: #64b5f6;
+}
+body.dark-mode .about-content section {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+body.dark-mode .logo {
+  color: #ffffff;
+}
+
+body.dark-mode .about-content h2 {
+  color: #64b5f6;
+  border-bottom: 2px solid hsl(0, 0%, 20%);
+}
+
+.services-list,
+.benefits-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.services-list li,
+.benefits-list li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+body.dark-mode .services-list li,
+body.dark-mode .benefits-list li {
+  color: #e0e0e0;
+}
+
+body.dark-mode .services-list li::before,
+body.dark-mode .benefits-list li::before {
+  color: #64b5f6;
 }
 
 .theme-toggle-btn {
@@ -81,7 +135,7 @@ body.dark-mode {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #504a2c;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -175,7 +229,7 @@ body.dark-mode {
 }
 
 .hero-tagline {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }

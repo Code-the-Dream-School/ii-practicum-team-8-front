@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
-import Toggle from './Toggle';
-
+import Toggle from "./Toggle";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,7 +42,7 @@ const Navbar = () => {
         )}
         {token && (
           <NavLink to="/" className="logo">
-            Welcome {name} to TripOn
+            TripOn "Hi {name}!"
           </NavLink>
         )}
       </div>

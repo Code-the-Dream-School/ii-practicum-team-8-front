@@ -140,7 +140,7 @@ function ResetPassword() {
               alignItems: "center",
               gap: 10,
               width: 400,
-              height: 180,
+              height: 300,
             }}
           >
             <TextField
