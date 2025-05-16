@@ -1,27 +1,24 @@
 import dayjs from 'dayjs';
-
 import { useState, useEffect } from 'react';
-
 import useCalendarApi from '../../hooks/useCalendarApi';
-
+import { useAuth } from "../../context/AuthContext";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
-
 import DateField from '../shared/DateField';
 import TravelerInfoDialog from '../hotels/SearchHotels/TravelerInfoDialog';
 import LoadingWrapper from '../loading/LoadingWrapper';
 import SuccessAlert from '../alerts/SuccessAlert';
-
 import AddIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
+  const { token } = useAuth();
   const {
     deleteBookingData,
     createBookingData,
@@ -84,18 +81,17 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
       numberOfKids: travelerInfo?.kids,
       numberOfRooms: travelerInfo?.rooms,
     };
-    console.log(bookingData);
      
     if (booking?._id) {
       bookingData.bookingId = booking?._id;
-      updateBookingData(bookingData);
+      updateBookingData(bookingData, token);
     } else {
-      createBookingData(bookingData);
+      createBookingData(bookingData, token);
     }
   };
 
   const handleOnDelete = (e) => {
-    deleteBookingData(booking?._id);
+    deleteBookingData(booking?._id, token);
   };
 
   const kidsAgeStr = travelerInfo?.kids
@@ -118,8 +114,9 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
               color="error"
               onClick={handleOnDelete}
               aria-label="delete"
+              disabled={isLoading}
             >
-              <DeleteIcon sx={{ mr: 1}} />
+              <DeleteIcon sx={{ mr: 1 }} />
             </Button>
           </Grid>
         )}
@@ -151,12 +148,15 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
             }; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms || 1}`}
             sx={{
               width: '100%',
+              '& .MuiOutlinedInput-root': {
+                paddingRight: 0,
+              },
             }}
             slotProps={{
               input: {
                 readOnly: true,
                 endAdornment: (
-                  <InputAdornment>
+                  <InputAdornment position="end">
                     <TravelerInfoDialog
                       setTravelerInfo={setTravelerInfo}
                       travelerInfo={travelerInfo}
@@ -177,7 +177,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
           >
             <CancelIcon /> Cancel
           </Button>
-          <Button type="submit" variant="contained" size="large">
+          <Button type="submit" variant="contained" size="large" disabled={isLoading}>
             {booking?._id ? (
               <>
                 <EditIcon /> Update
@@ -193,7 +193,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
         <Grid size={{ xs: 12, sm: 12 }}>
           <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
             {(updatedBooking || createdBooking || deletedBooking) && (
-              <SuccessAlert message='Success' />
+              <SuccessAlert message="Success" />
             )}
           </LoadingWrapper>
         </Grid>

@@ -1,14 +1,33 @@
-import React from 'react';
-import Video from '../Assets/videos1.mp4';
-import Destination from '../components/Destination';
-import { useNavigate } from 'react-router-dom';
+
+import React, { useState, useEffect } from "react";
+import Video from "../assets/videos1.mp4";
+import Destination from "../components/Destination";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
   const handleGetStarted = () => {
-    navigate('/signup'); 
+    navigate("/signup");
   };
-  
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
+  const [name, setName] = useState("");
+  const loc = useLocation();
+  const data = loc.state;
+
+  useEffect(() => {
+    //Set the logged in status
+    if (data) {
+      setIsLoggedIn(data.isLoggedIn);
+      setToken(data.token);
+      setName(data.name);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [data]);
+
+
   return (
     <div className="home-container">
       <div className="video-container">
@@ -25,9 +44,11 @@ const Home = () => {
       <div className="hero">
         <p className="hero-tagline">YOUR GATEWAY TO UNFORGETTABLE JOURNEYS.</p>
         <h1 className="hero-title">GOOD WAY</h1>
-        <button onClick={handleGetStarted} className="get-started">
-          Get Started
-        </button>
+        {!isLoggedIn && (
+          <button onClick={handleGetStarted} className="get-started">
+            Get Started
+          </button>
+        )}
       </div>
 
       <Destination />

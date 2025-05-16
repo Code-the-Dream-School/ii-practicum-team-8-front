@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   deleteBooking,
   updateBooking,
@@ -15,10 +15,10 @@ const useCalendarApi = () => {
   const [updatedBooking, setUpdatedBooking] = useState();
   const [deletedBooking, setDeletedBooking] = useState();
 
-  const deleteBookingData = async (bookingId) => {
+  const deleteBookingData = async (bookingId, token) => {
     setIsLoading(true);
     try {
-      const res = await deleteBooking(bookingId);
+      const res = await deleteBooking(bookingId, token);
       setDeletedBooking(res);
       setIsError(false);
     } catch (err) {
@@ -34,10 +34,10 @@ const useCalendarApi = () => {
     }
   };
 
-  const createBookingData = async (booking) => {
+  const createBookingData = async (booking, token) => {
     setIsLoading(true);
     try {
-      const res = await createBooking(booking);
+      const res = await createBooking(booking, token);
       setCreatedBooking(res);
       setIsError(false);
     } catch (err) {
@@ -53,10 +53,10 @@ const useCalendarApi = () => {
     }
   };
 
-  const updateBookingData = async (booking) => {
+  const updateBookingData = async (booking, token) => {
     setIsLoading(true);
     try {
-      const res = await updateBooking(booking);
+      const res = await updateBooking(booking, token);
       setUpdatedBooking(res);
       setIsError(false);
     } catch (err) {

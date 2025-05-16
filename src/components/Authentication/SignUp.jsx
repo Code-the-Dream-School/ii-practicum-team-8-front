@@ -21,6 +21,7 @@ import Link from "@mui/material/Link";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../util/index";
+import { useAuth } from "../../context/AuthContext";
 
 const isName = (name) => /^[a-zA-Z]{2,40}$/.test(name);
 
@@ -30,7 +31,7 @@ const isEmail = (email) =>
 const isPassword = (password) =>
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password);
 
-const URL = `http://localhost:8000/api/v1/auth/register`;
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/register`;
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -138,7 +139,6 @@ function SignUp() {
       const myData = await postData(URL, requestBody);
       //setMessage("Signup completed");
       handleClose(myData);
-      console.log(myData);
     } catch (error) {
       setFormValid(
         error.response.data.msg ?? "Singup failed, please check your input"
@@ -155,15 +155,20 @@ function SignUp() {
 
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleClose = (mydata) => {
     if (mydata && mydata.user) {
       const data = {
         token: mydata.token,
         name: mydata.user.name,
+        isLoggedIn: true,
       };
+      login(mydata.user, mydata.token);
+      navigate("/", { state: data });
+    } else {
+      navigate("/");
     }
-    navigate("/");
   };
 
   return (

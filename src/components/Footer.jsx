@@ -70,6 +70,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/travelplan" className="footer-link">
+                  TravelPlan
+                </Link>
+              </li>
+              <li>
                 <Link to="/calendar" className="footer-link">
                   Calendar
                 </Link>
@@ -77,6 +82,11 @@ const Footer = () => {
               <li>
                 <Link to="/book-now" className="footer-link">
                   Book Now!
+                </Link>
+              </li>
+              <li>
+                <Link to="/planner" className="footer-link">
+                  Trip Planner
                 </Link>
               </li>
               <li>
