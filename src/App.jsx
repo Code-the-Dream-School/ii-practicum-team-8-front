@@ -16,7 +16,7 @@ import About from './pages/About';
 import HotelsPage from './pages/HotelsPage';
 import HotelDetailsPage from './pages/HotelDetailsPage';
 import NotFound from './pages/NotFound';
-import Travelplan from './pages/Travelplan';
+//import Travelplan from './pages/Travelplan';
 
 const BookNow = lazy(() => import('./pages/BookNow'));
 const BookingCalendarPage = lazy(() => import('./pages/BookingCalendarPage'));
