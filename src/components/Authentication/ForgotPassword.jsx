@@ -20,6 +20,8 @@ import { postData } from "../../util/index";
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/forgot-password`;
+
 function Forgot() {
   const [emailInput, setEmailInput] = useState("");
 
@@ -32,7 +34,7 @@ function Forgot() {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   const handleLoginEmail = () => {
@@ -49,10 +51,26 @@ function Forgot() {
       setFormValid("Please enter Email");
       return;
     }
-
-    console.log("Email:" + emailInput);
     setFormValid(null);
+    const data = {
+      email: emailInput,
+    };
+    resetPassword(data);
   };
+
+  async function resetPassword(requestBody) {
+    try {
+      const myData = await postData(URL, requestBody);
+      handleClose(myData);
+      return true;
+    } catch (error) {
+      setFormValid(
+        error.response.data.msg ??
+          "Forgot password failed, please check your email address"
+      );
+      return false;
+    }
+  }
   return (
     <>
       <Box
@@ -69,15 +87,7 @@ function Forgot() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -132,22 +142,10 @@ function Forgot() {
             <TextField
               sx={{
                 fontSize: ".2rem",
-                backgroundColor: "white",
-                borderColor: "#0E67E4",
-                borderRadius: "1rem",
+
                 "& .MuiInputBase-input": {
-                  color: "#000000",
-                  borderColor: "#0E67E4",
                   fontSize: "20px",
                   height: "1em",
-                  borderRadius: "1rem !important",
-                  "&:-webkit-autofill": {
-                    color: "#000000",
-
-                    backgroundColor: "white !important",
-                    borderRadius: "1rem !important",
-                    WebkitBoxShadow: "0 0 0 100px white inset",
-                  },
                 },
                 "& .MuiFormLabel-root": {
                   color: "#0E67E4",
@@ -156,7 +154,6 @@ function Forgot() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {

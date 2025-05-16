@@ -17,8 +17,16 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
+import { useParams } from "react-router-dom";
+
+const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/reset-password/`;
+
+const isPassword = (password) =>
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password);
 
 function ResetPassword() {
+  const { token } = useParams();
+
   const [newPasswordInput, setNewPasswordInput] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
@@ -33,8 +41,8 @@ function ResetPassword() {
 
   const handleNewPassword = () => {
     if (
-      !newPasswordInput ||
-      newPasswordInput.length < 5 ||
+      !isPassword(newPasswordInput) ||
+      newPasswordInput.length < 8 ||
       newPasswordInput.length > 15
     ) {
       setPasswordError(true);
@@ -45,8 +53,8 @@ function ResetPassword() {
 
   const handleConfirmPassword = () => {
     if (
-      !confirmPassword ||
-      confirmPassword.length < 5 ||
+      !isPassword(confirmPassword) ||
+      confirmPassword.length < 8 ||
       confirmPassword.length > 15
     ) {
       setConfirmPasswordError(true);
@@ -57,16 +65,16 @@ function ResetPassword() {
 
   const handleResetPassword = (e) => {
     e.preventDefault();
-    if (newPasswordInput.length < 6) {
+    if (newPasswordInput.length < 8) {
       setFormValid(
-        "Password must be atleast 6 characters.Please enter valid password"
+        "Password must be atleast 8 characters.Please enter valid password"
       );
       return;
     }
 
-    if (confirmPassword.length < 6) {
+    if (confirmPassword.length < 8) {
       setFormValid(
-        "Confirm password must be atleast 6 characters.Please enter valid confirm password"
+        "Confirm password must be atleast 8 characters.Please enter valid confirm password"
       );
       return;
     }
@@ -76,7 +84,26 @@ function ResetPassword() {
       return;
     }
     setFormValid(null);
+    const requestBody = {
+      password: newPasswordInput,
+      confirmPassword: confirmPassword,
+    };
+    resetPassword(requestBody);
   };
+
+  async function resetPassword(requestBody) {
+    try {
+      const myData = await postData(URL + token, requestBody);
+      handleClose();
+      return true;
+    } catch (error) {
+      const msg =
+        error.response.data.msg ??
+        "Reset password failed, please check your email address";
+      setFormValid(msg);
+      return false;
+    }
+  }
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -104,15 +131,7 @@ function ResetPassword() {
           open={open}
           onClose={null}
           sx={{
-            background: "#D1E8FB",
-            "& .MuiPaper-root": {
-              background: "#D1E8FB",
-              border: ".3rem solid #0E67E4",
-              borderRadius: "1.5rem",
-            },
-            "& .MuiBackdrop-root": {
-              backgroundColor: "D1E8FB",
-            },
+            background: "#ffffff",
           }}
         >
           <DialogTitle
@@ -149,15 +168,13 @@ function ResetPassword() {
               alignItems: "center",
               gap: 10,
               width: 400,
-              height: 180,
+              height: 300,
             }}
           >
             <TextField
               sx={{
-                backgroundColor: "white",
-                borderRadius: "1rem",
+                fontSize: ".2rem",
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -169,11 +186,13 @@ function ResetPassword() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
                   borderColor: "#0E67E4",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={passwordError}
@@ -201,10 +220,8 @@ function ResetPassword() {
             />
             <TextField
               sx={{
-                backgroundColor: "white",
-                borderRadius: "1rem",
+                fontSize: ".2rem",
                 "& .MuiInputBase-input": {
-                  color: "#000000",
                   fontSize: "20px",
                   height: "1em",
                 },
@@ -215,11 +232,13 @@ function ResetPassword() {
                   lineHeight: "1em",
                 },
                 "& .MuiOutlinedInput-root": {
-                  backgroundColor: "white",
                   borderRadius: "1rem ",
                 },
                 "& .MuiFormControl-root": {
                   borderColor: "#0E67E4",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
               }}
               error={confirmPasswordError}
