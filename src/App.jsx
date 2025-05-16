@@ -16,13 +16,15 @@ import About from './pages/About';
 import HotelsPage from './pages/HotelsPage';
 import HotelDetailsPage from './pages/HotelDetailsPage';
 import NotFound from './pages/NotFound';
-import Travelplan from './Pages/Travelplan';
+//import Travelplan from './pages/Travelplan';
 
 const BookNow = lazy(() => import('./pages/BookNow'));
 const BookingCalendarPage = lazy(() => import('./pages/BookingCalendarPage'));
 const TravelPlanner = lazy(() => import('./pages/TravelPlanner'));
 const ActivitiesDetails = lazy(() => import('./pages/ActivitiesDetails'));
 const UpdateTravelPlan = lazy(() => import('./components/planner/UpdateTravelPlan'));
+
+const Travelplan = lazy(() => import('./pages/Travelplan'));
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,7 @@ const router = createBrowserRouter([
           { path: 'planner', element: <TravelPlanner /> },
           { path: 'planner/:travelPlanId', element: <ActivitiesDetails /> },
           { path: 'planner/update/:travelPlanId', element: <UpdateTravelPlan /> },
+          { path: 'travelplan', element: <Travelplan/>},
         ],
       },
       { path: '*', element: <NotFound /> },
