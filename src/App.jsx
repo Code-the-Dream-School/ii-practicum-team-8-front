@@ -24,7 +24,7 @@ const TravelPlanner = lazy(() => import('./pages/TravelPlanner'));
 const ActivitiesDetails = lazy(() => import('./pages/ActivitiesDetails'));
 const UpdateTravelPlan = lazy(() => import('./components/planner/UpdateTravelPlan'));
 
-const Travelplan = lazy(() => import('./Pages/Travelplan'));
+const Travelplan = lazy(() => import('./pages/Travelplan'));
 
 const router = createBrowserRouter([
   {
