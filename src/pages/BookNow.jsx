@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router-dom";
-
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-
 import PhotoGallery from '../components/shared/PhotoGallery';
 import RatingBadge from '../components/hotels/RatingBadge';
 import BookingForm from '../components/booking/BookingForm';
-
 import hotelPhotos from '../data/hotelPhotos.json';
 
 const BookingNow = () => {
