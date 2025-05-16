@@ -2,7 +2,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,7 +12,7 @@ const Navbar = () => {
   // const data = loc.state;
   const navigate = useNavigate();
 
-  const {user, token , logout} = useAuth();
+  const { user, token, logout } = useAuth();
 
   // useEffect(() => {
   //   //Set the logged in status
@@ -72,11 +72,6 @@ const Navbar = () => {
               Search Hotels
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/travelplan" className="nav-link">
-              Travel Plan
-            </NavLink>
-          </li>
 
           <li>
             <NavLink to="/login" className="nav-link login-btn">
@@ -118,10 +113,16 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/planner" className="nav-link">
-              Trip Planner
+            <NavLink to="/travelplan" className="nav-link">
+              Create Travel Plan
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/planner" className="nav-link">
+              My Travel Plans
+            </NavLink>
+          </li>
+
           <li>
             <NavLink
               to="/"

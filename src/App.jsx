@@ -24,6 +24,8 @@ const TravelPlanner = lazy(() => import('./pages/TravelPlanner'));
 const ActivitiesDetails = lazy(() => import('./pages/ActivitiesDetails'));
 const UpdateTravelPlan = lazy(() => import('./components/planner/UpdateTravelPlan'));
 
+const Travelplan = lazy(() => import('./Pages/Travelplan'));
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -47,6 +49,7 @@ const router = createBrowserRouter([
           { path: 'planner', element: <TravelPlanner /> },
           { path: 'planner/:travelPlanId', element: <ActivitiesDetails /> },
           { path: 'planner/update/:travelPlanId', element: <UpdateTravelPlan /> },
+          { path: 'travelplan', element: <Travelplan/>},
         ],
       },
       { path: '*', element: <NotFound /> },

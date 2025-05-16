@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-
-    const Travelplan = () =>{    
+import { useAuth } from '../context/AuthContext';
+import dayjs from 'dayjs';
+    const Travelplan = () =>{ 
+        const { token } = useAuth();   
     const [formData, setFormData] = useState({
         destination: '',
         startDate: '', 
         endDate: '',
         travelers: '',
-        numberOfAdults: '',
-        numberOfKids:'',
-        budget: '',
-        interests: ['Nature & Adventure", "Culture & History'],
+        numberOfAdults: 1,
+        numberOfKids:0,
+        budget: 'free',
+        interests: ['Nature & Adventure', 'Culture & History'],
         customPreferences:'',
         
 
@@ -17,17 +19,20 @@ import React, { useState } from 'react';
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [responseData, setResponseData] = useState(null);
+    
 
-        const interestoptions =[
-                 'Food & Drink',
-                 'Seasonal & Sports', 
-                 'Nature & Adventure',  
-                 'Culture & Historical',
-                 'Shopping & Urban',
-                 'Leisure & Relaxation',
-                 'Entertainment & Nightlife',
-                 'Well-being & Spiritual',
-        ];
+        const interestoptions =
+                 [
+                "Nature & Adventure",
+                "Culture & History",
+                "Leisure & Relaxation",
+                "Food & Drink",
+                "Entertainment & Nightlife",
+                "Shopping & Urban",
+                "Seasonal & Sports",
+                "Well-being & Spiritual",
+              ];
+                 
 
         const budgetoptions = [
           { value: 'free', label: 'Free' },
@@ -36,7 +41,9 @@ import React, { useState } from 'react';
           { value: 'luxury', label: 'Luxury' }
       ];
         const handleChange = (e) => {
-                const { name,value } = e.target;
+                
+                let { name,value } = e.target;
+                
                 setFormData(prev =>({...prev,
                         [name]:value}));
 
@@ -51,17 +58,26 @@ import React, { useState } from 'react';
          };
         const handleSubmit = async (e) => {
                 e.preventDefault();
+                console.log(formData);
                 setIsLoading(true);
                 setError(null);
-        
-         
+
+                const travelplanData = {...formData};
+                travelplanData.startDate = dayjs(travelplanData.startDate, "MM/DD/YYYY").format("YYYY-MM-DD");
+                travelplanData.endDate = dayjs(travelplanData.endDate, "MM/DD/YYYY").format("YYYY-MM-DD");      
+                  console.log(travelplanData);     
         try {
-                const response = await fetch ('https://:api.comtravelplans',{
+                const apiUrl = `${import.meta.env.VITE_APP_API_URL}/api/v1/travelplans`;
+                console.log('Making request to:', apiUrl);
+                console.log('API URL:',`${import.meta.env.VITE_APP_API_URL}/api/v1/travelplans`);
+                const response = await fetch (apiUrl, {
+
                         method: 'POST',
                         headers: {
+                        Authorization: `Bearer ${token}`,
                          'Content-Type':'application/json',
                         },
-                        body: JSON.stringify(formData),
+                        body: JSON.stringify(travelplanData),
                 });
 
                 if (!response.ok) {
@@ -69,19 +85,23 @@ import React, { useState } from 'react';
                 }
 
           const data = await response.json();
+          console.log('success:',data);
           setResponseData(data);
            console.log('success:',data);
         } catch (error) {
                 setError(error.message);
-                console.error('Error submitting form:', error.message);
+                console.error('Error submitting travel plans:', error.message);
         } finally {
                 setIsLoading(false);
         }
     };
-     const fetchtravelplans = async () => {
+     const fetchtravelPlans = async () => {
         setIsLoading(true);
+        setError(null);
         try {
-                const response = await fetch('https://api.com/travelplans');
+                const apiUrl = `${import.meta.env.VITE_APP_API_URL}/api/v1/travelplans`;
+                console.log('Fetching travel plans from:', apiUrl);
+                const response = await fetch (apiUrl);
                 if (!response.ok) {
                         throw new Error(`HTTP error! status:${response.status}`);
                 }
