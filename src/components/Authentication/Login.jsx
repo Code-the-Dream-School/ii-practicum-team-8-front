@@ -216,7 +216,6 @@ function Login() {
             <TextField
               sx={{
                 fontSize: ".2rem",
-
                 "& .MuiInputBase-input": {
                   fontSize: "20px",
                   height: "1em",
@@ -229,6 +228,9 @@ function Login() {
                 },
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
                 },
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",

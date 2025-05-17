@@ -52,7 +52,25 @@ function Forgot() {
       return;
     }
     setFormValid(null);
+    const data = {
+      email: emailInput,
+    };
+    resetPassword(data);
   };
+
+  async function resetPassword(requestBody) {
+    try {
+      const myData = await postData(URL, requestBody);
+      handleClose(myData);
+      return true;
+    } catch (error) {
+      setFormValid(
+        error.response.data.msg ??
+          "Forgot password failed, please check your email address"
+      );
+      return false;
+    }
+  }
   return (
     <>
       <Box

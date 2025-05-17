@@ -28,6 +28,9 @@ const isName = (name) => /^[a-zA-Z]{2,40}$/.test(name);
 const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
+const isPassword = (password) =>
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password);
+
 const URL = `${import.meta.env.VITE_APP_API_URL}/api/v1/auth/register`;
 
 function SignUp() {
@@ -71,8 +74,8 @@ function SignUp() {
 
   const handlePassword = () => {
     if (
-      !passwordInput ||
-      passwordInput.length < 5 ||
+      !isPassword(passwordInput) ||
+      passwordInput.length < 8 ||
       passwordInput.length > 15
     ) {
       setPasswordError(true);
@@ -82,8 +85,8 @@ function SignUp() {
   };
   const handleConfirmPassword = () => {
     if (
-      !confirmPasswordInput ||
-      confirmPasswordInput.length < 5 ||
+      !isPassword(confirmPasswordInput) ||
+      confirmPasswordInput.length < 8 ||
       confirmPasswordInput.length > 15
     ) {
       setConfirmPasswordError(true);
@@ -109,7 +112,7 @@ function SignUp() {
     }
     if (passwordError || !passwordInput) {
       setFormValid(
-        "Password should be in 5-15 characters.Please enter Password"
+        "Password should be in 8-15 characters.Please enter Password"
       );
       return;
     }
@@ -137,7 +140,9 @@ function SignUp() {
       //setMessage("Signup completed");
       handleClose(myData);
     } catch (error) {
-      setFormValid("Singup failed, please check your input");
+      setFormValid(
+        error.response.data.msg ?? "Singup failed, please check your input"
+      );
       return false;
     }
     return true;
@@ -340,6 +345,12 @@ function SignUp() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
+                "& .MuiFormControl-root": {
+                  borderColor: "#0E67E4",
+                },
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
+                },
               }}
               error={passwordError}
               label="Password"
@@ -380,6 +391,9 @@ function SignUp() {
                   borderRadius: "1rem ",
                 },
 
+                "&.MuiSvgIcon-root": {
+                  fill: "#000000",
+                },
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
                 },

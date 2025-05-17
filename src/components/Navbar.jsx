@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
-import Toggle from "./Toggle";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState("");
-  const [name, setName] = useState("");
-  const loc = useLocation();
-  const data = loc.state;
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [token, setToken] = useState("");
+  // const [name, setName] = useState("");
+  // const loc = useLocation();
+  // const data = loc.state;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    //Set the logged in status
-    if (data) {
-      setIsLoggedIn(data.isLoggedIn);
-      setToken(data.token);
-      setName(data.name);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, [data]);
+  const { user, token, logout } = useAuth();
+
+  // useEffect(() => {
+  //   //Set the logged in status
+  //   if (data) {
+  //     setIsLoggedIn(data.isLoggedIn);
+  //     setToken(data.token);
+  //     setName(data.name);
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, [data]);
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    data.isLoggedIn = null;
-    data.token = null;
+    // setIsLoggedIn(false);
+    // data.isLoggedIn = null;
+    // data.token = null;
+    logout();
     navigate("/", { state: [] });
   };
 
@@ -84,7 +87,6 @@ const Navbar = () => {
       )}
       {token && (
         <ul className="nav-links">
-          {/* <h2>Welcome {name}</h2> */}
           <li>
             <NavLink to="/" className="nav-link">
               Home
@@ -97,7 +99,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="/hotels" className="nav-link">
-              Search
+              Search Hotels
             </NavLink>
           </li>
           <li>
@@ -110,6 +112,17 @@ const Navbar = () => {
               Book Now!
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/travelplan" className="nav-link">
+              Create Travel Plan
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/planner" className="nav-link">
+              My Travel Plans
+            </NavLink>
+          </li>
+
           <li>
             <NavLink
               to="/"
