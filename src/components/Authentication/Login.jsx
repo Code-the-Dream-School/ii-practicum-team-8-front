@@ -92,14 +92,8 @@ function Login() {
   }
   const handleClose = (mydata) => {
     if (mydata && mydata.user) {
-      const data = {
-        token: mydata.token,
-        name: mydata.user,
-        isLoggedIn: true,
-      };
-
       login(mydata.user, mydata.token);
-      navigate("/", { state: data });
+      navigate("/", { state: [] });
     } else {
       navigate("/");
     }

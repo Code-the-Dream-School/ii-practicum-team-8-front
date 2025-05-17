@@ -7,11 +7,10 @@ import { useAuth } from "../context/AuthContext";
 const Home = () => {
   const navigate = useNavigate();
   const handleGetStarted = () => {
-    navigate('/signup');
+    navigate("/signup");
   };
 
   const { user, token } = useAuth();
-
 
   return (
     <>
@@ -25,18 +24,6 @@ const Home = () => {
             playsInline
             className="background-video"
           />
-        </div>
-
-        <div className="hero">
-          <p className="hero-tagline">
-            YOUR GATEWAY TO UNFORGETTABLE JOURNEYS.
-          </p>
-          <h1 className="hero-title">GOOD WAY</h1>
-          {!isLoggedIn && (
-            <button onClick={handleGetStarted} className="get-started">
-              Get Started
-            </button>
-          )}
         </div>
       </div>
 

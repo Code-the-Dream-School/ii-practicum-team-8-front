@@ -6,30 +6,11 @@ import { useAuth } from "../context/AuthContext";
 import Toggle from "./Toggle";
 
 const Navbar = () => {
-  //const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [token, setToken] = useState("");
-  // const [name, setName] = useState("");
-  // const loc = useLocation();
-  // const data = loc.state;
   const navigate = useNavigate();
 
   const { user, token, logout } = useAuth();
 
-  // useEffect(() => {
-  //   //Set the logged in status
-  //   if (data) {
-  //     setIsLoggedIn(data.isLoggedIn);
-  //     setToken(data.token);
-  //     setName(data.name);
-  //   } else {
-  //     setIsLoggedIn(false);
-  //   }
-  // }, [data]);
-
   const handleLogout = () => {
-    // setIsLoggedIn(false);
-    // data.isLoggedIn = null;
-    // data.token = null;
     logout();
     navigate("/", { state: [] });
   };
