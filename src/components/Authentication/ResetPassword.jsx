@@ -41,6 +41,7 @@ function ResetPassword() {
 
   const handleNewPassword = () => {
     if (
+      !newPasswordInput ||
       !isPassword(newPasswordInput) ||
       newPasswordInput.length < 8 ||
       newPasswordInput.length > 15
@@ -53,6 +54,7 @@ function ResetPassword() {
 
   const handleConfirmPassword = () => {
     if (
+      !confirmPassword ||
       !isPassword(confirmPassword) ||
       confirmPassword.length < 8 ||
       confirmPassword.length > 15
@@ -163,7 +165,6 @@ function ResetPassword() {
               color: "0E67E4",
               display: "flex",
               flexWrap: "wrap",
-              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               gap: 10,
@@ -234,9 +235,7 @@ function ResetPassword() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
+
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
                 },

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import { useAuth } from "../context/AuthContext";
+import Toggle from "./Toggle";
 
 const Navbar = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +37,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
+        <Toggle />
         <FlightTakeoffIcon fontSize="medium" />
         {!token && (
           <NavLink to="/" className="logo">
@@ -44,7 +46,7 @@ const Navbar = () => {
         )}
         {token && (
           <NavLink to="/" className="logo">
-            Hi {user}, Welcome to TripOn!
+            TripOn "Hi {user}!"
           </NavLink>
         )}
       </div>
@@ -72,7 +74,6 @@ const Navbar = () => {
               Search Hotels
             </NavLink>
           </li>
-
           <li>
             <NavLink to="/login" className="nav-link login-btn">
               Login

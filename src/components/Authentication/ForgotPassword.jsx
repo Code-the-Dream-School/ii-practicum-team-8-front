@@ -48,7 +48,7 @@ function Forgot() {
     e.preventDefault();
 
     if (emailError || !emailInput) {
-      setFormValid("Please enter Email");
+      setFormValid("Please enter valid Email");
       return;
     }
     setFormValid(null);
@@ -122,9 +122,9 @@ function Forgot() {
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
+              gap: 4,
               width: 400,
-              height: 1,
+              height: 300,
             }}
           >
             <Typography
@@ -156,9 +156,6 @@ function Forgot() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
               }}
               id="email"
               error={emailError}
@@ -179,9 +176,20 @@ function Forgot() {
             >
               Send reset Link
             </Button>
-            <Link href="/login" variant="h6" style={{ color: "#0E67E4" }}>
+
+            <Link
+              href="/login"
+              variant="h6"
+              sx={{
+                color: "#0E67E4",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               Back to Login
             </Link>
+
             <Typography component={"div"}>
               {formValid && (
                 <Alert

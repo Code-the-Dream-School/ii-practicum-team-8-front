@@ -42,7 +42,7 @@ function Login() {
   const handleLoginPassword = () => {
     if (
       !passwordInput ||
-      passwordInput.length < 5 ||
+      passwordInput.length < 8 ||
       passwordInput.length > 15
     ) {
       setPasswordError(true);
@@ -62,7 +62,7 @@ function Login() {
 
     if (passwordError || !passwordInput) {
       setFormValid(
-        "Password should be in 5-15 characters.Please Re-Enter Password"
+        "Password should be in 8-15 characters.Please Re-Enter Password"
       );
       setFormValid("Please enter Password");
       return;
@@ -162,8 +162,8 @@ function Login() {
               flexWrap: "wrap",
               justifyContent: "center",
               alignItems: "center",
-              gap: 1.2,
-              width: 400,
+              gap: 3,
+              width: 350,
               height: 1,
             }}
           >
@@ -200,9 +200,6 @@ function Login() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
               }}
               id="email"
               error={emailError}
@@ -214,12 +211,11 @@ function Login() {
               fullWidth
               size="small"
               required
-              //   InputProps={{ disableUnderline: true }}
             />
 
             <TextField
               sx={{
-                borderRadius: "1rem",
+                fontSize: ".2rem",
                 "& .MuiInputBase-input": {
                   fontSize: "20px",
                   height: "1em",
@@ -232,9 +228,6 @@ function Login() {
                 },
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
-                },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
                 },
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
@@ -301,6 +294,7 @@ function Login() {
           </DialogContent>
         </Dialog>
       </Box>
+      {/* </ThemeProvider> */}
     </>
   );
 }

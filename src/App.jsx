@@ -1,15 +1,16 @@
-import { lazy } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { lazy } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { ThemeModeProvider } from './context/ThemeModeContext';
 
-import ProtectedRoutes from "./routers/ProtectedRoutes";
+import ProtectedRoutes from './routers/ProtectedRoutes';
 
-import MainLayout from "./layouts/MainLayout";
+import MainLayout from './layouts/MainLayout';
 
-import Login from "./components/Authentication/Login";
-import SignUp from "./components/Authentication/SignUp";
-import Forgot from "./components/Authentication/ForgotPassword";
-import ResetPassword from "./components/Authentication/ResetPassword";
+import Login from './components/Authentication/Login';
+import SignUp from './components/Authentication/SignUp';
+import Forgot from './components/Authentication/ForgotPassword';
+import ResetPassword from './components/Authentication/ResetPassword';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -59,9 +60,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeModeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeModeProvider>
   );
 }
 

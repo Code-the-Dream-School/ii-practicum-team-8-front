@@ -244,6 +244,7 @@ function SignUp() {
             </Typography>
             <TextField
               sx={{
+                fontSize: ".2rem",
                 "& .MuiInputBase-input": {
                   fontSize: "20px",
                   height: "1em",
@@ -257,9 +258,6 @@ function SignUp() {
 
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
-                },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
                 },
               }}
               id="firstname"
@@ -290,9 +288,6 @@ function SignUp() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
               }}
               id="lastname"
               error={lastnameError}
@@ -304,7 +299,6 @@ function SignUp() {
               fullWidth
               size="small"
               required
-              //   InputProps={{ disableUnderline: true }}
             />
             <TextField
               sx={{
@@ -323,9 +317,6 @@ function SignUp() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
               }}
               id="email"
               error={emailError}
@@ -341,7 +332,6 @@ function SignUp() {
 
             <TextField
               sx={{
-                borderRadius: "1rem",
                 "& .MuiInputBase-input": {
                   fontSize: "20px",
                   height: "1em",
@@ -387,7 +377,6 @@ function SignUp() {
             />
             <TextField
               sx={{
-                borderRadius: "1rem",
                 "& .MuiInputBase-input": {
                   fontSize: "20px",
                   height: "1em",
@@ -401,9 +390,7 @@ function SignUp() {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "1rem ",
                 },
-                "& .MuiFormControl-root": {
-                  borderColor: "#0E67E4",
-                },
+
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
                 },
@@ -429,7 +416,6 @@ function SignUp() {
                     </IconButton>
                   </InputAdornment>
                 ),
-                // disableUnderline: true,
               }}
             />
             <Button
