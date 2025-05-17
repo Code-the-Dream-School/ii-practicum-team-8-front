@@ -79,11 +79,9 @@ const UpdateTravelPlan = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const travelData = { ...formData };
-    console.log(formData);
     travelData.startDate = dayjs(travelData.startDate).format('MM/DD/YYYY');
     travelData.endDate = dayjs(travelData.endDate).format("MM/DD/YYYY");
     travelData.travelPlanId = travelPlanId;
-    console.log(travelData);
     updateTravelPlanData(travelData, token);
   };
 
