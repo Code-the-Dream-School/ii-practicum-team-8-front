@@ -394,9 +394,6 @@ function SignUp() {
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
                 },
-                "&.MuiSvgIcon-root": {
-                  fill: "#000000",
-                },
               }}
               error={confirmPasswordError}
               label="ConfirmPassword"

@@ -239,9 +239,6 @@ function ResetPassword() {
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
                 },
-                "&.MuiSvgIcon-root": {
-                  fill: "#000000",
-                },
               }}
               error={confirmPasswordError}
               label="ConfirmPassword"

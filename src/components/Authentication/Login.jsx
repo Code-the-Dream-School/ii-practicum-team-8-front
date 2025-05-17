@@ -232,9 +232,6 @@ function Login() {
                 "&.MuiSvgIcon-root": {
                   fill: "#000000",
                 },
-                "&.MuiSvgIcon-root": {
-                  fill: "#000000",
-                },
               }}
               error={passwordError}
               label="Password"
