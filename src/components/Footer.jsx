@@ -1,11 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
+  const { token } = useAuth();
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -69,26 +70,30 @@ const Footer = () => {
                   Search Hotels
                 </Link>
               </li>
-              <li>
-                <Link to="/travelplan" className="footer-link">
-                  TravelPlan
-                </Link>
-              </li>
-              <li>
-                <Link to="/calendar" className="footer-link">
-                  Calendar
-                </Link>
-              </li>
-              <li>
-                <Link to="/book-now" className="footer-link">
-                  Book Now!
-                </Link>
-              </li>
-              <li>
-                <Link to="/planner" className="footer-link">
-                  Trip Planner
-                </Link>
-              </li>
+              {token && (
+                <>
+                  <li>
+                    <Link to="/calendar" className="footer-link">
+                      Calendar
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/book-now" className="footer-link">
+                      Book Now!
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/travelplan" className="footer-link">
+                      Create Travel Plan
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/planner" className="footer-link">
+                       My Travel Plans
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link to="/login" className="footer-link">
                   Login
