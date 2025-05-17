@@ -50,19 +50,12 @@ const Travelplan = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     setIsLoading(true);
     setError(null);
 
     const travelplanData = { ...formData };
-    travelplanData.startDate = dayjs(
-      travelplanData.startDate,
-      "MM/DD/YYYY"
-    ).format("YYYY-MM-DD");
-    travelplanData.endDate = dayjs(travelplanData.endDate, "MM/DD/YYYY").format(
-      "YYYY-MM-DD"
-    );
-    console.log(travelplanData);
+    travelplanData.startDate = dayjs(travelplanData.startDate).format( "MM/DD/YYYY");
+    travelplanData.endDate = dayjs(travelplanData.endDate).format("MM/DD/YYYY");
     try {
       const apiUrl = `${import.meta.env.VITE_APP_API_URL}/api/v1/travelplans`;
       console.log("Making request to:", apiUrl);
@@ -120,7 +113,7 @@ const Travelplan = () => {
       {error && <div className="error-message">{error}</div>}
       {responseData && (
         <div className="success-message">
-          plan created successfully! ID:{responseData.id}
+          plan created successfully!
         </div>
       )}
       <form onSubmit={handleSubmit}>
