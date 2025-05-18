@@ -522,7 +522,7 @@
 }
 
 .travel-plan-form h2 {
-  color: #2c3e50;
+  color: #34495e;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -574,6 +574,15 @@ body.dark-mode .logo {
 body.dark-mode .about-content h2 {
   color: #64b5f6;
   border-bottom: 2px solid hsl(0, 0%, 20%);
+}
+body.dark-mode .travel-plan-form {
+  background-color: #000000;
+}
+body.dark-mode .travel-plan-form h2 {
+  color: #3498db;
+}
+body.dark-mode .form-group label {
+  color: #3498db;
 }
 
 .services-list,
