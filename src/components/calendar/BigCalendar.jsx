@@ -14,12 +14,9 @@ const localizer = dayjsLocalizer(dayjs);
 const BigCalendar = ({ bookingList, onShowBookingView }) => {
  
   const bookings = bookingList?.bookings?.map((booking) => {
-    const endDate = new Date(booking?.endDate);
-    endDate.setDate(endDate.getDate() + 1);
-
     return {
-      start: new Date(booking?.startDate),
-      end: endDate,
+      start: dayjs.utc(booking?.startDate).local().toDate(),
+      end: dayjs.utc(booking?.endDate).local().add(1, 'day').toDate(),
       title: `Guests ${
         booking?.numberOfAdults + booking?.numberOfKids
       }, rooms: ${booking?.numberOfRooms}`,
