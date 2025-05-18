@@ -53,8 +53,8 @@ const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
 
         <Typography variant="body2" color="text.secondary">
           <DateRangeIcon />
-          {dayjs(plan?.startDate).format('MM/DD/YYYY')} -{' '}
-          {dayjs(plan?.endDate).format("MM/DD/YYYY")}
+          {dayjs.utc(plan?.startDate).local().format('MM/DD/YYYY')} -
+          {dayjs.utc(plan?.endDate).local().format('MM/DD/YYYY')}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
