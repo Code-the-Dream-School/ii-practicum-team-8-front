@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-dayjs.extend(utc);
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -55,8 +53,8 @@ const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
 
         <Typography variant="body2" color="text.secondary">
           <DateRangeIcon />
-          {dayjs.utc(plan?.startDate).local().format('MM/DD/YYYY')} -
-          {dayjs.utc(plan?.endDate).local().format('MM/DD/YYYY')}
+         {dayjs(plan?.startDate).format('MM/DD/YYYY')} -{' '}
+         {dayjs(plan?.endDate).format("MM/DD/YYYY")}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">

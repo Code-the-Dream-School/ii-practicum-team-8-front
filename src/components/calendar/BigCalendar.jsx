@@ -2,8 +2,6 @@ import { useState, useMemo } from 'react';
 import './BigCalendar.style.css';
 import { Calendar, dayjsLocalizer, Views } from 'react-big-calendar';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-dayjs.extend(utc);
 import BigCalendarToolbar from './BigCalendarToolbar';
 import MonthHeader from './headers/MonthHeader';
 import EventComponent from './EventComponent';
@@ -11,11 +9,13 @@ import EventComponent from './EventComponent';
 const localizer = dayjsLocalizer(dayjs);
 
 const BigCalendar = ({ bookingList, onShowBookingView }) => {
- 
+
   const bookings = bookingList?.bookings?.map((booking) => {
+    const endDate = new Date(booking?.endDate);
+    endDate.setDate(endDate.getDate() + 1);
     return {
-      start: dayjs.utc(booking?.startDate).local().toDate(),
-      end: dayjs.utc(booking?.endDate).local().add(1, 'day').toDate(),
+      start: new Date(booking?.startDate),
+      end: endDate,
       title: `Guests ${
         booking?.numberOfAdults + booking?.numberOfKids
       }, rooms: ${booking?.numberOfRooms}`,
