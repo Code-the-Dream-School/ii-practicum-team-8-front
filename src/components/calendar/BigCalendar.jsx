@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react';
 import './BigCalendar.style.css';
-
 import { Calendar, dayjsLocalizer, Views } from 'react-big-calendar';
-
 import dayjs from 'dayjs';
-
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 import BigCalendarToolbar from './BigCalendarToolbar';
 import MonthHeader from './headers/MonthHeader';
 import EventComponent from './EventComponent';
