@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
@@ -13,6 +14,10 @@ const SuccessAlert = ({ message }) => {
       </Stack>
     </Collapse>
   );
+};
+
+SuccessAlert.propTypes  = {
+  message: PropTypes.string.isRequired
 };
 
 export default SuccessAlert;

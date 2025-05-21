@@ -1,17 +1,17 @@
+import PropTypes from 'prop-types';
+import BookingPropType from '../../propTypes/BookingPropType';
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import useCalendarApi from '../../hooks/useCalendarApi';
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from '../../context/AuthContext';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
 import DateField from '../shared/DateField';
-import TravelerInfoDialog from '../hotels/SearchHotels/TravelerInfoDialog';
 import LoadingWrapper from '../loading/LoadingWrapper';
 import SuccessAlert from '../alerts/SuccessAlert';
+import TravelerInfoTextField from './TravelerInfoTextField';
 import AddIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
@@ -54,7 +54,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
   }, [booking]);
 
   useEffect(() => {
-    if(!isInlineForm){
+    if (!isInlineForm) {
       return;
     }
     if (createdBooking || updatedBooking || deletedBooking) {
@@ -81,7 +81,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
       numberOfKids: travelerInfo?.kids,
       numberOfRooms: travelerInfo?.rooms,
     };
-     
+
     if (booking?._id) {
       bookingData.bookingId = booking?._id;
       updateBookingData(bookingData, token);
@@ -93,10 +93,6 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
   const handleOnDelete = (e) => {
     deleteBookingData(booking?._id, token);
   };
-
-  const kidsAgeStr = travelerInfo?.kids
-    ? `Age(s): ${travelerInfo?.kidsAge?.join(', ')};`
-    : '';
 
   return (
     <Box component="form" onSubmit={handleOnSubmit}>
@@ -116,7 +112,7 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
               aria-label="delete"
               disabled={isLoading}
             >
-              <DeleteIcon sx={{ mr: 1 }} />
+              <DeleteIcon />
             </Button>
           </Grid>
         )}
@@ -140,31 +136,9 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
         </Grid>
 
         <Grid size={{ xs: 12, sm: 12 }}>
-          <TextField
-            label="Traveler Info"
-            variant="outlined"
-            value={`Adults: ${travelerInfo?.adults || 2}; Kids: ${
-              travelerInfo?.kids || 0
-            }; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms || 1}`}
-            sx={{
-              width: '100%',
-              '& .MuiOutlinedInput-root': {
-                paddingRight: 0,
-              },
-            }}
-            slotProps={{
-              input: {
-                readOnly: true,
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <TravelerInfoDialog
-                      setTravelerInfo={setTravelerInfo}
-                      travelerInfo={travelerInfo}
-                    />
-                  </InputAdornment>
-                ),
-              },
-            }}
+          <TravelerInfoTextField
+            travelerInfo={travelerInfo}
+            setTravelerInfo={setTravelerInfo}
           />
         </Grid>
 
@@ -177,7 +151,12 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
           >
             <CancelIcon /> Cancel
           </Button>
-          <Button type="submit" variant="contained" size="large" disabled={isLoading}>
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            disabled={isLoading}
+          >
             {booking?._id ? (
               <>
                 <EditIcon /> Update
@@ -200,6 +179,13 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
       </Grid>
     </Box>
   );
+};
+
+BookingForm.propTypes = {
+  booking: BookingPropType,
+  refetchBookings: PropTypes.func,
+  onCancel: PropTypes.func,
+  isInlineForm: PropTypes.bool.isRequired,
 };
 
 export default BookingForm;
