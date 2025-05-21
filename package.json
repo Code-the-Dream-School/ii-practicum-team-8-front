@@ -17,6 +17,7 @@
     "@mui/x-date-pickers": "^8.0.0",
     "@tanstack/react-query": "^5.72.2",
     "axios": "^1.8.4",
+    "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",

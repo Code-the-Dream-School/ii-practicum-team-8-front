@@ -33,14 +33,13 @@ const SearchHotels = (
   const kidsAgeStr = travelerInfo?.kids? `Age(s): ${travelerInfo?.kidsAge?.join(', ')};`: '';
 
   return (
-    <Box className="m-container"
-      display="flex"
+    <Box display="flex"
       gap={2}
       justifyContent="center"
       alignItems="center"
       sx={{
-        mt: 4,
-        mb: 4,
+        mt: 2,
+        mb: 2,
         flexDirection: {
           xs: 'column',
           md: 'row',

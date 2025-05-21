@@ -7,7 +7,7 @@ import { useHotelsQuery } from '../hooks/useHotelsQuery';
 
 import ListHotels from '../components/hotels/ListHotels';
 import LoadingWrapper from '../components/loading/LoadingWrapper';
-import ErrorAlert from '../components/error/ErrorAlert';
+import ErrorAlert from '../components/alerts/ErrorAlert';
 import SearchHotels from '../components/hotels/SearchHotels/SearchHotels';
 import AppliedFilters from '../components/hotels/SearchHotels/AppliedFilters';
 

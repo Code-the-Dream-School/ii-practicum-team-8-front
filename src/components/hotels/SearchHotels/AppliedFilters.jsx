@@ -18,7 +18,6 @@ const AppliedFilters = ({ searchTerm }) => {
 
   return (
     <Alert
-      className='m-container'
       severity='info'
       variant='outlined'
     >

@@ -12,7 +12,7 @@ const BookingNow = () => {
 
   const navigate = useNavigate();
   
-    const { user, token } = useAuth();
+  const { user, token } = useAuth();
   const {
       data: bookingList,
       isLoading,
@@ -22,7 +22,7 @@ const BookingNow = () => {
     } = useFetchBookingList({ user, token });
 
   return (
-    <Grid container spacing={2} className='m-container'>
+    <Grid container spacing={2}>
       <Grid
         size={{ xs: 12, sm: 12 }}
         sx={{ textAlign: 'center', justifyContent: 'center' }}
