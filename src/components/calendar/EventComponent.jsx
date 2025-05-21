@@ -1,3 +1,4 @@
+import EventCalendarPropType from '../../propTypes/EventCalendarPropType';
 import Paper from '@mui/material/Paper';
 
 const EventComponent = ({ event }) => {
@@ -16,6 +17,10 @@ const EventComponent = ({ event }) => {
       {event.title}
     </Paper>
   );
+};
+
+EventComponent.propTypes  = {
+  event: EventCalendarPropType.isRequired 
 };
 
 export default EventComponent;

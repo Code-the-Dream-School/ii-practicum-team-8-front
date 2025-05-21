@@ -1,8 +1,10 @@
 import Grid from '@mui/material/Grid';
-
+import InfoAlert from '../alerts/InfoAlert';
 import HotelCard from './HotelCard/HotelCard';
 
 const ListHotels = ({ hotels }) => {
+  const isEmptyHotels = !hotels || hotels.length === 0;
+
   return (
     <Grid
       container
@@ -11,11 +13,15 @@ const ListHotels = ({ hotels }) => {
       marginTop={2}
       marginBottom={2}
     >
-      {hotels?.map((hotel) => (
-        <Grid key={hotel?.hotel_id} size={{ xs: 3, sm: 4, md: 4 }}>
-          <HotelCard hotel={hotel} />
-        </Grid>
-      ))}
+      {isEmptyHotels ? (
+        <InfoAlert message="We couldn't find any hotels that match your current filters." />
+      ) : (
+        hotels?.map((hotel) => (
+          <Grid key={hotel?.hotel_id} size={{ xs: 3, sm: 4, md: 4 }}>
+            <HotelCard hotel={hotel} />
+          </Grid>
+        ))
+      )}
     </Grid>
   );
 };
