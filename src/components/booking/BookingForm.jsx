@@ -54,9 +54,6 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
   }, [booking]);
 
   useEffect(() => {
-    if (!isInlineForm) {
-      return;
-    }
     if (createdBooking || updatedBooking || deletedBooking) {
       refetchBookings();
     }
@@ -183,8 +180,8 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
 
 BookingForm.propTypes = {
   booking: BookingPropType,
-  refetchBookings: PropTypes.func,
-  onCancel: PropTypes.func,
+  refetchBookings: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   isInlineForm: PropTypes.bool.isRequired,
 };
 

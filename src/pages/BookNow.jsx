@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import useFetchBookingList from '../hooks/useFetchBookingList';
+import { useAuth } from "../context/AuthContext";
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import PhotoGallery from '../components/shared/PhotoGallery';
@@ -9,6 +11,15 @@ import hotelPhotos from '../data/hotelPhotos.json';
 const BookingNow = () => {
 
   const navigate = useNavigate();
+  
+    const { user, token } = useAuth();
+  const {
+      data: bookingList,
+      isLoading,
+      isError,
+      error,
+      refetch: refetchBookings,
+    } = useFetchBookingList({ user, token });
 
   return (
     <Grid container spacing={2} className='m-container'>
@@ -46,7 +57,7 @@ const BookingNow = () => {
       </Grid>
 
       <Grid size={{ xs: 12, sm: 12 }}>
-        <BookingForm onCancel={() => navigate("..")} isInlineForm={false}/>
+        <BookingForm refetchBookings={refetchBookings} onCancel={() => navigate("..")} isInlineForm={false}/>
       </Grid>
     </Grid>
   );
