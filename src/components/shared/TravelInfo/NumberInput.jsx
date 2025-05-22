@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 const NumberInput = ({ label, value, minValue, maxValue, onChange }) => {
+  
   const handleIncrease = () => {
     if (maxValue) {
       const val = Math.min(value + 1, maxValue);

@@ -2,6 +2,7 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import SearchTermPropType from '../../../propTypes/SearchTermPropType';
 
 const AppliedFilters = ({ searchTerm }) => {
 
@@ -32,6 +33,10 @@ const AppliedFilters = ({ searchTerm }) => {
       </Box>
     </Alert>
   );
+};
+
+AppliedFilters.propTypes  = {
+  searchTerm: SearchTermPropType.isRequired
 };
 
 export default AppliedFilters;

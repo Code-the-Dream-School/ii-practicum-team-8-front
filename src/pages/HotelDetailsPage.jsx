@@ -1,13 +1,10 @@
 import { useParams } from 'react-router-dom';
-
 import { useHotelPhotosQuery } from '../hooks/useHotelPhotosQuery';
 import { useHotelDetailsQuery } from '../hooks/useHotelDetailsQuery';
-
 import { Typography, Grid, Divider, Box } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
 import RatingBadge from '../components/hotels/RatingBadge';
-import PhotoGallery from '../components/hotels/PhotoGallery';
+import PhotoGallery from '../components/shared/PhotoGallery';
 import HotelMapView from '../components/hotels/HotelMapView';
 import FacilitiesList from '../components/hotels/FacilitiesList';
 import LoadingWrapper from '../components/loading/LoadingWrapper';

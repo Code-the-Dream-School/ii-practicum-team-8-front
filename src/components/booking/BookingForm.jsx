@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import DateField from '../shared/DateField';
 import LoadingWrapper from '../loading/LoadingWrapper';
 import SuccessAlert from '../alerts/SuccessAlert';
-import TravelerInfoTextField from './TravelerInfoTextField';
+import TravelerInfoTextField from '../shared/TravelInfo/TravelerInfoTextField';
 import AddIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
@@ -136,6 +136,11 @@ const BookingForm = ({ booking, refetchBookings, onCancel, isInlineForm }) => {
           <TravelerInfoTextField
             travelerInfo={travelerInfo}
             setTravelerInfo={setTravelerInfo}
+            sx={{
+              width: {
+                xs: '100%',
+              },
+            }}
           />
         </Grid>
 

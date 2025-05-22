@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import TravelerInfoPropType from '../../propTypes/TravelerInfoPropType';
+import TravelerInfoPropType from '../../../propTypes/TravelerInfoPropType';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import TravelerInfoDialog from '../hotels/SearchHotels/TravelerInfoDialog';
+import TravelerInfoDialog from './TravelerInfoDialog';
 
-const TravelerInfoTextField = ({ travelerInfo, setTravelerInfo }) => {
+const TravelerInfoTextField = ({ travelerInfo, setTravelerInfo, sx }) => {
+
   const kidsAgeStr = travelerInfo?.kids
     ? `Age(s): ${travelerInfo?.kidsAge?.join(', ')};`
     : '';
@@ -17,7 +18,7 @@ const TravelerInfoTextField = ({ travelerInfo, setTravelerInfo }) => {
         travelerInfo?.kids || 0
       }; ${kidsAgeStr} Rooms: ${travelerInfo?.rooms || 1}`}
       sx={{
-        width: '100%',
+        ...sx,
         '& .MuiOutlinedInput-root': {
           paddingRight: 0,
         },
@@ -40,7 +41,7 @@ const TravelerInfoTextField = ({ travelerInfo, setTravelerInfo }) => {
 };
 
 TravelerInfoTextField.propTypes = {
-  travelerInfo: TravelerInfoPropType.isRequired,
+  travelerInfo: TravelerInfoPropType,
   setTravelerInfo: PropTypes.func,
 };
 

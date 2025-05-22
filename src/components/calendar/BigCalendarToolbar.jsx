@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -6,9 +7,9 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import dayjs from 'dayjs';
 import { Views } from 'react-big-calendar';
 
-const BigCalendarToolbar = (props) => {
-
-  const isToday = dayjs(props?.date).isSame(dayjs(), 'day');
+const BigCalendarToolbar = ({ date, label, view, onNavigate, onView }) => {
+  
+  const isToday = dayjs(date).isSame(dayjs(), 'day');
 
   return (
     <Box
@@ -22,47 +23,57 @@ const BigCalendarToolbar = (props) => {
     >
       <Box sx={{ display: 'flex', gap: 1 }}>
         <Button
-          variant='contained'
-          onClick={() => props?.onNavigate('PREV')}
-          size='small'
+          variant="contained"
+          onClick={() => onNavigate('PREV')}
+          size="small"
         >
           <ArrowBackIosNewIcon />
           Back
         </Button>
 
         <Button
-          variant='contained'
-          color={isToday? 'success': 'primary' }
-          onClick={() => props?.onNavigate('TODAY')}
-          size='small'
+          variant="contained"
+          color={isToday ? 'success' : 'primary'}
+          onClick={() => onNavigate('TODAY')}
+          size="small"
         >
           Today
         </Button>
 
         <Button
-          variant='contained'
-          onClick={() => props?.onNavigate('NEXT')}
-          size='small'
+          variant="contained"
+          onClick={() => onNavigate('NEXT')}
+          size="small"
         >
           Next
           <ArrowForwardIosIcon />
         </Button>
       </Box>
 
-      <Typography variant="h5" color='primary.main'>{props?.label}</Typography>
+      <Typography variant="h5" color="primary.main">
+        {label}
+      </Typography>
 
       <Box sx={{ display: 'flex', gap: 1 }}>
         <Button
-          variant='contained'
-          color={props?.view === Views.MONTH ? 'success' : 'primary'}
-          onClick={() => props?.onView(Views.MONTH)}
-          size='small'
+          variant="contained"
+          color={view === Views.MONTH ? 'success' : 'primary'}
+          onClick={() => onView(Views.MONTH)}
+          size="small"
         >
           Month
         </Button>
       </Box>
     </Box>
   );
+};
+
+BigCalendarToolbar.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired,
+  label: PropTypes.string,
+  view: PropTypes.oneOf(Object.values(Views)),
+  onNavigate: PropTypes.func,
+  onView: PropTypes.func,
 };
 
 export default BigCalendarToolbar;
