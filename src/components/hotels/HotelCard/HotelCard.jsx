@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
-
 import RatingBadge from '../RatingBadge';
 import StyledHotelCard from './HotelCard.styles';
+import HotelPropType from '../../../propTypes/HotelPropType';
 
 const HotelCard = ({ hotel }) => {
+
   const navigate = useNavigate();
 
   const onImageClick = () => {
@@ -59,4 +59,9 @@ const HotelCard = ({ hotel }) => {
     </StyledHotelCard>
   );
 };
+
+HotelCard.propTypes  = {
+  hotel: HotelPropType.isRequired
+};
+
 export default HotelCard;

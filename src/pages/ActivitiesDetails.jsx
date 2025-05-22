@@ -47,7 +47,7 @@ const ActivitiesDetails = () => {
   );
 
   return (
-    <Box className="m-container">
+    <Box>
       <LoadingWrapper isLoading={isLoading} isError={isError} error={error}>
         <Typography
           variant="h5"

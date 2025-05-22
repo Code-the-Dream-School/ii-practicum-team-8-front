@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -23,6 +24,10 @@ const HotelRating = ({ rating }) => {
       </Typography>
     </Box>
   );
+};
+
+HotelRating.propTypes  = {
+  rating: PropTypes.number.isRequired, 
 };
 
 export default HotelRating;

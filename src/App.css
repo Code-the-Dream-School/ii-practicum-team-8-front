@@ -144,8 +144,8 @@
 }
 .about-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* margin: 0 auto;
+  padding: 2rem; */
   color: #333;
 }
 
@@ -182,7 +182,7 @@
 
 @media (max-width: 768px) {
   .about-container {
-    padding: 1rem;
+    //padding: 1rem;
   }
 
   .about-title {

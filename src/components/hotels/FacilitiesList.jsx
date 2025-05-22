@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import { useHotelFacilitiesQuery } from '../../hooks/useHotelFacilitiesQuery';
-
 import { styled } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
@@ -47,6 +47,10 @@ const FacilitiesList = ({ hotelId }) => {
       })}
     </Box>
   );
+};
+
+FacilitiesList.propTypes  = {
+  hotelId: PropTypes.string.isRequired
 };
 
 export default FacilitiesList;

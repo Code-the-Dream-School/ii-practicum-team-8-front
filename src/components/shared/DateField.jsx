@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import dayjs from 'dayjs';
 import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
@@ -22,6 +24,13 @@ const DateField = ({ label, value, onChange, sx }) => {
       />
     </LocalizationProvider>
   );
+};
+
+DateField.propTypes  = {
+  label: PropTypes.string, 
+  value: PropTypes.instanceOf(dayjs), 
+  onChange: PropTypes.func, 
+  sx: PropTypes.object
 };
 
 export default DateField;
