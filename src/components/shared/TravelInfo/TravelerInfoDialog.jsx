@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import NumberInput from './NumberInput';
 import KidsAgeFields from './KidsAgeFields';
@@ -7,8 +8,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import TravelerInfoPropType from '../../../propTypes/TravelerInfoPropType';
 
 const TravelerInfoDialog = ({ setTravelerInfo, travelerInfo }) => {
   const [open, setOpen] = useState(false);
@@ -111,6 +112,11 @@ const TravelerInfoDialog = ({ setTravelerInfo, travelerInfo }) => {
       </Dialog>
     </>
   );
+};
+
+TravelerInfoDialog.propTypes  = {
+  travelerInfo: TravelerInfoPropType.isRequired,
+  setTravelerInfo: PropTypes.func
 };
 
 export default TravelerInfoDialog;

@@ -18,10 +18,8 @@ export default function HotelDetailsPage() {
     isError,
     error,
   } = useHotelPhotosQuery(hotelId);
-  console.log(hotelPhotos);
 
   const { data: hotelDetails } = useHotelDetailsQuery(hotelId);
-  console.log(hotelDetails);
 
   return (
     <Grid container spacing={2}>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
@@ -50,6 +51,14 @@ const NumberInput = ({ label, value, minValue, maxValue, onChange }) => {
       </Box>
     </Box>
   );
+};
+
+NumberInput.propTypes  = {
+  label: PropTypes.string, 
+  value: PropTypes.number, 
+  minValue: PropTypes.number, 
+  maxValue: PropTypes.number, 
+  onChange: PropTypes.func
 };
 
 export default NumberInput;

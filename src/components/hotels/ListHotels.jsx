@@ -1,8 +1,11 @@
+import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
 import InfoAlert from '../alerts/InfoAlert';
 import HotelCard from './HotelCard/HotelCard';
+import HotelPropType from '../../propTypes/HotelPropType';
 
 const ListHotels = ({ hotels }) => {
+  
   const isEmptyHotels = !hotels || hotels.length === 0;
 
   return (
@@ -24,6 +27,10 @@ const ListHotels = ({ hotels }) => {
       )}
     </Grid>
   );
+};
+
+ListHotels.propTypes  = {
+  hotels: PropTypes.arrayOf(HotelPropType) 
 };
 
 export default ListHotels;
