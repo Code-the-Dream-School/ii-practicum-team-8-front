@@ -3,10 +3,10 @@ import TravelerInfoPropType from './TravelerInfoPropType';
 import LocationPropType from './LocationPropType';
 
 const SearchTermPropType = PropTypes.shape({
-     city: LocationPropType,
-     checkIn: PropTypes.string,
-     checkOut: PropTypes.string,
-     travelerInfo: TravelerInfoPropType
+     city: LocationPropType.isRequired,
+     checkIn: PropTypes.instanceOf(Date).isRequired,
+     checkOut: PropTypes.instanceOf(Date).isRequired,
+     travelerInfo: TravelerInfoPropType.isRequired
 });
 
 export default SearchTermPropType;

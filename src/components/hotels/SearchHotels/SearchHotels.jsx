@@ -1,9 +1,12 @@
+import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import AutocompleteLocation from './AutocompleteLocation';
 import DateField from '../../shared/DateField';
 import TravelerInfoTextField from '../../shared/TravelInfo/TravelerInfoTextField';
+import LocationPropType from '../../../propTypes/LocationPropType';
+import TravelerInfoPropType from '../../../propTypes/TravelerInfoPropType';
 
 const SearchHotels = ({
   location,
@@ -18,16 +21,6 @@ const SearchHotels = ({
 }) => {
   const handleAutocompleteChange = (event, value) => {
     setLocation(value);
-  };
-
-  const handleCheckInChange = (value) => {
-    const checkInVal = value ? value.format('MM/DD/YYYY') : '';
-    setCheckIn(checkInVal);
-  };
-
-  const handleCheckOutChange = (value) => {
-    const checkOutVal = value ? value.format('MM/DD/YYYY') : '';
-    setCheckOut(checkOutVal);
   };
 
   return (
@@ -51,8 +44,8 @@ const SearchHotels = ({
       />
       <DateField
         label="Check In"
-        value={dayjs(checkIn)}
-        onChange={handleCheckInChange}
+        value={checkIn}
+        onChange={(value) => setCheckIn(value)}
         sx={{
           width: {
             xs: '100%',
@@ -62,8 +55,8 @@ const SearchHotels = ({
       />
       <DateField
         label="Check Out"
-        value={dayjs(checkOut)}
-        onChange={handleCheckOutChange}
+        value={checkOut}
+        onChange={(value) => setCheckOut(value)}
         sx={{
           width: {
             xs: '100%',
@@ -90,6 +83,18 @@ const SearchHotels = ({
       </Button>
     </Box>
   );
+};
+
+SearchHotels.propTypes  = {
+  location: LocationPropType,
+  setLocation: PropTypes.func,
+  checkIn: PropTypes.instanceOf(dayjs().constructor),
+  setCheckIn: PropTypes.func,
+  checkOut: PropTypes.instanceOf(dayjs().constructor),
+  setCheckOut: PropTypes.func,
+  travelerInfo: TravelerInfoPropType,
+  setTravelerInfo: PropTypes.func,
+  handleSearch: PropTypes.func,
 };
 
 export default SearchHotels;
