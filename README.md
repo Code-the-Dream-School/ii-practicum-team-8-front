@@ -40,6 +40,51 @@ Use filters to find the perfect hotel, view detailed descriptions, photos, locat
 
 ---
 
+## 🛠️ Tech Stack
+
+### 🔙 Backend
+- **Node.js**
+- **Express**
+- **Gemini AI**
+- **Postman** (API testing)
+- **JWT Authentication**
+- **MongoDB**
+- **Nodemailer** (email notifications)
+- **Swagger** (API documentation)
+- **Axios** (HTTP client)
+
+### 🔜 Frontend
+- **React.js**
+- **React Router Dom**
+- **Material-UI (MUI)**
+- **MUI Icons**
+- **Day.js** (date manipulation)
+- **React Big Calendar**
+- **Axios** (HTTP client)
+- **React Query** (data fetching and caching)
+- **PropTypes** (type-checking)
+- **js-cookie** (cookie management)
+---
+---
+
+## 📋 Project Management
+
+### Tools Used
+- **Jira** – for project tracking and issue management
+- **GitHub** – for version control and code collaboration
+
+### 📌 Project Setup in Jira
+- **Tetiana Klitna** set up the Jira board for the team, sent out all the invitations, and created the main epics with relevant sub-tasks.
+- Initial tickets focused on:
+  - Cloning the GitHub repository
+  - Setting up the local development environment to ensure everyone was ready to work efficiently.
+
+### 🗓️ Team Meetings
+- **Tuesdays:** Full team meeting and mentors
+- **Thursdays:** Focused Frontend meetings and mentors
+- **Mondays or Tuesdays:** Focused Backend meetings
+- **Additional:** One-on-one or small group meetings when needed
+
 ## 📦 Installation
 
 ```bash
