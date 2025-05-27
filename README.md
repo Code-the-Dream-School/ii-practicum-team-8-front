@@ -85,6 +85,87 @@ Use filters to find the perfect hotel, view detailed descriptions, photos, locat
 - **Mondays or Tuesdays:** Focused Backend meetings
 - **Additional:** One-on-one or small group meetings when needed
 
+---
+
+## 💻 Detailed Contributions
+
+### 🔙 Backend Team
+
+- **Kazbek Abraliev**
+  - Developed user authentication features, including registration and login APIs
+  - Designed MongoDB schemas and models
+  - Built Booking and AI Travel Planner API endpoints
+  - Created Swagger API documentation
+  - Handled backend deployments
+  - Conducted peer code reviews
+  - Facilitated team meetings
+
+- **Stephanie Alvarado-Gallegos**
+  - Developed forgot and reset password APIs
+  - Created Booking endpoints for MyBookings and AllBookings APIs
+  - Integrated **Gemini AI** into the system
+  - Created the Prompt Builder to support the personalized AI travel planner
+  - 
+ - **Tetiana Klitna**
+  - Implemented the booking calendar view
+  - Created a booking inline form for creating, updating, and deleting bookings
+  - Developed the "Book Now!" page
+  - Developed hotel search functionality
+  - Designed detailed hotel information features
+  - Created the "My Travel Plans" feature to display all AI-generated travel plans and daily itineraries,
+    with options to view, update, or delete plans
+  - Added PropTypes checking for React components
+  - Implemented token saving using **js-cookie**
+
+- **Uma Sekar**
+  - Developed user registration and login features
+  - Created a welcome message after successful login
+  - Implemented password reset and forgot password forms, securely connected to the backend
+  - Added a dark/light theme toggle for improved user experience
+  - Deployed the frontend for public access
+
+- **Tegegnwork Checol**
+  - Built the home page with a navigation bar and footer
+  - Developed Protected Routes to ensure secure access to features
+  - Created the "Create Travel Plan" feature, allowing users to enter trip details, which are then processed by the backend AI to generate a day-by-day itinerary
+
+---
+
+## 🏔️ Challenges and How We Overcame Them
+
+- **Code Merging Conflicts and Lost Code**  
+  We encountered challenges while merging code, leading to occasional code conflicts and even code loss. To overcome this, we established a clear branching strategy, increased communication, and conducted peer reviews to minimize errors and recover lost changes.
+
+- **Understanding New Tools**  
+  Learning and adapting to new tools such as MUI, TanStack React Query, Gemini AI API, and the Public Booking API required extra effort. We overcame this by dividing the learning among team members, sharing knowledge during meetings, and leveraging available documentation and online resources.
+
+- **Backend and Frontend Integration**  
+  The frontend and backend teams sometimes faced mismatches in API expectations. To resolve this, the backend team provided detailed Swagger documentation, which helped clarify endpoints and response structures, streamlining the integration process.
+
+- **Time Management**  
+  Balancing practicum work with personal schedules was challenging for everyone on the team. We addressed this by establishing a regular meeting cadence (including team meetings, mentor sessions, and smaller group discussions), setting clear priorities for each sprint, and using Jira for task management and progress tracking.
+
+---
+
+## 🌟 Our Journey and What We Learned
+
+Throughout this practicum, our team embarked on a journey of collaborative learning and growth:
+
+- **Cross-Functional Collaboration**  
+  We learned to effectively collaborate across frontend and backend, leveraging each other’s strengths and insights to deliver a unified product.
+
+- **Enhanced Communication**  
+  Regular standups, screen sharing, and thorough code reviews significantly improved our communication and problem-solving abilities.
+
+- **Overcoming Challenges Together**  
+  We faced and overcame API mismatches, persistent bugs, and code conflicts through teamwork and mutual support.
+
+- **Increased Confidence with Tools**  
+  Working hands-on with Git, Jira, and a variety of technical tools helped us grow more confident and efficient as developers.
+
+- **Becoming Stronger Developers**  
+  This experience helped us become more adaptable, resilient, and effective developers, ready to tackle future challenges with teamwork and determination.
+
 ## 📦 Installation
 
 ```bash
