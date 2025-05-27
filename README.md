@@ -209,11 +209,11 @@ VITE_RAPIDAPI_KEY=
 ```
 ### ▶️ Running the Projects
 
-#### Start backend
+#### Start backend:
 ```bash
 npm run dev
 ```
-#### Start frontend
+#### Start frontend:
 ```bash
 npm run dev
 ```
