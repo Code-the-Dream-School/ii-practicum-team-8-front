@@ -1,25 +1,38 @@
-🌍 TripON: AI-Powered Travel Planning Web App
-TripON is your personalized travel assistant! This AI-driven web application helps users effortlessly plan their trips by searching for hotels, viewing detailed information, making reservations, and generating custom itineraries. Powered by Gemini AI, TripON tailors travel plans to match user preferences, creating a seamless and enjoyable travel experience.
+# 🌍 TripON: AI-Powered Travel Planning Web App
 
-🎯 Project Goal
+**TripON** is your personalized travel assistant!  
+This AI-driven web application helps users effortlessly plan their trips by searching for hotels, viewing detailed information, making reservations, and generating custom itineraries. Powered by **Gemini AI**, TripON tailors travel plans to match user preferences, creating a seamless and enjoyable travel experience.
+
+---
+
+## 🎯 Project Goal
+
 Enable users to:
+- 🔍 Search hotels, view details, and make reservations
+- 🗂️ Organize trips with ease
+- 🤖 Generate personalized travel plans with the help of **Gemini AI**
 
-Search hotels, view details, and make reservations
+---
 
-Organize trips with ease
+## 🚀 Key Features (MVP)
 
-Generate personalized travel plans with the help of Gemini AI
-
-🚀 Key Features (MVP)
-✅ User Registration & Login
+✅ **User Registration & Login**  
 Secure account management with the ability to view and manage bookings, saved stays, and travel plans.
 
-✅ Hotel Booking with Availability Calendar View
+✅ **Hotel Booking with Availability Calendar View**  
 Explore hotel availability via an interactive calendar and book rooms directly from the platform.
 
-✅ Hotel Search & Details
+✅ **Hotel Search & Details**  
 Use filters to find the perfect hotel, view detailed descriptions, photos, location maps, and reviews.
 
-✅ AI Travel Planner
-Gemini AI generates personalized travel plans based on user inputs, travel preferences, and selected hotels.
+✅ **AI Travel Planner**  
+**Gemini AI** generates personalized travel plans based on user inputs, travel preferences, and selected hotels.
 
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/tripon.git
+cd tripon
+npm install
