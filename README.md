@@ -166,9 +166,41 @@ Throughout this practicum, our team embarked on a journey of collaborative learn
 - **Becoming Stronger Developers**  
   This experience helped us become more adaptable, resilient, and effective developers, ready to tackle future challenges with teamwork and determination.
 
-## 📦 Installation
+## 📦 Installation Guide
+
+### 🔙 Backend Setup
+```bash
+git clone https://github.com/your-username/tripon-back.git
+cd tripon-back
+npm install
+
+.env:
+# MongoDB connection string
+MONGO_URI=
+
+# JWT settings
+JWT_SECRET=
+JWT_LIFETIME=
+
+# Gemini AI API Key
+GEMINI_API_KEY=
+
+# Frontend URL used in email reset password link
+CLIENT_ID=https://your-frontend-url.com
+
+# Email configuration for Nodemailer
+EMAIL_USER=
+EMAIL_PASS=
 
 ```bash
-git clone https://github.com/your-username/tripon.git
-cd tripon
+git clone https://github.com/your-username/tripon-front.git
+cd tripon-front
 npm install
+
+# Backend API URL
+VITE_APP_API_URL=
+
+# Booking.com API details
+VITE_BOOKING_URL=https://booking-com.p.rapidapi.com/v1/hotels
+VITE_RAPIDAPI_HOST=booking-com.p.rapidapi.com
+VITE_RAPIDAPI_KEY=
