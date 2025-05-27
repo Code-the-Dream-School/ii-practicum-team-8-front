@@ -192,6 +192,7 @@ CLIENT_ID=https://your-frontend-url.com
 EMAIL_USER=
 EMAIL_PASS=
 
+### 🔜 Frontend Setup
 ```bash
 git clone https://github.com/your-username/tripon-front.git
 cd tripon-front
