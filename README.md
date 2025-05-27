@@ -207,7 +207,7 @@ VITE_BOOKING_URL=https://booking-com.p.rapidapi.com/v1/hotels
 VITE_RAPIDAPI_HOST=booking-com.p.rapidapi.com
 VITE_RAPIDAPI_KEY=
 ```
-### ▶️ Running the Projects
+### ▶️ Running the TripON Project Powered by AI:
 
 #### Start backend:
 ```bash
