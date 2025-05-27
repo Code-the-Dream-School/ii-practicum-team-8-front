@@ -30,6 +30,16 @@ Use filters to find the perfect hotel, view detailed descriptions, photos, locat
 
 ---
 
+## 👥 Team Members
+
+- **Tetiana Klitna** – Front End Developer  https://github.com/TetianaKlitna
+- **Uma Sekar** – Front End Developer https://github.com/umavenki 
+- **Tegegnwork Checol** – Front End Developer https://github.com/Tegegnwork
+- **Kazbek Abraliev** – Back End Developer https://github.com/kebzaq
+- **Stephanie Alvarado-Gallegos** – Back End Developer https://github.com/StephAlvarado   
+
+---
+
 ## 📦 Installation
 
 ```bash
