@@ -106,7 +106,7 @@ Use filters to find the perfect hotel, view detailed descriptions, photos, locat
   - Integrated **Gemini AI** into the system
   - Created the Prompt Builder to support the personalized AI travel planner
     
- - **Tetiana Klitna**
+- **Tetiana Klitna**
   - Implemented the booking calendar view
   - Created a booking inline form for creating, updating, and deleting bookings
   - Developed the "Book Now!" page
