@@ -191,6 +191,7 @@ CLIENT_ID=https://your-frontend-url.com
 # Email configuration for Nodemailer
 EMAIL_USER=
 EMAIL_PASS=
+```
 
 ### 🔜 Frontend Setup
 ```bash
@@ -205,3 +206,4 @@ VITE_APP_API_URL=
 VITE_BOOKING_URL=https://booking-com.p.rapidapi.com/v1/hotels
 VITE_RAPIDAPI_HOST=booking-com.p.rapidapi.com
 VITE_RAPIDAPI_KEY=
+```
