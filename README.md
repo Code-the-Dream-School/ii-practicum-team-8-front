@@ -103,7 +103,7 @@ Use filters to find the perfect hotel, view detailed descriptions, photos, locat
 - **Stephanie Alvarado-Gallegos**
   - Developed forgot and reset password APIs
   - Created Booking endpoints for MyBookings and AllBookings APIs
-  - Integrated **Gemini AI** into the system
+  - Integrated Gemini AI into the system
   - Created the Prompt Builder to support the personalized AI travel planner
     
 - **Tetiana Klitna**
@@ -115,7 +115,7 @@ Use filters to find the perfect hotel, view detailed descriptions, photos, locat
   - Created the "My Travel Plans" feature to display all AI-generated travel plans and daily itineraries,
     with options to view, update, or delete plans
   - Added PropTypes checking for React components
-  - Implemented token saving using **js-cookie**
+  - Implemented token saving using js-cookie
 
 - **Uma Sekar**
   - Developed user registration and login features
