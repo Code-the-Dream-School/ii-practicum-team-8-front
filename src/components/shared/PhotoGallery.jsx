@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-
+import HotelPhotoPropType from '../../propTypes/HotelPhotoPropType';
 import {
   useMediaQuery,
   useTheme,
@@ -99,6 +100,10 @@ const PhotoGallery = ({ hotelPhotos }) => {
       )}
     </>
   );
+};
+
+PhotoGallery.propTypes  = {
+  hotelPhotos: PropTypes.arrayOf(HotelPhotoPropType)
 };
 
 export default PhotoGallery;

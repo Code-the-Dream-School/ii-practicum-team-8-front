@@ -1,7 +1,9 @@
+import dayjs from 'dayjs';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import SearchTermPropType from '../../../propTypes/SearchTermPropType';
 
 const AppliedFilters = ({ searchTerm }) => {
 
@@ -18,7 +20,6 @@ const AppliedFilters = ({ searchTerm }) => {
 
   return (
     <Alert
-      className='m-container'
       severity='info'
       variant='outlined'
     >
@@ -27,12 +28,16 @@ const AppliedFilters = ({ searchTerm }) => {
       </AlertTitle>
       <Box display='flex' flexWrap='wrap' gap={2}>
         <Typography>Location: {city}</Typography>
-        <Typography>Check-in: {checkIn}</Typography>
-        <Typography>Check-out: {checkOut}</Typography>
+        <Typography>Check-in: {dayjs(checkIn).format('MM/DD/YYYY')}</Typography>
+        <Typography>Check-out: {dayjs(checkOut).format('MM/DD/YYYY')}</Typography>
         <Typography>Traveler info: {travelInfoStr}</Typography>
       </Box>
     </Alert>
   );
+};
+
+AppliedFilters.propTypes  = {
+  searchTerm: SearchTermPropType.isRequired
 };
 
 export default AppliedFilters;

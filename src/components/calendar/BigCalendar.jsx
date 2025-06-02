@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react';
-import './BigCalendar.style.css';
+import PropTypes from 'prop-types';
+import BookingPropType from '../../propTypes/BookingPropType';
 import { Calendar, dayjsLocalizer, Views } from 'react-big-calendar';
 import dayjs from 'dayjs';
 import BigCalendarToolbar from './BigCalendarToolbar';
 import MonthHeader from './headers/MonthHeader';
 import EventComponent from './EventComponent';
+import './BigCalendar.style.css';
 
 const localizer = dayjsLocalizer(dayjs);
 
@@ -63,6 +65,11 @@ const BigCalendar = ({ bookingList, onShowBookingView }) => {
       }}
     />
   );
+};
+
+BigCalendar.propTypes  = {
+  bookingList: PropTypes.arrayOf(BookingPropType),
+  onShowBookingView: PropTypes.func
 };
 
 export default BigCalendar;

@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 
-const ErrorAlert = ({ message }) => {
+const InfoAlert = ({ message }) => {
   return (
     <Stack sx={{ width: '100%', mb: 2 }}>
-      <Alert severity="error">{message}</Alert>
+      <Alert severity="info">{message}</Alert>
     </Stack>
   );
 };
 
-ErrorAlert.propTypes  = {
+InfoAlert.propTypes  = {
   message: PropTypes.string.isRequired
 };
 
-export default ErrorAlert;
+export default InfoAlert;

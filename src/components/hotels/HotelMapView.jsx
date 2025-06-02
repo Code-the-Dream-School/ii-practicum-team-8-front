@@ -1,14 +1,14 @@
+import PropTypes from 'prop-types';
 import { useHotelOnMapQuery } from '../../hooks/useHotelOnMapQuery';
-
 import CardMedia from '@mui/material/CardMedia';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocationPropType from '../../propTypes/LocationPropType';
 
 const HotelMapView = ({ hotelId, hotelName, location }) => {
 
   const { data: hotelOnMap } = useHotelOnMapQuery(hotelId);
-  console.log(hotelOnMap);
 
   const encodedQuery = encodeURIComponent(`${hotelName} near ${location?.latitude},${location?.longitude}`);
 
@@ -35,6 +35,12 @@ const HotelMapView = ({ hotelId, hotelName, location }) => {
       </Button>
     </Paper>
   );
+};
+
+HotelMapView.propTypes  = {
+  hotelId: PropTypes.string.isRequired, 
+  hotelName: PropTypes.string, 
+  location: LocationPropType
 };
 
 export default HotelMapView;

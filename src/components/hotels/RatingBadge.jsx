@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -11,6 +12,12 @@ const RatingBadge = ({ rating, label, reviews }) => {
       <Typography variant='body2' color='text.secondary'>({reviews} reviews)</Typography>
     </Box>
   );
+};
+
+RatingBadge.propTypes  = {
+  rating: PropTypes.number.isRequired, 
+  label: PropTypes.string.isRequired, 
+  reviews: PropTypes.number.isRequired
 };
 
 export default RatingBadge;

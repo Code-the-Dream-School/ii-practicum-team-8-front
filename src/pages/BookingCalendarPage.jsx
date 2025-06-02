@@ -1,10 +1,7 @@
 import { useState } from 'react';
-
 import Box from '@mui/material/Box';
-
 import useFetchBookingList from '../hooks/useFetchBookingList';
 import { useAuth } from "../context/AuthContext";
-
 import BigCalendar from '../components/calendar/BigCalendar';
 import LoadingWrapper from '../components/loading/LoadingWrapper';
 import BookingForm from '../components/booking/BookingForm';

@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
-
-import NumberInput from '../../shared/NumberInput';
-
+import PropTypes from 'prop-types';
+import NumberInput from './NumberInput';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 const KidsAgeFields = ({ kids, kidsAge, setKidsAge }) => {
+
   const handleAgeChange = (index, newValue) => {
     const newKidsAge = [...kidsAge];
     newKidsAge[index] = newValue;
@@ -37,6 +36,12 @@ const KidsAgeFields = ({ kids, kidsAge, setKidsAge }) => {
       {rerenderKidsAgeFields()}
     </Box>
   );
+};
+
+KidsAgeFields.propTypes  = {
+  kids: PropTypes.number, 
+  kidsAge: PropTypes.array, 
+  setKidsAge: PropTypes.func
 };
 
 export default KidsAgeFields;

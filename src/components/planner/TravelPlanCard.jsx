@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Box from '@mui/material/Box';
@@ -15,6 +16,7 @@ import TotalNumberOfTravelersIcon from '@mui/icons-material/Diversity3';
 import BudgetIcon from '@mui/icons-material/AttachMoney';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useAuth } from '../../context/AuthContext';
+import TravelPlanPropType from '../../propTypes/TravelPlanPropType';
 
 const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
   const navigate = useNavigate();
@@ -85,6 +87,11 @@ const TravelPlanCard = ({ plan, deleteTravelPlanData }) => {
       </CardActions>
     </Card>
   );
+};
+
+TravelPlanCard.propTypes  = {
+  plan: TravelPlanPropType.isRequired,
+  deleteTravelPlanData: PropTypes.func
 };
 
 export default TravelPlanCard;

@@ -1,5 +1,4 @@
 import { getData } from './index';
-import { getFormattedDate } from './dateUtils';
 
 import hotelsData from '../data/hotels.json';
 import Motel6IssaquashPhotos from '../data/Motel6IssaquashPhotos.json';
@@ -22,8 +21,8 @@ const getLocations = async (city) => {
 
 const getHotels = async (location, checkIn, checkOut, travelerInfo) => {
   
-  const checkInFormatted = getFormattedDate(checkIn);
-  const checkOutFormatted = getFormattedDate(checkOut);
+  const checkInFormatted = checkIn.format('YYYY-MM-DD');
+  const checkOutFormatted = checkOut.format('YYYY-MM-DD');
   
   const kidsAgeStr = travelerInfo?.kidsAge?.join(', ');
 
